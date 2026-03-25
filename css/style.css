@@ -438,7 +438,7 @@ body {
 .abilities-list {
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
+    gap: 0.5rem;
 }
 
 .ability-row {
@@ -446,16 +446,40 @@ body {
     grid-template-columns: 100px 200px 1fr;
     gap: 1rem;
     align-items: baseline;
-    padding: 0.6rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 0.8rem 1rem;
+    background: var(--bg-card);
+    border-radius: 6px;
+    border-left: 3px solid transparent;
+    transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
+
+.ability-row:hover {
+    background: var(--bg-card-hover);
+}
+
+.ability-row[data-type="passive"]  { border-left-color: var(--yellow); }
+.ability-row[data-type="daily"]    { border-left-color: var(--magenta); }
+.ability-row[data-type="enchantment"] { border-left-color: #8855ff; }
+.ability-row[data-type="feat"]     { border-left-color: var(--cyan); }
+.ability-row[data-type="conditional"] { border-left-color: #ff8800; }
+
+.ability-row[data-type="passive"]:hover  { box-shadow: -4px 0 12px rgba(229, 216, 0, 0.15); }
+.ability-row[data-type="daily"]:hover    { box-shadow: -4px 0 12px rgba(229, 0, 204, 0.15); }
+.ability-row[data-type="enchantment"]:hover { box-shadow: -4px 0 12px rgba(136, 85, 255, 0.15); }
+.ability-row[data-type="feat"]:hover     { box-shadow: -4px 0 12px rgba(0, 229, 229, 0.15); }
+.ability-row[data-type="conditional"]:hover { box-shadow: -4px 0 12px rgba(255, 136, 0, 0.15); }
 
 .ability-row-name {
     font-family: var(--font-heading);
     font-size: 0.85rem;
-    color: var(--text-bright);
     letter-spacing: 0.05em;
 }
+
+.ability-row[data-type="passive"] .ability-row-name  { color: var(--yellow); }
+.ability-row[data-type="daily"] .ability-row-name    { color: var(--magenta); }
+.ability-row[data-type="enchantment"] .ability-row-name { color: #8855ff; }
+.ability-row[data-type="feat"] .ability-row-name     { color: var(--cyan); }
+.ability-row[data-type="conditional"] .ability-row-name { color: #ff8800; }
 
 .ability-row-desc {
     font-family: var(--font-body);
