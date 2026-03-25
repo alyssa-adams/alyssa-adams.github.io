@@ -1559,6 +1559,7 @@ body {
 
     .ability-type-tag {
         justify-self: start;
+        padding-left: 0;
     }
 
     .spells-grid {
