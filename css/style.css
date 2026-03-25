@@ -146,7 +146,7 @@ body {
     z-index: 1;
     padding: 9rem 3rem 1rem;
     max-width: var(--max-width);
-    margin: 0 auto;
+    margin: 0 auto 0 5%;
 }
 
 .hero-inner {
