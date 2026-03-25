@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quest Log — Alyssa M Adams</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Syne+Mono&family=Inconsolata:wght@200;300;400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <canvas id="particles"></canvas>
+
+    <nav class="site-nav">
+        <a href="index.html" class="nav-link">Character Sheet</a>
+        <a href="abilities.html" class="nav-link">Abilities</a>
+        <a href="quests.html" class="nav-link active">Quest Log</a>
+        <a href="inventory.html" class="nav-link">Inventory</a>
+        <a href="spells.html" class="nav-link">Spellbook</a>
+    </nav>
+
+    <header class="spells-header">
+        <h1 class="section-title">Quest Log</h1>
+        <p class="spells-intro">Every build started with breaking something first.</p>
+        <p style="margin-top: 1rem;"><a href="cv/resume.pdf" class="link-badge" target="_blank" rel="noopener">Full CV</a></p>
+    </header>
+
+    <!-- Break & Make — Main Quest -->
+    <section class="quest-glow-section" id="main-quest">
+        <h2 class="spells-section-title">Break &amp; Make &mdash; Main Quest</h2>
+        <div class="quest-glow-grid">
+
+            <div class="quest-glow-card" data-color="yellow" data-status="active">
+                <span class="quest-glow-date">2024 &mdash; Present</span>
+                <div class="quest-glow-inner">
+                    <h3 class="quest-glow-name">Cross Labs</h3>
+                    <p class="quest-glow-desc">Deputy Director &amp; Senior Research Scientist at Cross Labs, Kyoto. Provides strategic vision and operational leadership. Aligns research with business strategy, oversees hiring, and drives international partnerships across academia and industry.</p>
+                    <div class="quest-glow-reward">
+                        <span class="reward-label">Reward</span>
+                        <strong>Mantle of the Deputy</strong> &mdash; <em>legendary cloak, +3 CHA</em>
+                        <p>Grants "Rally" ability &mdash; coordinate teams across continents from the ancient capital.</p>
+                    </div>
+                    <div class="quest-blob"></div>
+                    <div class="quest-fakeblob"></div>
+                </div>
+            </div>
+
+            <div class="quest-glow-card" data-color="yellow" data-status="complete">
+                <span class="quest-glow-date">2022 &mdash; 2025</span>
+                <div class="quest-glow-inner">
+                    <h3 class="quest-glow-name">Worldbuilding Spellcraft</h3>
+                    <p class="quest-glow-desc">Independent Consultant specializing in science fiction writing. Collaborated with published authors to design speculative technologies, worldbuilding architectures, and physics-based systems.</p>
+                    <div class="quest-glow-reward">
+                        <span class="reward-label">Reward</span>
+                        <strong>Quill of Worldbuilding</strong> &mdash; <em>wondrous item</em>
+                        <p>Creates pocket dimensions that obey internally consistent natural laws.</p>
+                    </div>
+                    <div class="quest-blob"></div>
+                    <div class="quest-fakeblob"></div>
+                </div>
+            </div>
+
+            <div class="quest-glow-card" data-color="yellow" data-status="complete">
+                <span class="quest-glow-date">2021 &mdash; 2025</span>
+                <div class="quest-glow-inner">
+                    <h3 class="quest-glow-name">Wayfinder&rsquo;s Post</h3>
+                    <p class="quest-glow-desc">Co-founder &amp; CTO of ProPhounD. Built community-driven support for PhDs exploring career options. Led technical strategy from prototype to pilot across global startup incubators.</p>
+                    <div class="quest-glow-reward">
+                        <span class="reward-label">Reward</span>
+                        <strong>Badge of the Founder</strong> &mdash; <em>rare badge, +1 DEX</em>
+                        <p>Grants "Fancy Footwork" &mdash; pivot any failed venture into a new one.</p>
+                    </div>
+                    <div class="quest-blob"></div>
+                    <div class="quest-fakeblob"></div>
+                </div>
+            </div>
+
+            <div class="quest-glow-card" data-color="yellow" data-status="complete">
+                <span class="quest-glow-date">2021 &mdash; 2022</span>
+                <div class="quest-glow-inner">
+                    <h3 class="quest-glow-name">The Pitch</h3>
+                    <p class="quest-glow-desc">Technology Lead for EvidaSolve&rsquo;s moSAYcity cloud platform. Won first prize at Reverse Pitch MKE competition and community showcase selection.</p>
+                    <div class="quest-glow-reward">
+                        <span class="reward-label">Reward</span>
+                        <strong>Trophy of the Pitch</strong> &mdash; <em>uncommon charm</em>
+                        <p>Grants "Tradition Breaker" &mdash; advantage on all checks to challenge established methods.</p>
+                    </div>
+                    <div class="quest-blob"></div>
+                    <div class="quest-fakeblob"></div>
+                </div>
+            </div>
+
+            <div class="quest-glow-card" data-color="yellow" data-status="complete">
+                <span class="quest-glow-date">2017 &mdash; 2019</span>
+                <div class="quest-glow-inner">
+                    <h3 class="quest-glow-name">The Data Refinery</h3>
+                    <p class="quest-glow-desc">VEDA Labs Director &amp; Data Scientist. Built data pipelines processing 100+ million rows daily. End-to-end engineering from collection through visualization.</p>
+                    <div class="quest-glow-reward">
+                        <span class="reward-label">Reward</span>
+                        <strong>Gauntlets of Scale</strong> &mdash; <em>rare gauntlets, +2 CON</em>
+                        <p>Grants "Pattern Sight" &mdash; reveal hidden connections in any volume of data.</p>
+                    </div>
+                    <div class="quest-blob"></div>
+                    <div class="quest-fakeblob"></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- The Conjuration Circle -->
+    <section class="quest-glow-section" id="conjuration">
+        <h2 class="spells-section-title">The Conjuration Circle</h2>
+        <div class="quest-glow-grid">
+
+            <div class="quest-glow-card" data-color="cyan" data-status="active">
+                <span class="quest-glow-date">2026 &mdash; Present</span>
+                <div class="quest-glow-inner">
+                    <h3 class="quest-glow-name">ISAL Vice President</h3>
+                    <p class="quest-glow-desc">Vice President of the International Society for Artificial Life. Contributing to strategic leadership and governance of the global artificial life community.</p>
+                    <div class="quest-glow-reward">
+                        <span class="reward-label">Reward</span>
+                        <strong>Seal of the Circle</strong> &mdash; <em>rare ring, +2 CHA</em>
+                        <p>Grants influence over the direction of an entire field.</p>
+                    </div>
+                    <div class="quest-blob"></div>
+                    <div class="quest-fakeblob"></div>
+                </div>
+            </div>
+
+            <div class="quest-glow-card" data-color="cyan" data-status="active">
+                <span class="quest-glow-date">2022 &mdash; Present</span>
+                <div class="quest-glow-inner">
+                    <h3 class="quest-glow-name">Cross Labs Research</h3>
+                    <p class="quest-glow-desc">Leading research in artificial life, constraint-function loops, and open-ended evolution. Hosts the Cross Roads speaker series and On My Mind podcast. Designed and led a lab-wide internship program mentoring 15+ interns.</p>
+                    <div class="quest-glow-reward">
+                        <span class="reward-label">Reward</span>
+                        <strong>Summoner&rsquo;s Focus</strong> &mdash; <em>rare orb, +2 INT</em>
+                        <p>Grants "Mentor&rsquo;s Mark" &mdash; all interns in range gain a permanent buff.</p>
+                    </div>
+                    <div class="quest-blob"></div>
+                    <div class="quest-fakeblob"></div>
+                </div>
+            </div>
+
+            <div class="quest-glow-card" data-color="cyan" data-status="complete">
+                <span class="quest-glow-date">2024 &mdash; 2025</span>
+                <div class="quest-glow-inner">
+                    <h3 class="quest-glow-name">Ciphers of Life</h3>
+                    <p class="quest-glow-desc">Vice Chair of ALIFE 2025 in Kyoto. Spearheaded end-to-end execution for 600+ attendees across research, art-science, and keynote programs. Managed transdisciplinary tracks spanning software, hardware, and wetware.</p>
+                    <div class="quest-glow-reward">
+                        <span class="reward-label">Reward</span>
+                        <strong>Cipher Stone</strong> &mdash; <em>legendary artifact</em>
+                        <p>Grants the ability to decode the language of living systems.</p>
+                    </div>
+                    <div class="quest-blob"></div>
+                    <div class="quest-fakeblob"></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- The Magus Questline -->
+    <section class="quest-glow-section" id="magus">
+        <h2 class="spells-section-title">The Magus Questline</h2>
+        <div class="quest-glow-grid">
+
+            <div class="quest-glow-card" data-color="blue" data-status="complete">
+                <span class="quest-glow-date">2019 &mdash; 2022</span>
+                <div class="quest-glow-inner">
+                    <h3 class="quest-glow-name">Magus Journeyman</h3>
+                    <p class="quest-glow-desc">CIBM Postdoctoral Trainee &amp; Morgridge Fellow at UW-Madison. Investigated phage-host interactions, protein complexity in microbial communities, and developed high-speed software for measuring entropy in omics data.</p>
+                    <div class="quest-glow-reward">
+                        <span class="reward-label">Reward</span>
+                        <strong>Lens of Complexity</strong> &mdash; <em>rare monocle, +2 WIS</em>
+                        <p>Grants "Analyze Complexity" &mdash; reveal hidden structure in any system.</p>
+                    </div>
+                    <div class="quest-blob"></div>
+                    <div class="quest-fakeblob"></div>
+                </div>
+            </div>
+
+            <div class="quest-glow-card" data-color="blue" data-status="complete">
+                <span class="quest-glow-date">2018</span>
+                <div class="quest-glow-inner">
+                    <h3 class="quest-glow-name">The Santa Fe Expedition</h3>
+                    <p class="quest-glow-desc">Co-developer and Teaching Assistant at the Santa Fe Institute. Co-created the Algorithmic Information Dynamics course: A Computational Approach to Causality and Living Systems.</p>
+                    <div class="quest-glow-reward">
+                        <span class="reward-label">Reward</span>
+                        <strong>Codex of Causality</strong> &mdash; <em>rare tome</em>
+                        <p>Grants ability to trace causal chains from networks to cells.</p>
+                    </div>
+                    <div class="quest-blob"></div>
+                    <div class="quest-fakeblob"></div>
+                </div>
+            </div>
+
+            <div class="quest-glow-card" data-color="blue" data-status="complete">
+                <span class="quest-glow-date">Summer 2017</span>
+                <div class="quest-glow-inner">
+                    <h3 class="quest-glow-name">The Cambridge Expedition</h3>
+                    <p class="quest-glow-desc">Microsoft Research Intern, Project Malm&ouml;. Built a two-player system coupling a one-shot imitation learning agent with an open-ended human player in Minecraft.</p>
+                    <div class="quest-glow-reward">
+                        <span class="reward-label">Reward</span>
+                        <strong>Scroll of Imitation Learning</strong> &mdash; <em>rare scroll</em>
+                        <p>Teaches one agent to mimic another through observation alone.</p>
+                    </div>
+                    <div class="quest-blob"></div>
+                    <div class="quest-fakeblob"></div>
+                </div>
+            </div>
+
+            <div class="quest-glow-card" data-color="blue" data-status="complete">
+                <span class="quest-glow-date">2014 &mdash; 2016</span>
+                <div class="quest-glow-inner">
+                    <h3 class="quest-glow-name">The Teaching Post</h3>
+                    <p class="quest-glow-desc">Lead Physics Facilitator for the Sundial Project at ASU. Designed hands-on curriculum for Sundial&rsquo;s summer bridge program, cultivating positive mindsets and metacognition skills for incoming freshmen.</p>
+                    <div class="quest-glow-reward">
+                        <span class="reward-label">Reward</span>
+                        <strong>Sundial Facilitator Medal</strong> &mdash; <em>uncommon amulet</em>
+                        <p>Grants "Mentor&rsquo;s Mark" enchantment.</p>
+                    </div>
+                    <div class="quest-blob"></div>
+                    <div class="quest-fakeblob"></div>
+                </div>
+            </div>
+
+            <div class="quest-glow-card" data-color="blue" data-status="complete">
+                <span class="quest-glow-date">2013 &mdash; 2017</span>
+                <div class="quest-glow-inner">
+                    <h3 class="quest-glow-name">Magus Apprenticeship</h3>
+                    <p class="quest-glow-desc">PhD in Physics, Arizona State University, Sara Walker&rsquo;s Emergence Lab. Dissertation: &ldquo;The Physics of Open Ended Evolution.&rdquo; Developed new metrics for open-endedness and studied the philosophy of complexity, emergence, and intelligence.</p>
+                    <div class="quest-glow-reward">
+                        <span class="reward-label">Reward</span>
+                        <strong>Reasoning</strong> &mdash; <em>one-handed rapier, +3 INT</em>
+                        <p>Attacks evolve unpredictably. Dean&rsquo;s Fellow enchantment applied.</p>
+                    </div>
+                    <div class="quest-blob"></div>
+                    <div class="quest-fakeblob"></div>
+                </div>
+            </div>
+
+            <div class="quest-glow-card" data-color="blue" data-status="complete">
+                <span class="quest-glow-date">2010 &mdash; 2013</span>
+                <div class="quest-glow-inner">
+                    <h3 class="quest-glow-name">Magus Initiate Training</h3>
+                    <p class="quest-glow-desc">BS in Physics, East Tennessee State University. Magna Cum Laude, Honors-in-Discipline, Midway Honors Scholar. Where the fundamental laws of magic were first learned.</p>
+                    <div class="quest-glow-reward">
+                        <span class="reward-label">Reward</span>
+                        <strong>Polarization Prism</strong> &mdash; <em>uncommon wand</em>
+                        <p>Derived from honors thesis on light polarization from Mira-type stars.</p>
+                    </div>
+                    <div class="quest-blob"></div>
+                    <div class="quest-fakeblob"></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Off-Script -->
+    <section class="quest-glow-section" id="off-script">
+        <h2 class="spells-section-title">Off-Script</h2>
+        <div class="quest-glow-grid">
+
+            <div class="quest-glow-card" data-color="magenta" data-status="active">
+                <span class="quest-glow-date">2008 &mdash; Present</span>
+                <div class="quest-glow-inner">
+                    <h3 class="quest-glow-name">The Long Improvisation</h3>
+                    <p class="quest-glow-desc">18+ years of piano performance and composition. Chromatic improvisation and atonal exploration. No sheet music, no rules, no plan &mdash; just keys and instinct.</p>
+                    <div class="quest-glow-reward">
+                        <span class="reward-label">Reward</span>
+                        <strong>Instrument of Creation</strong> &mdash; <em>legendary piano, +3 PER</em>
+                        <p>Allows casting of "Bardic Inspiration" &mdash; all who hear must make a WIS save or be moved.</p>
+                    </div>
+                    <div class="quest-blob"></div>
+                    <div class="quest-fakeblob"></div>
+                </div>
+            </div>
+
+            <div class="quest-glow-card" data-color="magenta" data-status="complete">
+                <span class="quest-glow-date">2008 &mdash; 2010</span>
+                <div class="quest-glow-inner">
+                    <h3 class="quest-glow-name">First Performance</h3>
+                    <p class="quest-glow-desc">Organist/Pianist at Our Lady of the Lake Catholic Church, Lake Arrowhead. Played weekly Mass, weddings, and funerals. The bardic journey begins.</p>
+                    <div class="quest-glow-reward">
+                        <span class="reward-label">Reward</span>
+                        <strong>Hymnal of Endurance</strong> &mdash; <em>common instrument</em>
+                        <p>+1 CON. Grants ability to perform under any emotional conditions.</p>
+                    </div>
+                    <div class="quest-blob"></div>
+                    <div class="quest-fakeblob"></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Alyssa Adams. Crafted with crabs and cats.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        const questCards = document.querySelectorAll('.quest-glow-card');
+
+        window.addEventListener('mousemove', (ev) => {
+            questCards.forEach((card) => {
+                const blob = card.querySelector('.quest-blob');
+                const fakeblob = card.querySelector('.quest-fakeblob');
+                const rec = fakeblob.getBoundingClientRect();
+
+                blob.animate(
+                    [{
+                        transform: `translate(${ev.clientX - rec.left - (rec.width / 2)}px, ${ev.clientY - rec.top - (rec.height / 2)}px)`,
+                    }],
+                    {
+                        duration: 300,
+                        fill: 'forwards',
+                    }
+                );
+            });
+        });
+    </script>
+</body>
+</html>

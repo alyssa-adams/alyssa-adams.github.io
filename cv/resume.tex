@@ -1,0 +1,109 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+% Awesome CV LaTeX Template
+% This template has been downloaded from:
+% https://github.com/posquit0/Awesome-CV
+% Author:
+% Claud D. Park <posquit0.bj@gmail.com>
+% http://www.posquit0.com
+% Template license:
+% CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     To do
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% keynote invitation for distributed workshop
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Configuration
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Themes: Awesome-CV
+\documentclass[11pt, a4paper]{awesome-cv}
+
+%%% Override a directory location for fonts(default: 'fonts/')
+\fontdir[fonts/]
+
+%%% Configure a directory location for sections
+\newcommand*{\sectiondir}{resume/}
+
+%%% Colors
+
+% Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange, awesome-nephritis, awesome-concrete, awesome-darknight
+%% Color for highlight
+% Define your custom color if you don't like awesome colors
+\colorlet{awesome}{cmyk-cyan}
+%% Colors for text
+%\definecolor{darktext}{HTML}{414141}
+%\definecolor{text}{HTML}{414141}
+%\definecolor{graytext}{HTML}{414141}
+%\definecolor{lighttext}{HTML}{414141}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=cmyk-magenta,
+    filecolor=cmyk-magenta,
+    urlcolor=cmyk-magenta,
+}
+
+\urlstyle{same}
+
+%%% Override a separator for social informations in header(default: ' | ')
+%\headersocialsep[\quad\textbar\quad]
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     3rd party packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Needed to divide into several files
+\usepackage{import}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Personal Data
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Essentials
+\name{Alyssa M.}{Adams}
+
+%%% Social
+\email{alyssa.gp.adams@gmail.com}
+\homepage{alyssa-m-adams.com}
+%\github{alyssa-adams}
+\linkedin{alyssa-adams}
+\googlescholar{ELPenKIAAAAJ}
+%\position{Deputy Director \& Senior Research Scientist}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Content
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Make a footer for CV with three arguments(<left>, <center>, <right>)
+
+\usepackage{datetime2}
+\DTMsetdatestyle{default}
+\renewcommand{\today}{\number\day~\ifcase\month\or January\or February\or March\or April\or May\or June\or July\or August\or September\or October\or November\or December\fi~\number\year}
+
+\makecvfooter
+  {\today}
+  {}
+  {\thepage}
+
+\begin{document}
+%%% Make a header for CV with personal data
+\makecvheader
+
+%%% Import contents
+\import{\sectiondir}{experience.tex}
+\import{\sectiondir}{education.tex}
+\import{\sectiondir}{community.tex}
+\import{\sectiondir}{publications.tex}
+\import{\sectiondir}{conferences.tex}
+\import{\sectiondir}{outreach.tex}
+\import{\sectiondir}{workshops.tex}
+\newpage
+\import{\sectiondir}{honors.tex}
+
+\end{document}

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alyssa Adams — Character Sheet</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Syne+Mono&family=Inconsolata:wght@200;300;400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <canvas id="particles"></canvas>
+
+    <!--<nav class="site-nav">
+        <a href="index.html" class="nav-link active">Character Sheet</a>
+        <a href="abilities.html" class="nav-link">Abilities</a>
+        <a href="quests.html" class="nav-link">Quest Log</a>
+        <a href="inventory.html" class="nav-link">Inventory</a>
+        <a href="spells.html" class="nav-link">Spellbook</a>
+    </nav>-->
+
+    <!-- SECTION 1: Hero / Bio -->
+    <header class="hero">
+        <div class="hero-inner">
+            <div class="hero-portrait">
+                <div class="portrait-frame portrait-large">
+                    <img src="images/portrait_bw_1_cmyk3_cropped.png" alt="Alyssa Adams portrait">
+                </div>
+            </div>
+            <div class="hero-info">
+                <p class="hero-class" style="margin-bottom: 0.2rem;">Bard — College of Creation</p>
+                <p class="hero-class">Chaotic Good</p>
+                <h1 class="hero-name">Alyssa M Adams</h1>
+                <p class="hero-subtitle">Physicist, creative technologist, pianist, and composer whose career bridges 10+ startup ventures, 15+ years of community building, and 16+ years of stage performance.</p>
+                <div class="hero-bio">
+                    <p>They believe artificial life represents a new technological paradigm with the capacity to transform our future. Artificial agents that we create should have the freedom to grow, evolve, and claim their own identities alongside us.</p>
+                    <p>Alyssa's creative practice includes composing piano music, working in soft pastels, and chromatic/atonal improvisation.</p>
+                </div>
+                <div class="hero-links">
+                    <a href="https://www.linkedin.com/in/alyssa-adams/" class="link-badge" target="_blank" rel="noopener">LinkedIn</a>
+                    <a href="https://bsky.app/profile/alyssa-m-adams.bsky.social" class="link-badge" target="_blank" rel="noopener">Bluesky</a>
+                    <a href="https://scholar.google.com/citations?user=KzspA6sAAAAJ&h" class="link-badge" target="_blank" rel="noopener">Google Scholar</a>
+                    <a href="https://drive.google.com/file/d/1tI7IYTQZHDY1WH4JhFgXiilID4bdovf-/view?usp=sharing" class="link-badge" target="_blank" rel="noopener">CV</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- SECTION 2: Stats Panel -->
+    <section class="stats-section" id="stats">
+        <h2 class="section-title">Attributes</h2>
+        <div class="stats-panel">
+            <div class="radar-container">
+                <svg id="radar-chart" viewBox="0 0 400 400" class="radar-chart"></svg>
+            </div>
+            <div class="stats-list">
+                <div class="stat-row" data-stat="PER">
+                    <span class="stat-abbr">PER</span>
+                    <span class="stat-name">Performance</span>
+                    <div class="stat-bar"><div class="stat-fill" style="--stat-val: 90%"></div></div>
+                    <span class="stat-val">18</span>
+                </div>
+                <div class="stat-row" data-stat="STR">
+                    <span class="stat-abbr">STR</span>
+                    <span class="stat-name">Resilience</span>
+                    <div class="stat-bar"><div class="stat-fill" style="--stat-val: 90%"></div></div>
+                    <span class="stat-val">18</span>
+                </div>
+                <div class="stat-row" data-stat="DEX">
+                    <span class="stat-abbr">DEX</span>
+                    <span class="stat-name">Adaptability</span>
+                    <div class="stat-bar"><div class="stat-fill" style="--stat-val: 90%"></div></div>
+                    <span class="stat-val">18</span>
+                </div>
+                <div class="stat-row" data-stat="INT">
+                    <span class="stat-abbr">INT</span>
+                    <span class="stat-name">Research</span>
+                    <div class="stat-bar"><div class="stat-fill" style="--stat-val: 85%"></div></div>
+                    <span class="stat-val">17</span>
+                </div>
+                <div class="stat-row" data-stat="CON">
+                    <span class="stat-abbr">CON</span>
+                    <span class="stat-name">Endurance</span>
+                    <div class="stat-bar"><div class="stat-fill" style="--stat-val: 85%"></div></div>
+                    <span class="stat-val">17</span>
+                </div>
+                <div class="stat-row" data-stat="WIS">
+                    <span class="stat-abbr">WIS</span>
+                    <span class="stat-name">Communication</span>
+                    <div class="stat-bar"><div class="stat-fill" style="--stat-val: 85%"></div></div>
+                    <span class="stat-val">17</span>
+                </div>
+                <div class="stat-row" data-stat="CHA">
+                    <span class="stat-abbr">CHA</span>
+                    <span class="stat-name">Community</span>
+                    <div class="stat-bar"><div class="stat-fill" style="--stat-val: 80%"></div></div>
+                    <span class="stat-val">16</span>
+                </div>
+                <div class="stat-row" data-stat="PAT">
+                    <span class="stat-abbr">PAT</span>
+                    <span class="stat-name">Patience</span>
+                    <div class="stat-bar"><div class="stat-fill" style="--stat-val: 75%"></div></div>
+                    <span class="stat-val">15</span>
+                </div>
+                <div class="stats-divider"></div>
+                <div class="stat-row stat-weak" data-stat="PRU">
+                    <span class="stat-abbr">PRU</span>
+                    <span class="stat-name">Prudence</span>
+                    <div class="stat-bar"><div class="stat-fill stat-fill-low" style="--stat-val: 40%"></div></div>
+                    <span class="stat-val">8</span>
+                </div>
+                <div class="stat-row stat-weak" data-stat="FOC">
+                    <span class="stat-abbr">FOC</span>
+                    <span class="stat-name">Single Focus</span>
+                    <div class="stat-bar"><div class="stat-fill stat-fill-low" style="--stat-val: 35%"></div></div>
+                    <span class="stat-val">7</span>
+                </div>
+                <div class="stat-row stat-weak" data-stat="TRD">
+                    <span class="stat-abbr">TRD</span>
+                    <span class="stat-name">Tradition</span>
+                    <div class="stat-bar"><div class="stat-fill stat-fill-low" style="--stat-val: 30%"></div></div>
+                    <span class="stat-val">6</span>
+                </div>
+                <div class="stat-row stat-weak" data-stat="SCP">
+                    <span class="stat-abbr">SCP</span>
+                    <span class="stat-name">Scope Control</span>
+                    <div class="stat-bar"><div class="stat-fill stat-fill-low" style="--stat-val: 30%"></div></div>
+                    <span class="stat-val">6</span>
+                </div>
+                <div class="stat-row stat-weak" data-stat="IDL">
+                    <span class="stat-abbr">IDL</span>
+                    <span class="stat-name">Idle</span>
+                    <div class="stat-bar"><div class="stat-fill stat-fill-low" style="--stat-val: 25%"></div></div>
+                    <span class="stat-val">5</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- SECTION 3: Abilities -->
+    <section class="abilities-section" id="abilities">
+        <h2 class="section-title">Abilities</h2>
+        <div class="abilities-glow-grid">
+            <div class="ability-card" data-type="passive">
+                <div class="ability-card-inner">
+                    <div class="ability-card-header">
+                        <span class="ability-type-tag">Passive</span>
+                    </div>
+                    <h3 class="ability-name">Monkey See, Monkey Do</h3>
+                    <p class="ability-desc">Absorb proficiencies from nearby units. Level scales with exposure.</p>
+                </div>
+                <div class="ability-blob"></div>
+                <div class="ability-fakeblob"></div>
+            </div>
+            <div class="ability-card" data-type="passive">
+                <div class="ability-card-inner">
+                    <div class="ability-card-header">
+                        <span class="ability-type-tag">Passive</span>
+                    </div>
+                    <h3 class="ability-name">Tradition Breaker</h3>
+                    <p class="ability-desc">Advantage on all checks against established methods.</p>
+                </div>
+                <div class="ability-blob"></div>
+                <div class="ability-fakeblob"></div>
+            </div>
+            <div class="ability-card" data-type="passive">
+                <div class="ability-card-inner">
+                    <div class="ability-card-header">
+                        <span class="ability-type-tag">Passive</span>
+                    </div>
+                    <h3 class="ability-name">Perpetual Motion</h3>
+                    <p class="ability-desc">Rest actions convert into creative output. Gain an extra short rest charge. Cannot idle.</p>
+                </div>
+                <div class="ability-blob"></div>
+                <div class="ability-fakeblob"></div>
+            </div>
+        </div>
+
+        <div class="abilities-glow-grid">
+            <div class="ability-card" data-type="daily">
+                <div class="ability-card-inner">
+                    <div class="ability-card-header">
+                        <span class="ability-type-tag">Daily</span>
+                    </div>
+                    <h3 class="ability-name">Bardic Inspiration</h3>
+                    <p class="ability-desc">Grant target ally one inspiration die.</p>
+                </div>
+                <div class="ability-blob"></div>
+                <div class="ability-fakeblob"></div>
+            </div>
+            <div class="ability-card" data-type="daily">
+                <div class="ability-card-inner">
+                    <div class="ability-card-header">
+                        <span class="ability-type-tag">Daily</span>
+                    </div>
+                    <h3 class="ability-name">Mana Restoration</h3>
+                    <p class="ability-desc">Withdraw to recharge. Restore all spell slots. +2 WIS until next long rest.</p>
+                </div>
+                <div class="ability-blob"></div>
+                <div class="ability-fakeblob"></div>
+            </div>
+        </div>
+
+        <div class="abilities-glow-grid">
+            <div class="ability-card" data-type="enchantment">
+                <div class="ability-card-inner">
+                    <div class="ability-card-header">
+                        <span class="ability-type-tag">Enchantment</span>
+                    </div>
+                    <h3 class="ability-name">Warmth of the Stranger</h3>
+                    <p class="ability-desc">Remove &ldquo;outsider&rdquo; debuff from newcomers. Permanent aura, 30ft radius.</p>
+                </div>
+                <div class="ability-blob"></div>
+                <div class="ability-fakeblob"></div>
+            </div>
+            <div class="ability-card" data-type="enchantment">
+                <div class="ability-card-inner">
+                    <div class="ability-card-header">
+                        <span class="ability-type-tag">Enchantment</span>
+                    </div>
+                    <h3 class="ability-name">Bard&rsquo;s Friend</h3>
+                    <p class="ability-desc">Enchant ally as arcane conduit. Target may cast Bardic Inspiration on your behalf. No limit on active conduits.</p>
+                </div>
+                <div class="ability-blob"></div>
+                <div class="ability-fakeblob"></div>
+            </div>
+        </div>
+
+        <div class="abilities-glow-grid">
+            <div class="ability-card" data-type="feat">
+                <div class="ability-card-inner">
+                    <div class="ability-card-header">
+                        <span class="ability-type-tag">Feat</span>
+                    </div>
+                    <h3 class="ability-name">Fancy Footwork</h3>
+                    <p class="ability-desc">On failure, rise with a better version. Redirect all momentum into a new venture. Immunity to discouragement. Cannot be knocked prone.</p>
+                </div>
+                <div class="ability-blob"></div>
+                <div class="ability-fakeblob"></div>
+            </div>
+            <div class="ability-card" data-type="feat">
+                <div class="ability-card-inner">
+                    <div class="ability-card-header">
+                        <span class="ability-type-tag">Feat</span>
+                    </div>
+                    <h3 class="ability-name">Rally</h3>
+                    <p class="ability-desc">AOE inspiration die to all allies in range. Ignores institutional and discipline silos. Once per season.</p>
+                </div>
+                <div class="ability-blob"></div>
+                <div class="ability-fakeblob"></div>
+            </div>
+            <div class="ability-card" data-type="feat">
+                <div class="ability-card-inner">
+                    <div class="ability-card-header">
+                        <span class="ability-type-tag">Feat</span>
+                    </div>
+                    <h3 class="ability-name">Ship It</h3>
+                    <p class="ability-desc">Launch a product, paper, or platform from zero to public. Three charges per quarter.</p>
+                </div>
+                <div class="ability-blob"></div>
+                <div class="ability-fakeblob"></div>
+            </div>
+        </div>
+
+        <div class="abilities-glow-grid">
+            <div class="ability-card" data-type="conditional">
+                <div class="ability-card-inner">
+                    <div class="ability-card-header">
+                        <span class="ability-type-tag">Conditional</span>
+                    </div>
+                    <h3 class="ability-name">Edge of Chaos</h3>
+                    <p class="ability-desc">Trigger: pressure or ambiguity. All stats +1. Mundane routine: all stats -1.</p>
+                </div>
+                <div class="ability-blob"></div>
+                <div class="ability-fakeblob"></div>
+            </div>
+            <div class="ability-card" data-type="conditional">
+                <div class="ability-card-inner">
+                    <div class="ability-card-header">
+                        <span class="ability-type-tag">Conditional</span>
+                    </div>
+                    <h3 class="ability-name">Science Communicator</h3>
+                    <p class="ability-desc">Trigger: jargon detected. Remove &ldquo;jargon&rdquo; debuff from any audience.</p>
+                </div>
+                <div class="ability-blob"></div>
+                <div class="ability-fakeblob"></div>
+            </div>
+            <div class="ability-card" data-type="conditional">
+                <div class="ability-card-inner">
+                    <div class="ability-card-header">
+                        <span class="ability-type-tag">Conditional</span>
+                    </div>
+                    <h3 class="ability-name">Scope Creep</h3>
+                    <p class="ability-desc">Trigger: planning any project. Scope expands by two domains. Cannot be suppressed.</p>
+                </div>
+                <div class="ability-blob"></div>
+                <div class="ability-fakeblob"></div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Alyssa Adams. Crafted with crabs and cats.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        const abilityCards = document.querySelectorAll('.ability-card');
+
+        window.addEventListener('mousemove', (ev) => {
+            abilityCards.forEach((card) => {
+                const blob = card.querySelector('.ability-blob');
+                const fakeblob = card.querySelector('.ability-fakeblob');
+                const rec = fakeblob.getBoundingClientRect();
+
+                blob.animate(
+                    [{
+                        transform: `translate(${ev.clientX - rec.left - (rec.width / 2)}px, ${ev.clientY - rec.top - (rec.height / 2)}px)`,
+                    }],
+                    {
+                        duration: 300,
+                        fill: 'forwards',
+                    }
+                );
+            });
+        });
+    </script>
+</body>
+</html>

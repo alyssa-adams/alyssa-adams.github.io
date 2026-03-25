@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abilities — Alyssa M Adams</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Syne+Mono&family=Inconsolata:wght@200;300;400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <canvas id="particles"></canvas>
+
+    <nav class="site-nav">
+        <a href="index.html" class="nav-link">Character Sheet</a>
+        <a href="abilities.html" class="nav-link active">Abilities</a>
+        <a href="quests.html" class="nav-link">Quest Log</a>
+        <a href="inventory.html" class="nav-link">Inventory</a>
+        <a href="spells.html" class="nav-link">Spellbook</a>
+    </nav>
+
+    <header class="spells-header">
+        <h1 class="section-title">Abilities</h1>
+        <p class="spells-intro">Passive traits, daily powers, enchantments, feats, and conditional triggers accumulated across a lifetime of adventuring.</p>
+    </header>
+
+    <!-- Passives -->
+    <section class="abilities-section" id="passives">
+        <h2 class="spells-section-title">Passive</h2>
+        <div class="abilities-glow-grid">
+
+            <div class="ability-card" data-type="passive">
+                <div class="ability-card-inner">
+                    <div class="ability-card-header">
+                        <div class="ability-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18.178 8c5.096 0 5.096 8 0 8-5.095 0-7.133-8-12.739-8-4.585 0-4.585 8 0 8 5.606 0 7.644-8 12.739-8z"/></svg>
+                        </div>
+                    </div>
+                    <h3 class="ability-name">Polymath</h3>
+                    <p class="ability-desc">Gain temporary proficiency in any unfamiliar subject. Side effect: starts 3 new projects per month.</p>
+                </div>
+                <div class="ability-blob"></div>
+                <div class="ability-fakeblob"></div>
+            </div>
+
+            <div class="ability-card" data-type="passive">
+                <div class="ability-card-inner">
+                    <div class="ability-card-header">
+                        <div class="ability-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18.178 8c5.096 0 5.096 8 0 8-5.095 0-7.133-8-12.739-8-4.585 0-4.585 8 0 8 5.606 0 7.644-8 12.739-8z"/></svg>
+                        </div>
+                    </div>
+                    <h3 class="ability-name">Pattern Sight</h3>
+                    <p class="ability-desc">Reveal hidden connections between unrelated systems. Always active. Cannot be dispelled.</p>
+                </div>
+                <div class="ability-blob"></div>
+                <div class="ability-fakeblob"></div>
+            </div>
+
+            <div class="ability-card" data-type="passive">
+                <div class="ability-card-inner">
+                    <div class="ability-card-header">
+                        <div class="ability-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18.178 8c5.096 0 5.096 8 0 8-5.095 0-7.133-8-12.739-8-4.585 0-4.585 8 0 8 5.606 0 7.644-8 12.739-8z"/></svg>
+                        </div>
+                    </div>
+                    <h3 class="ability-name">Perpetual Motion</h3>
+                    <p class="ability-desc">Rest actions convert into creative output. Long rests take twice as long. Cannot idle.</p>
+                </div>
+                <div class="ability-blob"></div>
+                <div class="ability-fakeblob"></div>
+            </div>
+
+            <div class="ability-card" data-type="passive">
+                <div class="ability-card-inner">
+                    <div class="ability-card-header">
+                        <div class="ability-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18.178 8c5.096 0 5.096 8 0 8-5.095 0-7.133-8-12.739-8-4.585 0-4.585 8 0 8 5.606 0 7.644-8 12.739-8z"/></svg>
+                        </div>
+                    </div>
+                    <h3 class="ability-name">Monkey See, Monkey Do</h3>
+                    <p class="ability-desc">Absorb proficiencies from nearby allies. Duration scales with exposure.</p>
+                </div>
+                <div class="ability-blob"></div>
+                <div class="ability-fakeblob"></div>
+            </div>
+
+            <div class="ability-card" data-type="passive">
+                <div class="ability-card-inner">
+                    <div class="ability-card-header">
+                        <div class="ability-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18.178 8c5.096 0 5.096 8 0 8-5.095 0-7.133-8-12.739-8-4.585 0-4.585 8 0 8 5.606 0 7.644-8 12.739-8z"/></svg>
+                        </div>
+                    </div>
+                    <h3 class="ability-name">Tradition Breaker</h3>
+                    <p class="ability-desc">Advantage on all checks against established methods.</p>
+                </div>
+                <div class="ability-blob"></div>
+                <div class="ability-fakeblob"></div>
+            </div>
+
+        </div>
+    </section>
+
+    <!--Dailies -->
+    <section class="abilities-section" id="dailies">
+        <h2 class="spells-section-title">Daily</h2>
+        <div class="abilities-glow-grid">
+
+            <div class="ability-card" data-type="daily">
+                <div class="ability-card-inner">
+                    <div class="ability-card-header">
+                        <div class="ability-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+                        </div>
+                    </div>
+                    <h3 class="ability-name">Bardic Inspiration</h3>
+                    <p class="ability-desc">Grant target ally one inspiration die. Listeners make WIS save or be moved. Recharges at dawn.</p>
+                </div>
+                <div class="ability-blob"></div>
+                <div class="ability-fakeblob"></div>
+            </div>
+
+            <div class="ability-card" data-type="daily">
+                <div class="ability-card-inner">
+                    <div class="ability-card-header">
+                        <div class="ability-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+                        </div>
+                    </div>
+                    <h3 class="ability-name">Mana Restoration</h3>
+                    <p class="ability-desc">Withdraw to recharge. Restore all spell slots. +2 WIS until next long rest.</p>
+                </div>
+                <div class="ability-blob"></div>
+                <div class="ability-fakeblob"></div>
+            </div>
+
+            <div class="ability-card" data-type="daily">
+                <div class="ability-card-inner">
+                    <div class="ability-card-header">
+                        <div class="ability-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+                        </div>
+                    </div>
+                    <h3 class="ability-name">Chromatic Mastery</h3>
+                    <p class="ability-desc">Improvise in any key. No sheet music required. +2 PER until next long rest.</p>
+                </div>
+                <div class="ability-blob"></div>
+                <div class="ability-fakeblob"></div>
+            </div>
+
+            <div class="ability-card" data-type="daily">
+                <div class="ability-card-inner">
+                    <div class="ability-card-header">
+                        <div class="ability-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+                        </div>
+                    </div>
+                    <h3 class="ability-name">Worldbuilding</h3>
+                    <p class="ability-desc">Enchant any conversation. Target &ldquo;what if&rdquo; spirals into a fully realized alternate reality.</p>
+                </div>
+                <div class="ability-blob"></div>
+                <div class="ability-fakeblob"></div>
+            </div>
+
+        </div>
+    </section>
+
+    <!--Enchantments -->
+    <section class="abilities-section" id="enchantments">
+        <h2 class="spells-section-title">Enchantment</h2>
+        <div class="abilities-glow-grid">
+
+            <div class="ability-card" data-type="enchantment">
+                <div class="ability-card-inner">
+                    <div class="ability-card-header">
+                        <div class="ability-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l2.09 6.26L20.18 9l-5 4.09L16.64 20 12 16.27 7.36 20l1.46-6.91-5-4.09 6.09-.74L12 2z"/></svg>
+                        </div>
+                    </div>
+                    <h3 class="ability-name">Warmth of the Stranger</h3>
+                    <p class="ability-desc">Remove &ldquo;outsider&rdquo; debuff from newcomers. Permanent aura, 30ft radius.</p>
+                </div>
+                <div class="ability-blob"></div>
+                <div class="ability-fakeblob"></div>
+            </div>
+
+            <div class="ability-card" data-type="enchantment">
+                <div class="ability-card-inner">
+                    <div class="ability-card-header">
+                        <div class="ability-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l2.09 6.26L20.18 9l-5 4.09L16.64 20 12 16.27 7.36 20l1.46-6.91-5-4.09 6.09-.74L12 2z"/></svg>
+                        </div>
+                    </div>
+                    <h3 class="ability-name">Mentor&rsquo;s Mark</h3>
+                    <p class="ability-desc">Buff early-career allies with +2 confidence and direction. Effect persists indefinitely. 15+ targets affected.</p>
+                </div>
+                <div class="ability-blob"></div>
+                <div class="ability-fakeblob"></div>
+            </div>
+
+            <div class="ability-card" data-type="enchantment">
+                <div class="ability-card-inner">
+                    <div class="ability-card-header">
+                        <div class="ability-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l2.09 6.26L20.18 9l-5 4.09L16.64 20 12 16.27 7.36 20l1.46-6.91-5-4.09 6.09-.74L12 2z"/></svg>
+                        </div>
+                    </div>
+                    <h3 class="ability-name">Bard&rsquo;s Friend</h3>
+                    <p class="ability-desc">Enchant ally as arcane conduit. Target may cast Bardic Inspiration on your behalf. No limit on active conduits.</p>
+                </div>
+                <div class="ability-blob"></div>
+                <div class="ability-fakeblob"></div>
+            </div>
+
+        </div>
+    </section>
+
+    <!--Feats -->
+    <section class="abilities-section" id="feats">
+        <h2 class="spells-section-title">Feat</h2>
+        <div class="abilities-glow-grid">
+
+            <div class="ability-card" data-type="feat">
+                <div class="ability-card-inner">
+                    <div class="ability-card-header">
+                        <div class="ability-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                        </div>
+                    </div>
+                    <h3 class="ability-name">Fancy Footwork</h3>
+                    <p class="ability-desc">On failure, rise with a better version. Redirect all momentum into a new venture. Immunity to discouragement. Cannot be knocked prone.</p>
+                </div>
+                <div class="ability-blob"></div>
+                <div class="ability-fakeblob"></div>
+            </div>
+
+            <div class="ability-card" data-type="feat">
+                <div class="ability-card-inner">
+                    <div class="ability-card-header">
+                        <div class="ability-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                        </div>
+                    </div>
+                    <h3 class="ability-name">Rally</h3>
+                    <p class="ability-desc">AOE inspiration die to all allies in range. Ignores time zones, language barriers, and institutional silos. Once per season.</p>
+                </div>
+                <div class="ability-blob"></div>
+                <div class="ability-fakeblob"></div>
+            </div>
+
+            <div class="ability-card" data-type="feat">
+                <div class="ability-card-inner">
+                    <div class="ability-card-header">
+                        <div class="ability-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                        </div>
+                    </div>
+                    <h3 class="ability-name">Conference Architect</h3>
+                    <p class="ability-desc">Plan and execute a gathering of 600+. Advantage on all logistics checks. Once per year.</p>
+                </div>
+                <div class="ability-blob"></div>
+                <div class="ability-fakeblob"></div>
+            </div>
+
+            <div class="ability-card" data-type="feat">
+                <div class="ability-card-inner">
+                    <div class="ability-card-header">
+                        <div class="ability-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                        </div>
+                    </div>
+                    <h3 class="ability-name">Migration</h3>
+                    <p class="ability-desc">Relocate your life to a new state or country. Massive logistics check. Immune to homesickness.</p>
+                </div>
+                <div class="ability-blob"></div>
+                <div class="ability-fakeblob"></div>
+            </div>
+
+            <div class="ability-card" data-type="feat">
+                <div class="ability-card-inner">
+                    <div class="ability-card-header">
+                        <div class="ability-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                        </div>
+                    </div>
+                    <h3 class="ability-name">Ship It</h3>
+                    <p class="ability-desc">Launch a product, paper, or platform from zero to public. Once per quarter max.</p>
+                </div>
+                <div class="ability-blob"></div>
+                <div class="ability-fakeblob"></div>
+            </div>
+
+        </div>
+    </section>
+
+    <!--Conditionals -->
+    <section class="abilities-section" id="conditionals">
+        <h2 class="spells-section-title">Conditional</h2>
+        <div class="abilities-glow-grid">
+
+            <div class="ability-card" data-type="conditional">
+                <div class="ability-card-inner">
+                    <div class="ability-card-header">
+                        <div class="ability-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                        </div>
+                    </div>
+                    <h3 class="ability-name">Scope Creep</h3>
+                    <p class="ability-desc">Trigger: planning any project. Scope expands by two domains. Cannot be suppressed.</p>
+                </div>
+                <div class="ability-blob"></div>
+                <div class="ability-fakeblob"></div>
+            </div>
+
+            <div class="ability-card" data-type="conditional">
+                <div class="ability-card-inner">
+                    <div class="ability-card-header">
+                        <div class="ability-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                        </div>
+                    </div>
+                    <h3 class="ability-name">Edge of Chaos</h3>
+                    <p class="ability-desc">Trigger: pressure or ambiguity. All stats +1. Mundane routine: all stats -1.</p>
+                </div>
+                <div class="ability-blob"></div>
+                <div class="ability-fakeblob"></div>
+            </div>
+
+            <div class="ability-card" data-type="conditional">
+                <div class="ability-card-inner">
+                    <div class="ability-card-header">
+                        <div class="ability-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                        </div>
+                    </div>
+                    <h3 class="ability-name">Spark of Curiosity</h3>
+                    <p class="ability-desc">Trigger: unfamiliar idea. Summon a new collaboration before the conversation ends.</p>
+                </div>
+                <div class="ability-blob"></div>
+                <div class="ability-fakeblob"></div>
+            </div>
+
+            <div class="ability-card" data-type="conditional">
+                <div class="ability-card-inner">
+                    <div class="ability-card-header">
+                        <div class="ability-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                        </div>
+                    </div>
+                    <h3 class="ability-name">Science Communicator</h3>
+                    <p class="ability-desc">Trigger: jargon detected. Remove &ldquo;jargon&rdquo; debuff from any audience. Works at ComiCon.</p>
+                </div>
+                <div class="ability-blob"></div>
+                <div class="ability-fakeblob"></div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Alyssa Adams. Crafted with crabs and cats.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        const abilityCards = document.querySelectorAll('.ability-card');
+
+        window.addEventListener('mousemove', (ev) => {
+            abilityCards.forEach((card) => {
+                const blob = card.querySelector('.ability-blob');
+                const fakeblob = card.querySelector('.ability-fakeblob');
+                const rec = fakeblob.getBoundingClientRect();
+
+                blob.animate(
+                    [{
+                        transform: `translate(${ev.clientX - rec.left - (rec.width / 2)}px, ${ev.clientY - rec.top - (rec.height / 2)}px)`,
+                    }],
+                    {
+                        duration: 300,
+                        fill: 'forwards',
+                    }
+                );
+            });
+        });
+    </script>
+</body>
+</html>
