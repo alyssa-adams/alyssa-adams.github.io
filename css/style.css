@@ -1488,13 +1488,23 @@ body {
     }
 
     .hero {
-        padding-top: 5rem;
+        padding: 4rem 1.5rem 1rem;
+        margin: 0 auto;
     }
 
     .hero-inner {
         flex-direction: column;
         align-items: center;
         text-align: center;
+        gap: 2rem;
+    }
+
+    .hero-portrait {
+        margin-top: 0;
+    }
+
+    .portrait-frame.portrait-large {
+        width: 260px;
     }
 
     .hero-info {
@@ -1513,6 +1523,20 @@ body {
         font-size: 2rem;
     }
 
+    .hero-subtitle {
+        margin-bottom: 1.5rem;
+    }
+
+    .stats-section,
+    .abilities-section {
+        padding: 1rem 1.5rem;
+    }
+
+    .stats-list {
+        width: 100%;
+        max-width: 100%;
+    }
+
     .stats-panel {
         flex-direction: column;
     }
@@ -1526,6 +1550,15 @@ body {
     .stat-row {
         grid-template-columns: 40px 90px 1fr 30px;
         gap: 0.5rem;
+    }
+
+    .ability-row {
+        grid-template-columns: 1fr;
+        gap: 0.3rem;
+    }
+
+    .ability-type-tag {
+        justify-self: start;
     }
 
     .spells-grid {
@@ -1543,21 +1576,33 @@ body {
     .quest-card::before {
         left: -2.35rem;
     }
+
+    .site-footer {
+        padding: 4rem 1.5rem 2rem;
+    }
 }
 
 @media (max-width: 480px) {
+    .hero {
+        padding: 3rem 1rem 1rem;
+    }
+
     .hero-name {
         font-size: 1.6rem;
     }
 
     .section-title {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
     }
 
-    .portrait-frame,
     .portrait-frame.portrait-large {
-        width: 260px;
-        height: 340px;
+        width: 200px;
+    }
+
+    .stats-section,
+    .abilities-section {
+        padding: 1rem;
     }
 
     .stat-row {
@@ -1566,5 +1611,13 @@ body {
 
     .stat-name {
         font-size: 0.8rem;
+    }
+
+    .hero-links {
+        margin-bottom: 2rem;
+    }
+
+    .site-footer {
+        padding: 3rem 1rem 2rem;
     }
 }
