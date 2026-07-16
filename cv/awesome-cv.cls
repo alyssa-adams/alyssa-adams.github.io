@@ -273,7 +273,7 @@
 \newcommand*{\subsectionstyle}[1]{{\fontsize{20pt}{1em}\bodyfont\scshape\textcolor{text}{#1}}}
 
 % For elements of entry
-\newcommand*{\entrytitlestyle}[1]{{\fontsize{11pt}{1em}\bodyfont\bfseries\color{darktext}\hypersetup{urlcolor=cmyk-cyan}\leavevmode{}#1}}
+\newcommand*{\entrytitlestyle}[1]{{\fontsize{11pt}{1em}\bodyfont\bfseries\color{darktext}\hypersetup{urlcolor=black}\leavevmode{}#1}}
 \newcommand*{\entrypositionstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\bfseries\color{graytext} #1}}
 \newcommand*{\entrydatestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\bfseries\color{graytext} #1}}
 \newcommand*{\entrylocationstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\color{graytext} #1}}
@@ -562,7 +562,7 @@
   \par\addvspace{6ex}
   \phantomsection{}
   \sectionstyle{#1}
-  \color{cmyk-yellow}\vhrulefill{0.9pt}
+  \color{black}\vhrulefill{0.9pt}
   \par\nobreak\addvspace{3ex}
 }
 
@@ -694,7 +694,7 @@
   \par\addvspace{2.5ex}
   \phantomsection{}
   \paragraphstyle{#1}
-  \color{cmyk-yellow}\vhrulefill{0.9pt}
+  \color{black}\vhrulefill{0.9pt}
   \par\nobreak\addvspace{0.4ex}
 }
 

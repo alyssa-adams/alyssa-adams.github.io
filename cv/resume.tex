@@ -35,20 +35,27 @@
 % Define your custom color if you don't like awesome colors
 \colorlet{awesome}{cmyk-cyan}
 %% Colors for text
-%\definecolor{darktext}{HTML}{414141}
-%\definecolor{text}{HTML}{414141}
-%\definecolor{graytext}{HTML}{414141}
-%\definecolor{lighttext}{HTML}{414141}
+%% Body text black (was dark grey); hierarchy now comes from weight/size, not color
+\definecolor{darktext}{HTML}{000000}
+\colorlet{text}{black}
+\colorlet{graytext}{black}
+%\colorlet{lighttext}{black}  % intentionally left grey so the footer date stays subtle
 
 \usepackage{hyperref}
 \hypersetup{
     colorlinks=true,
-    linkcolor=cmyk-magenta,
-    filecolor=cmyk-magenta,
-    urlcolor=cmyk-magenta,
+    linkcolor=black,
+    filecolor=black,
+    urlcolor=black,
 }
 
 \urlstyle{same}
+
+%%% Hyperlinks now use the body text color (black), so underline them to keep them
+%%% readable as links. ulem's \uline (unlike \underline) wraps across line breaks.
+\usepackage[normalem]{ulem}
+\let\orighref\href
+\renewcommand{\href}[2]{\orighref{#1}{\uline{#2}}}
 
 %%% Override a separator for social informations in header(default: ' | ')
 %\headersocialsep[\quad\textbar\quad]
@@ -73,7 +80,7 @@
 \homepage{alyssa-m-adams.com}
 %\github{alyssa-adams}
 \linkedin{alyssa-adams}
-\googlescholar{ELPenKIAAAAJ}
+\googlescholar{KzspA6sAAAAJ}
 %\position{Deputy Director \& Senior Research Scientist}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -87,7 +94,7 @@
 \renewcommand{\today}{\number\day~\ifcase\month\or January\or February\or March\or April\or May\or June\or July\or August\or September\or October\or November\or December\fi~\number\year}
 
 \makecvfooter
-  {\today}
+  {Last updated: \today}
   {}
   {\thepage}
 

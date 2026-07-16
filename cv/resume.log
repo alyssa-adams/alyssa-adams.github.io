@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.3.1)  16 MAR 2026 23:45
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.3.1)  16 JUL 2026 22:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -671,8 +671,20 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 Package hyperref Info: Option `colorlinks' set `false' on input line 95.
 \c@colorCounter=\count330
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 49.
- (/usr/local/texlive/2026/texmf-dist/tex/latex/import/import.sty
+Package hyperref Info: Option `colorlinks' set `true' on input line 50.
+ (/usr/local/texlive/2026/texmf-dist/tex/generic/ulem/ulem.sty
+\UL@box=\box59
+\UL@hyphenbox=\box60
+\UL@skip=\skip89
+\UL@hook=\toks28
+\UL@height=\dimen178
+\UL@pe=\count331
+\UL@pixel=\dimen179
+\ULC@box=\box61
+Package: ulem 2019/11/18
+\ULdepth=\dimen180
+)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/import/import.sty
 Package: import 2020/04/01  v 6.2
 )
 (/usr/local/texlive/2026/texmf-dist/tex/latex/datetime2/datetime2.sty
@@ -687,36 +699,36 @@ Package: xkeyval 2025/11/04 v2.10 package option processing (HA)
 
 (/usr/local/texlive/2026/texmf-dist/tex/generic/xkeyval/xkeyval.tex
 (/usr/local/texlive/2026/texmf-dist/tex/generic/xkeyval/xkvutils.tex
-\XKV@toks=\toks28
-\XKV@tempa@toks=\toks29
-\XKV@tempb@toks=\toks30
+\XKV@toks=\toks29
+\XKV@tempa@toks=\toks30
+\XKV@tempb@toks=\toks31
 )
-\XKV@depth=\count331
+\XKV@depth=\count332
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 )))
 (./resume.aux)
 \openout1 = `resume.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 101.
+LaTeX Font Info:    ... okay on input line 101.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 101.
+LaTeX Font Info:    ... okay on input line 101.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 101.
+LaTeX Font Info:    ... okay on input line 101.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 101.
+LaTeX Font Info:    ... okay on input line 101.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 101.
+LaTeX Font Info:    ... okay on input line 101.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 101.
+LaTeX Font Info:    ... okay on input line 101.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 101.
+LaTeX Font Info:    ... okay on input line 101.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 101.
+LaTeX Font Info:    ... okay on input line 101.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 101.
+LaTeX Font Info:    ... okay on input line 101.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 101.
+LaTeX Font Info:    ... okay on input line 101.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -753,52 +765,53 @@ LaTeX Font Info:    ... okay on input line 94.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 94.
+(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 101.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 94.
+(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 101.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> TU/lmr/bx/n on input line 94.
+(Font)                  OT1/cmr/bx/n --> TU/lmr/bx/n on input line 101.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 94.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 101.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/bx/n on input line 94.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/bx/n on input line 101.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 94.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 101.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/bx/n on input line 94.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/bx/n on input line 101.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 94.
+(Font)              `operators' in the math version `normal' on input line 101.
+
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> TU/latinmodern-math.otf(1)/m/n on input
- line 94.
+ line 101.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 94.
+(Font)              `operators' in the math version `bold' on input line 101.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  OT1/cmr/bx/n --> TU/latinmodern-math.otf(1)/b/n on inpu
-t line 94.
+t line 101.
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `normal' on input line 94.
+(Font)              `symbols' in the math version `normal' on input line 101.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
 (Font)                  OMS/cmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on inpu
-t line 94.
+t line 101.
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `bold' on input line 94.
+(Font)              `symbols' in the math version `bold' on input line 101.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
 (Font)                  OMS/cmsy/b/n --> TU/latinmodern-math.otf(2)/b/n on inpu
-t line 94.
+t line 101.
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `normal' on input line 9
-4.
+(Font)              `largesymbols' in the math version `normal' on input line 1
+01.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
 (Font)                  OMX/cmex/m/n --> TU/latinmodern-math.otf(3)/m/n on inpu
-t line 94.
+t line 101.
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `bold' on input line 94.
-
+(Font)              `largesymbols' in the math version `bold' on input line 101
+.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
 (Font)                  OMX/cmex/m/n --> TU/latinmodern-math.otf(3)/b/n on inpu
-t line 94.
-Package hyperref Info: Link coloring ON on input line 94.
+t line 101.
+Package hyperref Info: Link coloring ON on input line 101.
 (./resume.out) (./resume.out)
 \@outlinefile=\write3
 \openout3 = `resume.out'.
@@ -806,34 +819,34 @@ Package hyperref Info: Link coloring ON on input line 94.
 
 
 LaTeX Font Warning: Font shape `TU/MajorMonoDisplay(0)/b/n' undefined
-(Font)              using `TU/MajorMonoDisplay(0)/m/n' instead on input line 96
-.
+(Font)              using `TU/MajorMonoDisplay(0)/m/n' instead on input line 10
+3.
 
 (./resume/experience.tex
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.95116pt on input line 22.
+(Font)              scaled to size 10.95116pt on input line 20.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.6658pt on input line 22.
+(Font)              scaled to size 7.6658pt on input line 20.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.47559pt on input line 22.
+(Font)              scaled to size 5.47559pt on input line 20.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 10.94882pt on input line 22.
+(Font)              scaled to size 10.94882pt on input line 20.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 7.66417pt on input line 22.
+(Font)              scaled to size 7.66417pt on input line 20.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.47441pt on input line 22.
+(Font)              scaled to size 5.47441pt on input line 20.
 
-Underfull \hbox (badness 10000) in paragraph at lines 22--23
+Underfull \hbox (badness 10000) in paragraph at lines 20--21
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 35--36
+Underfull \hbox (badness 10000) in paragraph at lines 36--37
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 48--49
+Underfull \hbox (badness 10000) in paragraph at lines 49--50
 
  []
 
@@ -843,38 +856,38 @@ Underfull \hbox (badness 10000) in paragraph at lines 62--63
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 74--75
+Underfull \hbox (badness 10000) in paragraph at lines 76--77
 
  []
 
 
 LaTeX Font Warning: Font shape `TU/Inconsolata(0)/m/sc' undefined
-(Font)              using `TU/Inconsolata(0)/m/n' instead on input line 87.
+(Font)              using `TU/Inconsolata(0)/m/n' instead on input line 77.
 
 [1
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 87--88
+Underfull \hbox (badness 10000) in paragraph at lines 88--89
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 100--101
+Underfull \hbox (badness 10000) in paragraph at lines 101--102
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 113--114
+Underfull \hbox (badness 10000) in paragraph at lines 114--115
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 125--126
+Underfull \hbox (badness 10000) in paragraph at lines 127--128
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 137--138
+Underfull \hbox (badness 10000) in paragraph at lines 139--140
 
  []
 
@@ -884,17 +897,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 151--152
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 166--167
+Underfull \hbox (badness 10000) in paragraph at lines 165--166
 
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 178--179
+Underfull \hbox (badness 10000) in paragraph at lines 180--181
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 191--192
+Underfull \hbox (badness 10000) in paragraph at lines 192--193
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 205--206
 
  []
 
@@ -913,12 +931,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 16--17
 
  []
 
-
+[3]
 Underfull \hbox (badness 10000) in paragraph at lines 30--31
 
  []
 
-[3]
+
 Underfull \hbox (badness 10000) in paragraph at lines 42--43
 
  []
@@ -948,6 +966,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 99--100
 
  []
 
+[4]
 LaTeX Font Info:    Calculating math sizes for size <11> on input line 112.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
 (Font)              scaled to size 11.00117pt on input line 112.
@@ -971,7 +990,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 125--126
 
  []
 
-[4]
+
 Underfull \hbox (badness 10000) in paragraph at lines 137--138
 
  []
@@ -996,7 +1015,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 188--189
 
  []
 
-
+[5]
 Underfull \hbox (badness 10000) in paragraph at lines 201--202
 
  []
@@ -1006,7 +1025,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 214--215
 
  []
 
-[5]
+
 Underfull \hbox (badness 10000) in paragraph at lines 225--226
 
  []
@@ -1036,7 +1055,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 47--48
 
  []
 
-
+[6]
 Underfull \hbox (badness 10000) in paragraph at lines 58--59
 
  []
@@ -1051,7 +1070,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 80--81
 
  []
 
-[6]
+
 Underfull \hbox (badness 10000) in paragraph at lines 91--92
 
  []
@@ -1086,7 +1105,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 157--158
 
  []
 
-
+[7]
 Underfull \hbox (badness 10000) in paragraph at lines 168--169
 
  []
@@ -1101,7 +1120,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 190--191
 
  []
 
-[7]
+
 Underfull \hbox (badness 10000) in paragraph at lines 201--202
 
  []
@@ -1132,17 +1151,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 256--257
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 267--268
+Underfull \hbox (badness 10000) in paragraph at lines 268--269
 
  []
 
-
+[8]
 Underfull \hbox (badness 10000) in paragraph at lines 279--280
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 290--291
+Underfull \hbox (badness 10000) in paragraph at lines 291--292
 
  []
 
@@ -1151,18 +1170,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 302--303
 
  []
 
-[8]
+
 Underfull \hbox (badness 10000) in paragraph at lines 313--314
 
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 324--325
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 335--336
 
  []
 
@@ -1186,7 +1200,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 48--49
 
  []
 
-
+[9]
 Underfull \hbox (badness 10000) in paragraph at lines 59--60
 
  []
@@ -1196,7 +1210,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 70--71
 
  []
 
-[9]
+
 Underfull \hbox (badness 10000) in paragraph at lines 81--82
 
  []
@@ -1231,7 +1245,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 147--148
 
  []
 
-
+[10]
 Underfull \hbox (badness 10000) in paragraph at lines 158--159
 
  []
@@ -1241,7 +1255,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 169--170
 
  []
 
-[10]
+
 Underfull \hbox (badness 10000) in paragraph at lines 180--181
 
  []
@@ -1276,7 +1290,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 34--35
 
  []
 
-
+[11]
 Underfull \hbox (badness 10000) in paragraph at lines 43--44
 
  []
@@ -1286,7 +1300,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 53--54
 
  []
 
-[11]
+
 Underfull \hbox (badness 10000) in paragraph at lines 62--63
 
  []
@@ -1331,7 +1345,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 135--136
 
  []
 
-
+[12]
 Underfull \hbox (badness 10000) in paragraph at lines 144--145
 
  []
@@ -1341,7 +1355,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 155--156
 
  []
 
-[12]
+
 Underfull \hbox (badness 10000) in paragraph at lines 164--165
 
  []
@@ -1376,12 +1390,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--29
 
  []
 
-
+[13]
 Underfull \hbox (badness 10000) in paragraph at lines 39--40
 
  []
 
-[13]
+
 Underfull \hbox (badness 10000) in paragraph at lines 51--52
 
  []
@@ -1421,12 +1435,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 130--131
 
  []
 
-) [14] (./resume/honors.tex
+[14]) [15] (./resume/honors.tex
 
 LaTeX Font Warning: Font shape `TU/Inconsolata(1)/m/sl' undefined
 (Font)              using `TU/Inconsolata(1)/m/n' instead on input line 9.
 
-) [15] (./resume.aux)
+) [16] (./resume.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -1439,12 +1453,12 @@ Package rerunfilecheck Info: File `resume.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 21221 strings out of 468168
- 399788 string characters out of 5432816
- 992326 words of memory out of 5000000
- 49687 multiletter control sequences out of 15000+600000
- 631806 words of font info for 95 fonts, out of 8000000 for 9000
+ 21312 strings out of 468168
+ 400906 string characters out of 5432816
+ 995425 words of memory out of 5000000
+ 49773 multiletter control sequences out of 15000+600000
+ 631912 words of font info for 96 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 101i,12n,120p,525b,562s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 101i,12n,120p,525b,601s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on resume.pdf (15 pages).
+Output written on resume.xdv (16 pages, 372936 bytes).
