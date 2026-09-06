@@ -490,15 +490,20 @@ body {
 
 /* --- Glow Card Grid --- */
 .abilities-glow-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: 0.8rem;
     margin-bottom: 0.8rem;
 }
 
 .abilities-glow-grid .ability-card {
-    flex: 0 1 250px;
+    min-width: 0;
+}
+
+@media (max-width: 1000px) {
+    .abilities-glow-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 .ability-card {
@@ -1621,4 +1626,368 @@ body {
     .site-footer {
         padding: 3rem 1rem 2rem;
     }
+}
+
+/* ============================================
+   SCRYING POOL PAGE
+   ============================================ */
+.scry-section {
+    margin-bottom: 3rem;
+}
+
+.scry-lead {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    max-width: 720px;
+    margin: -0.5rem 0 1.5rem;
+}
+
+.scry-lead a,
+.scry-alt a,
+.scry-desc a {
+    color: var(--cyan);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0, 229, 229, 0.3);
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.scry-lead a:hover,
+.scry-alt a:hover,
+.scry-desc a:hover {
+    color: var(--gold-light);
+    border-bottom-color: var(--gold-light);
+}
+
+.scry-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+/* --- Card --- */
+.scry-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-card);
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+/* Whole card is clickable via a stretched cover link; secondary links sit above it */
+.scry-cover {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+}
+
+.scry-alt a,
+.scry-desc a {
+    position: relative;
+    z-index: 4;
+}
+
+.scry-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    z-index: 2;
+    background: linear-gradient(90deg, var(--cyan), var(--magenta));
+}
+
+.scry-card[data-kind="interview"]::before { background: linear-gradient(90deg, var(--magenta), var(--yellow)); }
+.scry-card[data-kind="audio"]::before     { background: linear-gradient(90deg, var(--yellow), var(--cyan)); }
+.scry-card[data-kind="press"]::before,
+.scry-card[data-kind="essay"]::before,
+.scry-card[data-kind="notice"]::before    { background: linear-gradient(90deg, var(--magenta), var(--cyan)); }
+.scry-card[data-kind="event"]::before     { background: linear-gradient(90deg, var(--yellow), var(--magenta)); }
+
+.scry-card:hover {
+    box-shadow: 0 0 25px var(--cyan-glow);
+    transform: translateY(-3px);
+}
+
+.scry-card[data-kind="interview"]:hover { box-shadow: 0 0 25px var(--magenta-glow); }
+.scry-card[data-kind="audio"]:hover,
+.scry-card[data-kind="event"]:hover     { box-shadow: 0 0 25px var(--yellow-glow); }
+
+/* --- Thumbnail (the pool) --- */
+.scry-thumb {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: var(--bg-dark);
+}
+
+.scry-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(1) contrast(1.05);
+    opacity: 0.75;
+    transform: scale(1.02);
+    transition: filter 0.5s ease, opacity 0.5s ease, transform 0.5s ease;
+}
+
+.scry-thumb::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(10,10,10,0.95) 100%);
+    pointer-events: none;
+}
+
+.scry-card:hover .scry-thumb img {
+    filter: grayscale(0) contrast(1);
+    opacity: 1;
+    transform: scale(1.06);
+}
+
+.scry-play {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 48px;
+    height: 48px;
+    margin: -24px 0 0 -24px;
+    border-radius: 50%;
+    border: 1px solid rgba(232, 232, 232, 0.6);
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(4px);
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.scry-play::after {
+    content: '';
+    position: absolute;
+    left: 19px;
+    top: 15px;
+    border-left: 14px solid var(--text-bright);
+    border-top: 9px solid transparent;
+    border-bottom: 9px solid transparent;
+}
+
+.scry-card:hover .scry-play {
+    border-color: var(--cyan);
+    box-shadow: 0 0 20px var(--cyan-glow);
+    transform: scale(1.1);
+}
+
+/* --- Body --- */
+.scry-body {
+    padding: 1.2rem 1.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    flex: 1;
+}
+
+.scry-glyph {
+    font-size: 1.6rem;
+    line-height: 1;
+    color: var(--cyan);
+    margin-bottom: 0.4rem;
+}
+
+.scry-card[data-kind="audio"] .scry-glyph { color: var(--yellow); }
+.scry-card[data-kind="event"] .scry-glyph { color: var(--magenta); }
+
+.scry-tag {
+    font-family: var(--font-display);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--purple-light);
+}
+
+.scry-card[data-kind="audio"] .scry-tag { color: var(--yellow); }
+.scry-card[data-kind="event"] .scry-tag { color: var(--gold-light); }
+
+.scry-name {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    line-height: 1.35;
+    color: var(--text-bright);
+    margin: 0;
+}
+
+.scry-meta {
+    font-size: 0.8rem;
+    color: var(--cyan);
+    margin: 0;
+}
+
+.scry-desc {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    line-height: 1.55;
+    margin: 0.2rem 0 0;
+}
+
+.scry-alt {
+    font-size: 0.78rem;
+    margin: 0.4rem 0 0;
+    color: var(--text-dim);
+}
+
+/* --- Dense grid for episode series --- */
+.scry-grid-dense {
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 1rem;
+}
+
+.scry-mini {
+    position: relative;
+    display: block;
+    aspect-ratio: 16 / 9;
+    border-radius: 6px;
+    overflow: hidden;
+    background: var(--bg-card);
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+.scry-mini img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(1);
+    opacity: 0.7;
+    transition: filter 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
+}
+
+.scry-mini::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.9) 100%);
+    pointer-events: none;
+}
+
+.scry-mini:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 18px var(--magenta-glow);
+}
+
+.scry-mini:hover img {
+    filter: grayscale(0);
+    opacity: 1;
+    transform: scale(1.06);
+}
+
+.scry-mini-num {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.6rem;
+    z-index: 1;
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    color: var(--yellow);
+}
+
+.scry-mini-title {
+    position: absolute;
+    left: 0.6rem;
+    right: 0.6rem;
+    bottom: 0.5rem;
+    z-index: 1;
+    font-size: 0.72rem;
+    line-height: 1.3;
+    color: var(--text);
+}
+
+/* --- Registry list --- */
+.scry-registry {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.scry-registry-row {
+    display: grid;
+    grid-template-columns: minmax(180px, 260px) 1fr;
+    gap: 1.5rem;
+    align-items: baseline;
+    padding: 0.8rem 1.2rem;
+    background: var(--bg-card);
+    border-left: 2px solid var(--cyan-dim);
+    border-radius: 4px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+.scry-registry-row:hover {
+    border-left-color: var(--cyan);
+    box-shadow: -4px 0 12px var(--cyan-glow);
+}
+
+.scry-registry-name {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    color: var(--text-bright);
+}
+
+.scry-registry-desc {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+}
+
+/* --- Nav with six links --- */
+@media (max-width: 768px) {
+    .site-nav {
+        flex-wrap: wrap;
+        gap: 0.6rem 1.2rem;
+        padding: 1.2rem 1rem;
+    }
+
+    .nav-link {
+        font-size: 0.72rem;
+        letter-spacing: 0.1em;
+    }
+
+    .spells-header {
+        padding-top: 8rem;
+    }
+
+    .scry-registry-row {
+        grid-template-columns: 1fr;
+        gap: 0.2rem;
+    }
+
+    .scry-grid-dense {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.7rem;
+    }
+}
+
+/* --- Header-less pages: keep content clear of the fixed nav --- */
+.spells-header--spacer {
+    padding: 5rem 0 0;
+}
+
+/* --- Abilities: learned but not prepared --- */
+.ability-card--learned {
+    opacity: 0.45;
+    filter: saturate(0.4);
+    transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+.ability-card--learned:hover {
+    opacity: 1;
+    filter: saturate(1);
+}
+
+.spells-header--spacer + .abilities-section {
+    margin-top: 1rem;
 }

@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scrying Pool — Alyssa M Adams</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Syne+Mono&family=Inconsolata:wght@200;300;400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D7FJLXGL2E"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-D7FJLXGL2E');
+    </script>
+</head>
+<body>
+    <canvas id="particles"></canvas>
+
+    <nav class="site-nav">
+        <a href="index.html" class="nav-link">Character Sheet</a>
+        <a href="abilities.html" class="nav-link">Abilities</a>
+        <a href="scrying.html" class="nav-link active">Scrying Pool</a>
+    </nav>
+
+    <div class="spells-header spells-header--spacer"></div>
+
+    <!-- ============================================
+         VISIONS — Talks & Lectures (video)
+         ============================================ -->
+    <section class="spells-section scry-section" id="visions">
+        <h2 class="spells-section-title">Visions <span class="subtitle">&mdash; Talks &amp; Lectures</span></h2>
+        <div class="scry-grid">
+
+            <article class="scry-card" data-kind="talk">
+                <a class="scry-cover" href="https://www.youtube.com/watch?v=UyWDTWaxNO8" target="_blank" rel="noopener" aria-label="Using Math to Understand and Define Life"></a>
+                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/UyWDTWaxNO8/hqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
+                <div class="scry-body">
+                    <span class="scry-tag">Lecture</span>
+                    <h3 class="scry-name">Using Math to Understand and Define Life</h3>
+                    <p class="scry-meta">iBiology &middot; Share Your Research &middot; 2021</p>
+                    <p class="scry-desc">A 23-minute introduction to open-ended evolution and the mathematical models behind how living systems keep innovating in a changing world.</p>
+                    <p class="scry-alt"><a href="https://www.ibiology.org/ibiology_podcasts/using-math-to-understand-and-define-life-alyssa-adams/" target="_blank" rel="noopener">Audio version on iBiology</a></p>
+                </div>
+            </article>
+
+            <article class="scry-card" data-kind="talk">
+                <a class="scry-cover" href="https://www.youtube.com/watch?v=IAefARREQy8" target="_blank" rel="noopener" aria-label="The Role of Emergence in Open-Ended Systems"></a>
+                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/IAefARREQy8/hqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
+                <div class="scry-body">
+                    <span class="scry-tag">Invited Talk</span>
+                    <h3 class="scry-name">The Role of Emergence in Open-Ended Systems</h3>
+                    <p class="scry-meta">AUTOMATA 2020 &middot; 2020</p>
+                    <p class="scry-desc">Invited talk at the International Workshop on Cellular Automata and Discrete Complex Systems.</p>
+                </div>
+            </article>
+
+            <article class="scry-card" data-kind="talk">
+                <a class="scry-cover" href="https://www.youtube.com/watch?v=2gExH4Tzkzc" target="_blank" rel="noopener" aria-label="Emergence: The Force Behind Open-Endedness"></a>
+                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/2gExH4Tzkzc/hqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
+                <div class="scry-body">
+                    <span class="scry-tag">Speaker Series</span>
+                    <h3 class="scry-name">Emergence: The Force Behind Open-Endedness</h3>
+                    <p class="scry-meta">Cross Roads #28 &middot; Cross Labs &middot; 2021</p>
+                    <p class="scry-desc">Featured speaker on emergent constraints and where open-endedness comes from.</p>
+                </div>
+            </article>
+
+            <article class="scry-card" data-kind="talk">
+                <a class="scry-cover" href="https://www.youtube.com/watch?v=iqODzJDZR0w" target="_blank" rel="noopener" aria-label="What Cellular Automata Tell Us About Life"></a>
+                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/iqODzJDZR0w/hqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
+                <div class="scry-body">
+                    <span class="scry-tag">Invited Talk</span>
+                    <h3 class="scry-name">What Cellular Automata Tell Us About Life</h3>
+                    <p class="scry-meta">ASCAT 2023 &middot; Cellular Automata India &middot; 2023</p>
+                    <p class="scry-desc">Morning session, day three. What the simplest rule-based universes reveal about the living kind.</p>
+                </div>
+            </article>
+
+            <article class="scry-card" data-kind="talk">
+                <a class="scry-cover" href="https://www.youtube.com/watch?v=EzqbKGGi6KQ" target="_blank" rel="noopener" aria-label="Open-Ended Evolution: League of Legends as a Strategy Generator"></a>
+                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/EzqbKGGi6KQ/hqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
+                <div class="scry-body">
+                    <span class="scry-tag">Lecture</span>
+                    <h3 class="scry-name">Open-Ended Evolution: League of Legends as a Strategy Generator</h3>
+                    <p class="scry-meta">SEDS Celestia &middot; BITS Pilani Goa &middot; 2021</p>
+                    <p class="scry-desc">Why a competitive video game is one of the best real-world laboratories for open-ended evolution.</p>
+                </div>
+            </article>
+
+            <article class="scry-card" data-kind="talk">
+                <a class="scry-cover" href="https://www.youtube.com/watch?v=d-VlcumSeRI" target="_blank" rel="noopener" aria-label="A Graph-Theoretic Approach to Emergent Behavior in Physical Systems"></a>
+                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/d-VlcumSeRI/hqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
+                <div class="scry-body">
+                    <span class="scry-tag">Conference Talk</span>
+                    <h3 class="scry-name">A Graph-Theoretic Approach to Emergent Behavior in Physical Systems</h3>
+                    <p class="scry-meta">ALIFE 2021 &middot; 2021</p>
+                    <p class="scry-desc">Recorded talk from the Conference on Artificial Life.</p>
+                </div>
+            </article>
+
+            <article class="scry-card" data-kind="talk">
+                <a class="scry-cover" href="https://www.youtube.com/watch?v=lnxQge_TLpY" target="_blank" rel="noopener" aria-label="Ghosts in a Shell: An Immersive Art Experience"></a>
+                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/lnxQge_TLpY/hqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
+                <div class="scry-body">
+                    <span class="scry-tag">Art Track</span>
+                    <h3 class="scry-name">Ghosts in a Shell: An Immersive Art Experience</h3>
+                    <p class="scry-meta">ALIFE 2023 &middot; Sapporo &middot; 2023</p>
+                    <p class="scry-desc">Presenting the VR and transformer-model installation created with Oneris Rico, Nicholas Guttenberg, and Olaf Witkowski.</p>
+                </div>
+            </article>
+
+            <article class="scry-card" data-kind="talk">
+                <a class="scry-cover" href="https://www.youtube.com/watch?v=Y4V-XN-LjHc" target="_blank" rel="noopener" aria-label="Ghosts in a Shell"></a>
+                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/Y4V-XN-LjHc/hqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
+                <div class="scry-body">
+                    <span class="scry-tag">Film</span>
+                    <h3 class="scry-name">Ghosts in a Shell</h3>
+                    <p class="scry-meta">Cross Labs &middot; 2023</p>
+                    <p class="scry-desc">Short documentation film of the installation itself.</p>
+                </div>
+            </article>
+
+            <article class="scry-card" data-kind="talk">
+                <a class="scry-cover" href="https://www.youtube.com/watch?v=eaKWHVrWuqQ" target="_blank" rel="noopener" aria-label="Interpretability of Network Measures in Host–Virus Protein Interactions"></a>
+                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/eaKWHVrWuqQ/hqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
+                <div class="scry-body">
+                    <span class="scry-tag">Poster Talk</span>
+                    <h3 class="scry-name">Interpretability of Network Measures in Host&ndash;Virus Protein Interactions</h3>
+                    <p class="scry-meta">ISMB 2022 &middot; NetBio &middot; 2022</p>
+                    <p class="scry-desc">Recorded poster talk from the Morgridge Institute postdoc years.</p>
+                </div>
+            </article>
+
+            <article class="scry-card" data-kind="talk">
+                <a class="scry-cover" href="https://www.youtube.com/watch?v=qBOPTo0Q5aw" target="_blank" rel="noopener" aria-label="Possible Open-Ended Strategy Selection in League of Legends"></a>
+                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/qBOPTo0Q5aw/hqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
+                <div class="scry-body">
+                    <span class="scry-tag">Poster Talk</span>
+                    <h3 class="scry-name">Possible Open-Ended Strategy Selection in League of Legends</h3>
+                    <p class="scry-meta">OEE3 Workshop &middot; ALIFE 2018 &middot; Tokyo</p>
+                    <p class="scry-desc">Short poster presentation at the Third Workshop on Open-Ended Evolution.</p>
+                </div>
+            </article>
+
+            <article class="scry-card" data-kind="talk">
+                <a class="scry-cover" href="https://www.youtube.com/watch?v=JzhAjcbSupM" target="_blank" rel="noopener" aria-label="AbGradCon 2016"></a>
+                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/JzhAjcbSupM/hqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
+                <div class="scry-body">
+                    <span class="scry-tag">Conference Talk</span>
+                    <h3 class="scry-name">AbGradCon 2016</h3>
+                    <p class="scry-meta">NASA Astrobiology &middot; 2016</p>
+                    <p class="scry-desc">An early-level appearance at the Astrobiology Graduate Conference, from the ASU years.</p>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- ============================================
+         CONVERSATIONS — Interviews (video)
+         ============================================ -->
+    <section class="spells-section scry-section" id="conversations">
+        <h2 class="spells-section-title">Conversations <span class="subtitle">&mdash; Interviews on Camera</span></h2>
+        <div class="scry-grid">
+
+            <article class="scry-card" data-kind="interview">
+                <a class="scry-cover" href="https://www.youtube.com/watch?v=hvuvwBfJY50" target="_blank" rel="noopener" aria-label="The Next Ten Years, Embodiment, Japan, and Finding the Right Place"></a>
+                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/hvuvwBfJY50/hqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
+                <div class="scry-body">
+                    <span class="scry-tag">Interview</span>
+                    <h3 class="scry-name">The Next Ten Years, Embodiment, Japan, and Finding the Right Place</h3>
+                    <p class="scry-meta">Last Monkey Standing &middot; Tom Barbalet &middot; 2024</p>
+                    <p class="scry-desc">A wide-ranging conversation on artificial life, embodiment, and building a research life in Japan.</p>
+                </div>
+            </article>
+
+            <article class="scry-card" data-kind="interview">
+                <a class="scry-cover" href="https://www.youtube.com/watch?v=2rf4CXrgI3w" target="_blank" rel="noopener" aria-label="Update Chat: Dr. Alyssa Adams"></a>
+                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/2rf4CXrgI3w/hqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
+                <div class="scry-body">
+                    <span class="scry-tag">Interview</span>
+                    <h3 class="scry-name">Update Chat: Dr. Alyssa Adams</h3>
+                    <p class="scry-meta">Last Monkey Standing &middot; 2024</p>
+                    <p class="scry-desc">On the upcoming ALIFE conference, current research, and what is next at Cross Labs.</p>
+                </div>
+            </article>
+
+            <article class="scry-card" data-kind="interview">
+                <a class="scry-cover" href="https://www.youtube.com/watch?v=knG6c5iggqg" target="_blank" rel="noopener" aria-label="Update Chat with Matthew Andrews and Tom Barbalet"></a>
+                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/knG6c5iggqg/hqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
+                <div class="scry-body">
+                    <span class="scry-tag">Panel Chat</span>
+                    <h3 class="scry-name">Update Chat with Matthew Andrews and Tom Barbalet</h3>
+                    <p class="scry-meta">Last Monkey Standing &middot; 2024</p>
+                    <p class="scry-desc">The longer, three-way version of the same conversation.</p>
+                </div>
+            </article>
+
+            <article class="scry-card" data-kind="interview">
+                <a class="scry-cover" href="https://www.youtube.com/watch?v=y5pFtULN6Ck" target="_blank" rel="noopener" aria-label="Celestia On-Air Ep. 07: In Conversation with Alyssa Adams"></a>
+                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/y5pFtULN6Ck/hqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
+                <div class="scry-body">
+                    <span class="scry-tag">Interview</span>
+                    <h3 class="scry-name">Celestia On-Air Ep. 07: In Conversation with Alyssa Adams</h3>
+                    <p class="scry-meta">SEDS Celestia &middot; Pride Special &middot; 2021</p>
+                    <p class="scry-desc">Identity, science, inclusivity in STEM, and a little League of Legends.</p>
+                    <p class="scry-alt"><a href="https://open.spotify.com/show/0NKbVLI7LpY6069IUCF6xi" target="_blank" rel="noopener">Audio on Spotify</a></p>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- ============================================
+         ECHOES — Podcasts (audio)
+         ============================================ -->
+    <section class="spells-section scry-section" id="echoes">
+        <h2 class="spells-section-title">Echoes <span class="subtitle">&mdash; Podcasts</span></h2>
+        <div class="scry-grid">
+
+            <article class="scry-card scry-card-audio" data-kind="audio">
+                <a class="scry-cover" href="https://open.spotify.com/episode/6Tlr0cmBzPL5yqqHy8UvLx" target="_blank" rel="noopener" aria-label="The 2025 Conference on Artificial Life"></a>
+                <div class="scry-body">
+                    <span class="scry-glyph">&#9835;</span>
+                    <span class="scry-tag">Podcast</span>
+                    <h3 class="scry-name">The 2025 Conference on Artificial Life</h3>
+                    <p class="scry-meta">What ALife! Podcast &middot; Bonus Episode &middot; 2025</p>
+                    <p class="scry-desc">Behind the scenes of ALIFE 2025 in Kyoto, why ALife belongs in Japan, and the launch of a new institute.</p>
+                </div>
+            </article>
+
+            <article class="scry-card scry-card-audio" data-kind="audio">
+                <a class="scry-cover" href="https://open.spotify.com/episode/3tyaM6Ktc09MJ8qYp1AaIN" target="_blank" rel="noopener" aria-label="From PhD to Postdoc Life and Non-Academia Career Paths"></a>
+                <div class="scry-body">
+                    <span class="scry-glyph">&#9835;</span>
+                    <span class="scry-tag">Podcast</span>
+                    <h3 class="scry-name">From PhD to Postdoc Life and Non-Academia Career Paths</h3>
+                    <p class="scry-meta">What ALife! Podcast &middot; Episode 02 &middot; 2024</p>
+                    <p class="scry-desc">Leaving the PhD, navigating careers outside the academy, learning ALife, and balancing science with religion.</p>
+                    <p class="scry-alt"><a href="https://soundcloud.com/imy-khan-398247255/whatalife02_alyssaadams" target="_blank" rel="noopener">Also on SoundCloud</a></p>
+                </div>
+            </article>
+
+            <article class="scry-card scry-card-audio" data-kind="audio">
+                <a class="scry-cover" href="https://open.spotify.com/episode/17M8L3OU6Gnxs9GtbGDocz" target="_blank" rel="noopener" aria-label="Emergence, Artificial Intelligence, and What It Means to Be Human"></a>
+                <div class="scry-body">
+                    <span class="scry-glyph">&#9835;</span>
+                    <span class="scry-tag">Podcast</span>
+                    <h3 class="scry-name">Emergence, Artificial Intelligence, and What It Means to Be Human</h3>
+                    <p class="scry-meta">PyJamas Pillow Talk &middot; Episode 14 &middot; 2020</p>
+                    <p class="scry-desc">Emergence, consciousness, intelligence, and a detour through political philosophy and ethics.</p>
+                </div>
+            </article>
+
+            <article class="scry-card scry-card-audio" data-kind="audio">
+                <a class="scry-cover" href="https://www.ibiology.org/ibiology_podcasts/using-math-to-understand-and-define-life-alyssa-adams/" target="_blank" rel="noopener" aria-label="Using Math to Understand and Define Life"></a>
+                <div class="scry-body">
+                    <span class="scry-glyph">&#9835;</span>
+                    <span class="scry-tag">Podcast</span>
+                    <h3 class="scry-name">Using Math to Understand and Define Life</h3>
+                    <p class="scry-meta">iBiology Podcasts &middot; 2021</p>
+                    <p class="scry-desc">Audio edition of the iBiology talk, for listening on the road.</p>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- ============================================
+         SCROLLS & MISSIVES — Articles & Press
+         ============================================ -->
+    <section class="spells-section scry-section" id="scrolls">
+        <h2 class="spells-section-title">Scrolls &amp; Missives <span class="subtitle">&mdash; Articles &amp; Press</span></h2>
+        <div class="scry-grid">
+
+            <article class="scry-card scry-card-text" data-kind="press">
+                <a class="scry-cover" href="https://www.yahoo.com/news/american-brain-drain-arrived-just-074102118.html" target="_blank" rel="noopener" aria-label="The American Brain Drain Has Arrived. Just Ask These Scientists."></a>
+                <div class="scry-body">
+                    <span class="scry-glyph">&#10070;</span>
+                    <span class="scry-tag">Press</span>
+                    <h3 class="scry-name">The American Brain Drain Has Arrived. Just Ask These Scientists.</h3>
+                    <p class="scry-meta">Business Insider &middot; 2025</p>
+                    <p class="scry-desc">Interviewed on leaving the US for Japan, and the wave of American researchers applying to labs abroad.</p>
+                </div>
+            </article>
+
+            <article class="scry-card scry-card-text" data-kind="press">
+                <a class="scry-cover" href="https://technical.ly/startups/veda-data-solutions-launches-veda-labs-and-healthcare-data-fellowship/" target="_blank" rel="noopener" aria-label="VEDA Data Solutions Launches VEDA Labs"></a>
+                <div class="scry-body">
+                    <span class="scry-glyph">&#10070;</span>
+                    <span class="scry-tag">Press</span>
+                    <h3 class="scry-name">VEDA Data Solutions Launches VEDA Labs</h3>
+                    <p class="scry-meta">Technical.ly &middot; c. 2020</p>
+                    <p class="scry-desc">Quoted on VEDA Labs as a scientific response to the world&rsquo;s data revolution.</p>
+                </div>
+            </article>
+
+            <article class="scry-card scry-card-text" data-kind="essay">
+                <a class="scry-cover" href="https://www.crosslabs.org/blog/subjective-open-endedness" target="_blank" rel="noopener" aria-label="Subjective Open-Endedness"></a>
+                <div class="scry-body">
+                    <span class="scry-glyph">&#10070;</span>
+                    <span class="scry-tag">Essay</span>
+                    <h3 class="scry-name">Subjective Open-Endedness</h3>
+                    <p class="scry-meta">Cross Labs Blog &middot; 2023</p>
+                    <p class="scry-desc">With Nicholas Guttenberg, Lisa Soros, and Olaf Witkowski. Whether open-endedness is in the system or in the eye of the observer.</p>
+                </div>
+            </article>
+
+            <article class="scry-card scry-card-text" data-kind="essay">
+                <a class="scry-cover" href="https://direct.mit.edu/isal/proceedings-abstract/isal2025/37/2/134111" target="_blank" rel="noopener" aria-label="Ciphers of Life: ALIFE 2025 Preface"></a>
+                <div class="scry-body">
+                    <span class="scry-glyph">&#10070;</span>
+                    <span class="scry-tag">Editorial</span>
+                    <h3 class="scry-name">Ciphers of Life: ALIFE 2025 Preface</h3>
+                    <p class="scry-meta">MIT Press &middot; ISAL Proceedings &middot; 2025</p>
+                    <p class="scry-desc">Editors&rsquo; note for the Kyoto conference, with Olaf Witkowski, Lana Sinapayen, Manuel Baltieri, and Mahdi Khosravy.</p>
+                </div>
+            </article>
+
+            <article class="scry-card scry-card-text" data-kind="notice">
+                <a class="scry-cover" href="https://alife.org/results-of-isal-board-of-directors-2023-elections/" target="_blank" rel="noopener" aria-label="Elected to the ISAL Board of Directors"></a>
+                <div class="scry-body">
+                    <span class="scry-glyph">&#10070;</span>
+                    <span class="scry-tag">Announcement</span>
+                    <h3 class="scry-name">Elected to the ISAL Board of Directors</h3>
+                    <p class="scry-meta">International Society for Artificial Life &middot; 2024</p>
+                    <p class="scry-desc">Results of the 2023 board elections.</p>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- ============================================
+         GATHERINGS CONVENED — organizer credits
+         ============================================ -->
+    <section class="spells-section scry-section" id="gatherings">
+        <h2 class="spells-section-title">Gatherings Convened <span class="subtitle">&mdash; Events Organized</span></h2>
+        <div class="scry-grid">
+
+            <article class="scry-card" data-kind="event">
+                <a class="scry-cover" href="https://www.youtube.com/watch?v=QuKYdekbTlg" target="_blank" rel="noopener" aria-label="New Human Interfaces: Keynotes &amp; Discussions"></a>
+                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/QuKYdekbTlg/hqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
+                <div class="scry-body">
+                    <span class="scry-tag">Workshop</span>
+                    <h3 class="scry-name">New Human Interfaces: Keynotes &amp; Discussions</h3>
+                    <p class="scry-meta">Cross Labs Workshop &middot; 2025</p>
+                    <p class="scry-desc">Fifth annual Cross Labs workshop, organized with Olaf Witkowski, Antoine Pasquali, and Katsunobu Suzuki. <a href="https://www.youtube.com/watch?v=dQgQgNefXlg" target="_blank" rel="noopener">Panel &amp; Discussion #2</a> &middot; <a href="https://www.crosslabs.org/new-human-interfaces" target="_blank" rel="noopener">Event page</a></p>
+                </div>
+            </article>
+
+            <article class="scry-card" data-kind="event">
+                <a class="scry-cover" href="https://www.youtube.com/watch?v=m3N0kx04Q_8" target="_blank" rel="noopener" aria-label="ALIFE 2025: Ciphers of Life"></a>
+                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/m3N0kx04Q_8/hqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
+                <div class="scry-body">
+                    <span class="scry-tag">Conference</span>
+                    <h3 class="scry-name">ALIFE 2025: Ciphers of Life</h3>
+                    <p class="scry-meta">Kyoto &middot; Vice Chair &middot; 2025</p>
+                    <p class="scry-desc">The Cross Labs team&rsquo;s invitation to the Conference on Artificial Life. <a href="https://2025.alife.org/organizers" target="_blank" rel="noopener">Organizing committee</a> &middot; <a href="https://www.youtube.com/@ALIFE2025" target="_blank" rel="noopener">Session recordings</a></p>
+                </div>
+            </article>
+
+            <article class="scry-card scry-card-text" data-kind="event">
+                <a class="scry-cover" href="https://www.crosslabs.org/cross-labs-alife-summer-school-class-2025" target="_blank" rel="noopener" aria-label="Cross Labs ALife Summer School (CLASS) 2025"></a>
+                <div class="scry-body">
+                    <span class="scry-glyph">&#10022;</span>
+                    <span class="scry-tag">Summer School</span>
+                    <h3 class="scry-name">Cross Labs ALife Summer School (CLASS) 2025</h3>
+                    <p class="scry-meta">Cross Labs &middot; Program Advisor &middot; 2025</p>
+                    <p class="scry-desc">A summer school built around one question: what is life?</p>
+                </div>
+            </article>
+
+            <article class="scry-card scry-card-text" data-kind="event">
+                <a class="scry-cover" href="https://kohlerfellows.illuminatingdiscovery.wisc.edu/life-as-we-dont-know-it/" target="_blank" rel="noopener" aria-label="Life As We Don’t Know It"></a>
+                <div class="scry-body">
+                    <span class="scry-glyph">&#10022;</span>
+                    <span class="scry-tag">Exhibition</span>
+                    <h3 class="scry-name">Life As We Don&rsquo;t Know It</h3>
+                    <p class="scry-meta">Kohler Fellows &middot; Overture Center, Madison &middot; 2022</p>
+                    <p class="scry-desc">Science advisor to a collaboration between nine artists and six scientists on life as we don&rsquo;t know it.</p>
+                </div>
+            </article>
+
+            <article class="scry-card scry-card-text" data-kind="event">
+                <a class="scry-cover" href="https://2023.alife.org/art-exhibition-unconscious-relationship/" target="_blank" rel="noopener" aria-label="Unconscious Relationship: ALIFE 2023 Art Exhibition"></a>
+                <div class="scry-body">
+                    <span class="scry-glyph">&#10022;</span>
+                    <span class="scry-tag">Exhibition</span>
+                    <h3 class="scry-name">Unconscious Relationship: ALIFE 2023 Art Exhibition</h3>
+                    <p class="scry-meta">Sapporo &middot; 2023</p>
+                    <p class="scry-desc">Catalogue entry for Ghosts in a Shell among the thirteen exhibited works.</p>
+                </div>
+            </article>
+
+            <article class="scry-card scry-card-text" data-kind="event">
+                <a class="scry-cover" href="https://www.oolen.org/news-and-events/virtual-meetings/005-november-8-2023/" target="_blank" rel="noopener" aria-label="How to Use Your PhD for a Career That You Love"></a>
+                <div class="scry-body">
+                    <span class="scry-glyph">&#10022;</span>
+                    <span class="scry-tag">Talk</span>
+                    <h3 class="scry-name">How to Use Your PhD for a Career That You Love</h3>
+                    <p class="scry-meta">OoLEN Virtual Meeting &middot; 2023</p>
+                    <p class="scry-desc">Without having to worry about becoming a professor.</p>
+                </div>
+            </article>
+
+            <article class="scry-card scry-card-text" data-kind="event">
+                <a class="scry-cover" href="https://free-the-phd-summit2020.heysummit.com/speakers/alyssa-adams/" target="_blank" rel="noopener" aria-label="Guided Informational Interviews: Data Science"></a>
+                <div class="scry-body">
+                    <span class="scry-glyph">&#10022;</span>
+                    <span class="scry-tag">Panel</span>
+                    <h3 class="scry-name">Guided Informational Interviews: Data Science</h3>
+                    <p class="scry-meta">Free the PhD Career Design Summit &middot; 2020</p>
+                    <p class="scry-desc">Panel with David Nicholson and Jesse Wood.</p>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- ============================================
+         THE HOST'S CHAIR — On My Mind
+         ============================================ -->
+    <section class="spells-section scry-section" id="on-my-mind">
+        <h2 class="spells-section-title">The Host&rsquo;s Chair <span class="subtitle">&mdash; On My Mind, a Cross Labs science podcast</span></h2>
+        <p class="scry-lead">Twenty-five episodes hosted in 2023, produced with Oneris Rico. Cross Labs researchers on AI, ethics, art, consciousness, entropy, and the occasional hot dog. <a href="https://www.youtube.com/playlist?list=PLODRPaSTLJCeDbLrnbfvX_rMgPrJwCu6t" target="_blank" rel="noopener">Full playlist</a> &middot; <a href="https://www.crosslabs.org/on-my-mind" target="_blank" rel="noopener">Series page</a></p>
+        <div class="scry-grid scry-grid-dense">
+            <a class="scry-mini" href="https://www.youtube.com/watch?v=tcChBbpYRsU" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/tcChBbpYRsU/mqdefault.jpg" alt="" loading="lazy"><span class="scry-mini-num">01</span><span class="scry-mini-title">Interfaces for communicating and solving problems</span></a>
+            <a class="scry-mini" href="https://www.youtube.com/watch?v=Cxum24_wSKo" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/Cxum24_wSKo/mqdefault.jpg" alt="" loading="lazy"><span class="scry-mini-num">02</span><span class="scry-mini-title">Should language become obsolete?</span></a>
+            <a class="scry-mini" href="https://www.youtube.com/watch?v=OnHcYD6b9KA" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/OnHcYD6b9KA/mqdefault.jpg" alt="" loading="lazy"><span class="scry-mini-num">03</span><span class="scry-mini-title">Interacting communities of AI models</span></a>
+            <a class="scry-mini" href="https://www.youtube.com/watch?v=bowE7REIy4o" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/bowE7REIy4o/mqdefault.jpg" alt="" loading="lazy"><span class="scry-mini-num">04</span><span class="scry-mini-title">What&rsquo;s the medium of video games?</span></a>
+            <a class="scry-mini" href="https://www.youtube.com/watch?v=kzKHt9jXq1c" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/kzKHt9jXq1c/mqdefault.jpg" alt="" loading="lazy"><span class="scry-mini-num">05</span><span class="scry-mini-title">GPT models for personalized learning and the ethics of privacy</span></a>
+            <a class="scry-mini" href="https://www.youtube.com/watch?v=4mvlvw3UISs" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/4mvlvw3UISs/mqdefault.jpg" alt="" loading="lazy"><span class="scry-mini-num">06</span><span class="scry-mini-title">Moral decision-making and the sacredness of consciousness</span></a>
+            <a class="scry-mini" href="https://www.youtube.com/watch?v=k2TnaJpo7fM" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/k2TnaJpo7fM/mqdefault.jpg" alt="" loading="lazy"><span class="scry-mini-num">07</span><span class="scry-mini-title">The business of AI: domination, data, and openness</span></a>
+            <a class="scry-mini" href="https://www.youtube.com/watch?v=zzWqvh1lUso" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/zzWqvh1lUso/mqdefault.jpg" alt="" loading="lazy"><span class="scry-mini-num">08</span><span class="scry-mini-title">Can humans be used as computational units?</span></a>
+            <a class="scry-mini" href="https://www.youtube.com/watch?v=Hwq3OXJ5fCM" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/Hwq3OXJ5fCM/mqdefault.jpg" alt="" loading="lazy"><span class="scry-mini-num">09</span><span class="scry-mini-title">Will AI really destroy humanity?</span></a>
+            <a class="scry-mini" href="https://www.youtube.com/watch?v=dzt8n0f0ARA" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/dzt8n0f0ARA/mqdefault.jpg" alt="" loading="lazy"><span class="scry-mini-num">10</span><span class="scry-mini-title">Perspectives on bias, access, and empowerment in AI</span></a>
+            <a class="scry-mini" href="https://www.youtube.com/watch?v=XaUwjElkSGM" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/XaUwjElkSGM/mqdefault.jpg" alt="" loading="lazy"><span class="scry-mini-num">11</span><span class="scry-mini-title">AI art vs. human art, copyright, and power dynamics</span></a>
+            <a class="scry-mini" href="https://www.youtube.com/watch?v=KqhDBQ12Qh8" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/KqhDBQ12Qh8/mqdefault.jpg" alt="" loading="lazy"><span class="scry-mini-num">12</span><span class="scry-mini-title">The impact of technology on quality of life</span></a>
+            <a class="scry-mini" href="https://www.youtube.com/watch?v=cLF6wPQAALo" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/cLF6wPQAALo/mqdefault.jpg" alt="" loading="lazy"><span class="scry-mini-num">13</span><span class="scry-mini-title">Life&rsquo;s role in entropy</span></a>
+            <a class="scry-mini" href="https://www.youtube.com/watch?v=q0h3XMJ5yog" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/q0h3XMJ5yog/mqdefault.jpg" alt="" loading="lazy"><span class="scry-mini-num">14</span><span class="scry-mini-title">Surviving disturbances in life and the Game of Life</span></a>
+            <a class="scry-mini" href="https://www.youtube.com/watch?v=4IC3_r9IRK4" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/4IC3_r9IRK4/mqdefault.jpg" alt="" loading="lazy"><span class="scry-mini-num">15</span><span class="scry-mini-title">AI regulations, accountability, and the weight of consequences</span></a>
+            <a class="scry-mini" href="https://www.youtube.com/watch?v=Wrn5NTDVS9o" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/Wrn5NTDVS9o/mqdefault.jpg" alt="" loading="lazy"><span class="scry-mini-num">16</span><span class="scry-mini-title">AI and human creativity in media production</span></a>
+            <a class="scry-mini" href="https://www.youtube.com/watch?v=Zb0knDYWQvk" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/Zb0knDYWQvk/mqdefault.jpg" alt="" loading="lazy"><span class="scry-mini-num">17</span><span class="scry-mini-title">Scriptwriting: the balance between art and profitability</span></a>
+            <a class="scry-mini" href="https://www.youtube.com/watch?v=GQfxwZIGIwQ" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/GQfxwZIGIwQ/mqdefault.jpg" alt="" loading="lazy"><span class="scry-mini-num">18</span><span class="scry-mini-title">The unaddictive yet intriguing</span></a>
+            <a class="scry-mini" href="https://www.youtube.com/watch?v=CWO0mQoarko" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/CWO0mQoarko/mqdefault.jpg" alt="" loading="lazy"><span class="scry-mini-num">19</span><span class="scry-mini-title">The stagnation of technological progress</span></a>
+            <a class="scry-mini" href="https://www.youtube.com/watch?v=DEi8PjaTxmk" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/DEi8PjaTxmk/mqdefault.jpg" alt="" loading="lazy"><span class="scry-mini-num">20</span><span class="scry-mini-title">Goals, values, and the philosophy of purpose</span></a>
+            <a class="scry-mini" href="https://www.youtube.com/watch?v=iWdStuuCQ9k" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/iWdStuuCQ9k/mqdefault.jpg" alt="" loading="lazy"><span class="scry-mini-num">21</span><span class="scry-mini-title">Navigating the web of deception</span></a>
+            <a class="scry-mini" href="https://www.youtube.com/watch?v=f75QGXOm31E" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/f75QGXOm31E/mqdefault.jpg" alt="" loading="lazy"><span class="scry-mini-num">22</span><span class="scry-mini-title">Game rants and dystopian brain-ads tech</span></a>
+            <a class="scry-mini" href="https://www.youtube.com/watch?v=s8d1qOviO4w" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/s8d1qOviO4w/mqdefault.jpg" alt="" loading="lazy"><span class="scry-mini-num">23</span><span class="scry-mini-title">Challenges in simulating a neuron</span></a>
+            <a class="scry-mini" href="https://www.youtube.com/watch?v=fmYgunv49jY" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/fmYgunv49jY/mqdefault.jpg" alt="" loading="lazy"><span class="scry-mini-num">24</span><span class="scry-mini-title">The landscape of AI-generated art and hot dogs</span></a>
+            <a class="scry-mini" href="https://www.youtube.com/watch?v=u0RD11jJcVs" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/u0RD11jJcVs/mqdefault.jpg" alt="" loading="lazy"><span class="scry-mini-num">25</span><span class="scry-mini-title">The future of open-source AI and community innovation</span></a>
+        </div>
+    </section>
+
+    <!-- ============================================
+         GUILD REGISTRIES — profiles
+         ============================================ -->
+    <section class="spells-section scry-section" id="registries">
+        <h2 class="spells-section-title">Guild Registries <span class="subtitle">&mdash; Where Alyssa Is Registered</span></h2>
+        <div class="scry-registry">
+            <a class="scry-registry-row" href="https://www.crosslabs.org/team" target="_blank" rel="noopener"><span class="scry-registry-name">Cross Labs</span><span class="scry-registry-desc">Team profile, Deputy Director</span></a>
+            <a class="scry-registry-row" href="https://2025.alife.org/organizers" target="_blank" rel="noopener"><span class="scry-registry-name">ALIFE 2025</span><span class="scry-registry-desc">Organizing committee, Vice Chair</span></a>
+            <a class="scry-registry-row" href="https://www.alife-japan.org/about-en" target="_blank" rel="noopener"><span class="scry-registry-name">ALife Japan</span><span class="scry-registry-desc">Steering committee</span></a>
+            <a class="scry-registry-row" href="https://www.oolen.org/members/alyssaadams/" target="_blank" rel="noopener"><span class="scry-registry-name">OoLEN</span><span class="scry-registry-desc">Origin of Life Early-career Network member profile</span></a>
+            <a class="scry-registry-row" href="https://www.ibiology.org/speakers/alyssa-adams/" target="_blank" rel="noopener"><span class="scry-registry-name">iBiology</span><span class="scry-registry-desc">Speaker profile</span></a>
+            <a class="scry-registry-row" href="https://anantharamanlab.wisc.edu/postdoctoral-scholars/" target="_blank" rel="noopener"><span class="scry-registry-name">Anantharaman Lab, UW&ndash;Madison</span><span class="scry-registry-desc">Postdoctoral scholar profile</span></a>
+            <a class="scry-registry-row" href="https://gitterlab.org/people" target="_blank" rel="noopener"><span class="scry-registry-name">Gitter Lab, Morgridge Institute</span><span class="scry-registry-desc">People</span></a>
+            <a class="scry-registry-row" href="https://cibm.wisc.edu/trainees/" target="_blank" rel="noopener"><span class="scry-registry-name">CIBM, UW&ndash;Madison</span><span class="scry-registry-desc">NIH-CIBM postdoctoral fellow</span></a>
+            <a class="scry-registry-row" href="https://education.wolfram.com/summer-school/alumni/2014/adams/" target="_blank" rel="noopener"><span class="scry-registry-name">Wolfram Summer School 2014</span><span class="scry-registry-desc">Alumni profile: genetic programs modeled by cellular automata</span></a>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Alyssa Adams. Crafted with crabs and cats.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
