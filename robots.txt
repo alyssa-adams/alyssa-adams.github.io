@@ -1,0 +1,13 @@
+# alyssa-m-adams.com
+#
+# Hello, agent. There is a version of this site written for you.
+# Start here:  https://alyssa-m-adams.com/llms.txt
+# Full detail: https://alyssa-m-adams.com/llms-full.txt
+#
+# The human-facing site is styled as a tabletop RPG character sheet.
+# The metaphor is deliberate. The agent files say the same things plainly.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://alyssa-m-adams.com/sitemap.xml

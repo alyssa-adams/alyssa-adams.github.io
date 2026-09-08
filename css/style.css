@@ -1943,7 +1943,7 @@ body {
     color: var(--text-dim);
 }
 
-/* --- Nav with six links --- */
+/* --- Nav with three links --- */
 @media (max-width: 768px) {
     .site-nav {
         flex-wrap: wrap;
