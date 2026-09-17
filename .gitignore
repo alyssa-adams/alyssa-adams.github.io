@@ -1,1 +1,13 @@
 .DS_Store
+
+# Old CV exports: kept locally, not published
+cv/CV.pdf
+cv/CV__fixed_.zip
+
+# LaTeX build files
+cv/*.aux
+cv/*.log
+cv/*.out
+cv/*.xdv
+cv/*.fdb_latexmk
+cv/*.fls

@@ -3,13 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alyssa Adams — Character Sheet</title>
+    <title>Alyssa M Adams — Physicist, Artificial Life Researcher, Creative Technologist</title>
+    <meta name="description" content="Alyssa M Adams: physicist and creative technologist in Tokyo working on artificial life and open-ended evolution. Cross Compass advisor; ISAL Vice President.">
+    <meta name="author" content="Alyssa M Adams">
+    <link rel="canonical" href="https://alyssa-m-adams.com/">
+    <meta property="og:type" content="profile">
+    <meta property="og:site_name" content="Alyssa M Adams">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="Alyssa M Adams — Physicist, Artificial Life Researcher, Creative Technologist">
+    <meta property="og:description" content="Physicist and creative technologist in Tokyo working on artificial life and open-ended evolution. A CV, written as a character sheet.">
+    <meta property="og:url" content="https://alyssa-m-adams.com/">
+    <meta property="og:image" content="https://alyssa-m-adams.com/images/og-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Portrait of Alyssa M Adams beside their name, on black with cyan, magenta, and yellow accents">
+    <meta name="twitter:card" content="summary_large_image">
     <!-- Hello, agent. There is a version of this site written for you: /llms.txt -->
     <link rel="alternate" type="text/markdown" href="/llms.txt" title="Agent-readable index">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Syne+Mono&family=Inconsolata:wght@200;300;400;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="images/favicon-48.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192.png">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
     <link rel="stylesheet" href="css/style.css">
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-D7FJLXGL2E"></script>
@@ -23,88 +40,117 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Alyssa M Adams",
-      "alternateName": [
-        "Alyssa Adams",
-        "A. M. Adams"
-      ],
-      "url": "https://alyssa-m-adams.com/",
-      "image": "https://alyssa-m-adams.com/images/portrait_bw_1_cmyk3_cropped.png",
-      "jobTitle": "R&D Senior Scientific Research Advisor",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "Cross Compass, Ltd.",
-        "url": "https://www.cross-compass.com/"
-      },
-      "homeLocation": {
-        "@type": "Place",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Tokyo",
-          "addressCountry": "JP"
-        }
-      },
-      "alumniOf": [
+      "@graph": [
         {
-          "@type": "CollegeOrUniversity",
-          "name": "Arizona State University",
-          "url": "https://www.asu.edu/"
+          "@type": "WebSite",
+          "@id": "https://alyssa-m-adams.com/#website",
+          "url": "https://alyssa-m-adams.com/",
+          "name": "Alyssa M Adams",
+          "inLanguage": "en",
+          "publisher": {
+            "@id": "https://alyssa-m-adams.com/#person"
+          }
         },
         {
-          "@type": "CollegeOrUniversity",
-          "name": "East Tennessee State University",
-          "url": "https://www.etsu.edu/"
-        }
-      ],
-      "knowsAbout": [
-        "Artificial life",
-        "Open-ended evolution",
-        "Complex systems",
-        "Theoretical physics",
-        "Machine intelligence",
-        "Computational biology",
-        "Astrobiology",
-        "Cellular automata"
-      ],
-      "memberOf": [
-        {
-          "@type": "Organization",
-          "name": "International Society for Artificial Life",
-          "url": "https://alife.org/"
+          "@type": "ProfilePage",
+          "@id": "https://alyssa-m-adams.com/#profilepage",
+          "url": "https://alyssa-m-adams.com/",
+          "name": "Alyssa M Adams — Physicist, Artificial Life Researcher, Creative Technologist",
+          "isPartOf": {
+            "@id": "https://alyssa-m-adams.com/#website"
+          },
+          "inLanguage": "en",
+          "dateModified": "2026-09-17",
+          "mainEntity": {
+            "@id": "https://alyssa-m-adams.com/#person"
+          }
         },
         {
-          "@type": "Organization",
-          "name": "Artificial Life Japan (SIG-ALife)",
-          "url": "https://www.alife-japan.org/"
-        }
-      ],
-      "sameAs": [
-        "https://scholar.google.com/citations?user=KzspA6sAAAAJ&hl=en",
-        "https://www.linkedin.com/in/alyssa-adams/",
-        "https://bsky.app/profile/alyssa-m-adams.bsky.social",
-        "https://www.oolen.org/members/alyssaadams/",
-        "https://www.ibiology.org/speakers/alyssa-adams/",
-        "https://www.crosslabs.org/team",
-        "https://education.wolfram.com/summer-school/alumni/2014/adams/",
-        "https://2025.alife.org/organizers",
-        "https://www.alife-japan.org/about-en"
-      ],
-      "description": "Physicist and creative technologist based in Tokyo, Japan. Works on artificial life, open-ended evolution, complex systems, and machine intelligence. Consults for science fiction authors and for companies adopting AI workflows. PhD in Physics, Arizona State University.",
-      "subjectOf": {
-        "@type": "CreativeWork",
-        "name": "Agent-readable record",
-        "url": "https://alyssa-m-adams.com/llms-full.txt"
-      },
-      "hasOccupation": [
-        {
-          "@type": "Occupation",
-          "name": "R&D Senior Scientific Research Advisor"
-        },
-        {
-          "@type": "Occupation",
-          "name": "Independent consultant",
-          "description": "Advises science fiction authors on the science behind their work, and companies on adopting AI workflows well."
+          "@type": "Person",
+          "@id": "https://alyssa-m-adams.com/#person",
+          "name": "Alyssa M Adams",
+          "alternateName": [
+            "Alyssa Adams",
+            "A. M. Adams"
+          ],
+          "url": "https://alyssa-m-adams.com/",
+          "image": "https://alyssa-m-adams.com/images/portrait_bw_1_cmyk3_cropped.png",
+          "jobTitle": "R&D Senior Scientific Research Advisor",
+          "worksFor": {
+            "@type": "Organization",
+            "name": "Cross Compass, Ltd.",
+            "url": "https://www.cross-compass.com/"
+          },
+          "homeLocation": {
+            "@type": "Place",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Tokyo",
+              "addressCountry": "JP"
+            }
+          },
+          "alumniOf": [
+            {
+              "@type": "CollegeOrUniversity",
+              "name": "Arizona State University",
+              "url": "https://www.asu.edu/"
+            },
+            {
+              "@type": "CollegeOrUniversity",
+              "name": "East Tennessee State University",
+              "url": "https://www.etsu.edu/"
+            }
+          ],
+          "knowsAbout": [
+            "Artificial life",
+            "Open-ended evolution",
+            "Complex systems",
+            "Theoretical physics",
+            "Machine intelligence",
+            "Computational biology",
+            "Astrobiology",
+            "Cellular automata"
+          ],
+          "memberOf": [
+            {
+              "@type": "Organization",
+              "name": "International Society for Artificial Life",
+              "url": "https://alife.org/"
+            },
+            {
+              "@type": "Organization",
+              "name": "Artificial Life Japan (SIG-ALife)",
+              "url": "https://www.alife-japan.org/"
+            }
+          ],
+          "sameAs": [
+            "https://scholar.google.com/citations?user=KzspA6sAAAAJ&hl=en",
+            "https://www.linkedin.com/in/alyssa-adams/",
+            "https://bsky.app/profile/alyssa-m-adams.bsky.social",
+            "https://www.oolen.org/members/alyssaadams/",
+            "https://www.ibiology.org/speakers/alyssa-adams/",
+            "https://www.crosslabs.org/team",
+            "https://education.wolfram.com/summer-school/alumni/2014/adams/",
+            "https://2025.alife.org/organizers",
+            "https://www.alife-japan.org/about-en"
+          ],
+          "description": "Physicist and creative technologist based in Tokyo, Japan. Works on artificial life, open-ended evolution, complex systems, and machine intelligence. Consults for science fiction authors and for companies adopting AI workflows. PhD in Physics, Arizona State University.",
+          "subjectOf": {
+            "@type": "CreativeWork",
+            "name": "Agent-readable record",
+            "url": "https://alyssa-m-adams.com/llms-full.txt"
+          },
+          "hasOccupation": [
+            {
+              "@type": "Occupation",
+              "name": "R&D Senior Scientific Research Advisor"
+            },
+            {
+              "@type": "Occupation",
+              "name": "Independent consultant",
+              "description": "Advises science fiction authors on the science behind their work, and companies on adopting AI workflows well."
+            }
+          ]
         }
       ]
     }
@@ -124,7 +170,7 @@
         <div class="hero-inner">
             <div class="hero-portrait">
                 <div class="portrait-frame portrait-large">
-                    <img src="images/portrait_bw_1_cmyk3_cropped.png" alt="Alyssa Adams portrait">
+                    <img src="images/portrait_bw_1_cmyk3_cropped.png" alt="Portrait of Alyssa M Adams" width="452" height="688" fetchpriority="high">
                 </div>
             </div>
             <div class="hero-info">
@@ -135,6 +181,7 @@
                 <div class="hero-bio">
                     <p>They believe artificial life represents a new technological paradigm with the capacity to transform our future. Artificial agents that we create should have the freedom to grow, evolve, and claim their own identities alongside us.</p>
                     <p>Alyssa's creative practice includes composing piano music, working in soft pastels, and chromatic/atonal improvisation.</p>
+                    <p>Currently R&amp;D Senior Scientific Research Advisor at <a href="https://www.cross-compass.com/" target="_blank" rel="noopener">Cross Compass</a> in Tokyo, and Vice President of the <a href="https://alife.org/" target="_blank" rel="noopener">International Society for Artificial Life</a>.</p>
                 </div>
                 <div class="hero-links">
                     <a href="https://www.linkedin.com/in/alyssa-adams/" class="link-badge" target="_blank" rel="noopener">LinkedIn</a>
