@@ -1,14 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="630" viewBox="0 0 1200 630">
-  <!-- Source for og-card.png, the link-preview image. Rasterize with headless Chrome at 1200x630. -->
+  <!-- Source for og-card.png, the link-preview image. Rasterize with headless Chrome at 1200x630.
+       Lettering is deliberately sturdier than on the site: platforms shrink and JPEG-compress this
+       image, and hairline coloured strokes on black turn to mush. -->
   <defs>
     <style>
       @font-face { font-family: 'Major Mono Display'; src: url('../cv/fonts/MajorMonoDisplay-Regular.ttf'); }
       @font-face { font-family: 'Inconsolata'; font-weight: 300; src: url('../cv/fonts/Inconsolata-Light.ttf'); }
       @font-face { font-family: 'Inconsolata'; font-weight: 400; src: url('../cv/fonts/Inconsolata-Regular.ttf'); }
-      .name    { font-family: 'Major Mono Display', monospace; font-size: 62px; fill: url(#cmy); }
-      .kicker  { font-family: 'Inconsolata', monospace; font-weight: 400; font-size: 22px; letter-spacing: 0.22em; fill: #8a8a8a; }
-      .tagline { font-family: 'Inconsolata', monospace; font-weight: 300; font-size: 23px; fill: #d8d8d8; }
-      .url     { font-family: 'Inconsolata', monospace; font-weight: 400; font-size: 22px; letter-spacing: 0.12em; fill: #8a8a8a; }
+      .name    { font-family: 'Major Mono Display', monospace; font-size: 62px; fill: url(#cmy); stroke: url(#cmy); stroke-width: 1.3px; stroke-linejoin: round; paint-order: stroke fill; }
+      .kicker  { font-family: 'Inconsolata', monospace; font-weight: 400; font-size: 22px; letter-spacing: 0.22em; fill: #9c9c9c; }
+      .tagline { font-family: 'Inconsolata', monospace; font-weight: 400; font-size: 23px; fill: #ececec; }
+      .url     { font-family: 'Inconsolata', monospace; font-weight: 400; font-size: 22px; letter-spacing: 0.12em; fill: #9c9c9c; }
     </style>
     <linearGradient id="cmy" gradientUnits="userSpaceOnUse" x1="80" y1="0" x2="713" y2="0">
       <stop offset="0" stop-color="#00e5e5"/>
@@ -30,7 +32,7 @@
   <text class="kicker" x="80" y="212">CHARACTER SHEET</text>
   <text class="name" x="78" y="296">Alyssa M Adams</text>
   <!-- Rule spans the name's inked width and shares its gradient -->
-  <rect x="80" y="330" width="633" height="3" fill="url(#cmy)"/>
+  <rect x="80" y="329.5" width="633" height="4" fill="url(#cmy)"/>
   <text class="tagline" x="80" y="384">Physicist · Artificial life researcher</text>
   <text class="tagline" x="80" y="416">Creative technologist · Tokyo</text>
   <text class="url" x="80" y="540">ALYSSA-M-ADAMS.COM</text>
