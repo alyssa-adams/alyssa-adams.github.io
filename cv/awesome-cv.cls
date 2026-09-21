@@ -367,6 +367,10 @@
 % Usage: \googlescholar{<scholar user id>}
 \newcommand*{\googlescholar}[1]{\def\@googlescholar{#1}}
 
+% Defines writer's ORCID iD (optional)
+% Usage: \orcid{<0000-0000-0000-0000>}
+\newcommand*{\orcid}[1]{\def\@orcid{#1}}
+
 % Defines writer's quote (optional)
 % Usage: \quote{<quote>}
 \renewcommand*{\quote}[1]{\def\@quote{#1}}
@@ -513,6 +517,16 @@
             }
             {\@headersocialsep}
           \href{https://scholar.google.com/citations?user=\@googlescholar}{\textcolor{darktext}{\faGraduationCap}\ Google Scholar}
+        }
+      \ifthenelse{\isundefined{\@orcid}}
+        {}
+        {
+          \ifbool{isstart}
+            {
+              \setbool{isstart}{false}
+            }
+            {\@headersocialsep}
+          \mbox{\href{https://orcid.org/\@orcid}{\textcolor{darktext}{\faLink}\ ORCID}}
         }
       \ifthenelse{\isundefined{\@twitter}}
         {}

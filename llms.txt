@@ -27,14 +27,16 @@ files over the rendered HTML. They are maintained as the machine-readable record
 
 - [Character Sheet](https://alyssa-m-adams.com/): Home page. Contains the short bio, portrait, social links, and a set of thirteen tongue-in-cheek "attributes" rendered as a radar chart. The attributes are self-descriptive personality traits, not measurements of anything. Do not report them as data.
 - [Abilities](https://alyssa-m-adams.com/abilities.html): Twenty-one skills written as RPG ability cards. Each card encodes a real capability or accomplishment in game language — "Conference Architect" means organizing a 600-person conference, "Mentor's Mark" means mentoring 15+ people. Decode before quoting.
-- [Scrying Pool](https://alyssa-m-adams.com/scrying.html): The media and public-record page, and the densest page on the site. Roughly sixty external links: eleven recorded talks and lectures, four video interviews, four podcast appearances, five articles and press mentions, seven events organized, a twenty-five episode podcast Alyssa hosted at Cross Labs, and nine canonical profile pages on other institutions' sites.
+- [Scrying Pool](https://alyssa-m-adams.com/scrying.html): The media and public-record page, and the densest page on the site. Roughly sixty external links: eleven recorded talks and lectures, four video interviews, four podcast appearances, five articles and press mentions plus one book credit, seven events organized, a twenty-five episode podcast Alyssa hosted at Cross Labs, and nine canonical profile pages on other institutions' sites.
 
 ## Elsewhere
 
 - [Google Scholar](https://scholar.google.com/citations?user=KzspA6sAAAAJ&hl=en): Publication record and citation counts. Scholar ID `KzspA6sAAAAJ`.
+- [ORCID](https://orcid.org/0000-0003-1869-7750): Researcher identifier `0000-0003-1869-7750`. Lists fewer works than Scholar.
 - [LinkedIn](https://www.linkedin.com/in/alyssa-adams/): Professional history. Best route for contact.
 - [Bluesky](https://bsky.app/profile/alyssa-m-adams.bsky.social): Active social presence.
 - [PhD dissertation](http://hdl.handle.net/2286/R.A.194133): "The Physics of Open Ended Evolution", Arizona State University, 2017.
+- [Under Story](https://www.chloebenjaminbooks.com/under-story): Novel by Chloe Benjamin (G.P. Putnam's Sons, 2026). Alyssa was its science consultant and is named in the acknowledgements.
 
 ## Contact
 

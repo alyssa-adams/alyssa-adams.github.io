@@ -153,14 +153,16 @@
         resize();
 
         for (let i = 0; i < count; i++) {
+            const alpha = Math.random() * 0.4 + 0.1;
+            const color = ['0,229,229', '229,0,204', '229,216,0'][Math.floor(Math.random() * 3)];
             particles.push({
                 x: Math.random() * w,
                 y: Math.random() * h,
                 vx: (Math.random() - 0.5) * 0.3,
                 vy: -Math.random() * 0.4 - 0.1,
                 size: Math.random() * 2 + 0.5,
-                alpha: Math.random() * 0.4 + 0.1,
-                color: ['0,229,229', '229,0,204', '229,216,0'][Math.floor(Math.random() * 3)],
+                // Built once here rather than on every frame
+                fill: 'rgba(' + color + ',' + alpha + ')',
             });
         }
 
@@ -176,7 +178,7 @@
 
                 ctx.beginPath();
                 ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(' + p.color + ',' + p.alpha + ')';
+                ctx.fillStyle = p.fill;
                 ctx.fill();
             });
             requestAnimationFrame(animate);

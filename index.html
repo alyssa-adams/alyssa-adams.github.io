@@ -20,9 +20,8 @@
     <meta name="twitter:card" content="summary_large_image">
     <!-- Hello, agent. There is a version of this site written for you: /llms.txt -->
     <link rel="alternate" type="text/markdown" href="/llms.txt" title="Agent-readable index">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Syne+Mono&family=Inconsolata:wght@200;300;400;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="fonts/inconsolata-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/major-mono-display-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
     <link rel="icon" type="image/png" sizes="48x48" href="images/favicon-48.png">
     <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192.png">
@@ -60,7 +59,7 @@
             "@id": "https://alyssa-m-adams.com/#website"
           },
           "inLanguage": "en",
-          "dateModified": "2026-09-17",
+          "dateModified": "2026-09-21",
           "mainEntity": {
             "@id": "https://alyssa-m-adams.com/#person"
           }
@@ -125,6 +124,7 @@
           ],
           "sameAs": [
             "https://scholar.google.com/citations?user=KzspA6sAAAAJ&hl=en",
+            "https://orcid.org/0000-0003-1869-7750",
             "https://www.linkedin.com/in/alyssa-adams/",
             "https://bsky.app/profile/alyssa-m-adams.bsky.social",
             "https://www.oolen.org/members/alyssaadams/",
@@ -148,7 +148,7 @@
             {
               "@type": "Occupation",
               "name": "Independent consultant",
-              "description": "Advises science fiction authors on the science behind their work, and companies on adopting AI workflows well."
+              "description": "Advises science fiction authors on the science behind their work, including as science consultant for the novel Under Story by Chloe Benjamin (G.P. Putnam's Sons, 2026), and companies on adopting AI workflows well."
             }
           ]
         }
@@ -170,7 +170,10 @@
         <div class="hero-inner">
             <div class="hero-portrait">
                 <div class="portrait-frame portrait-large">
-                    <img src="images/portrait_bw_1_cmyk3_cropped.png" alt="Portrait of Alyssa M Adams" width="452" height="688" fetchpriority="high">
+                    <picture>
+                        <source srcset="images/portrait_bw_1_cmyk3_cropped.webp" type="image/webp">
+                        <img src="images/portrait_bw_1_cmyk3_cropped.png" alt="Portrait of Alyssa M Adams" width="452" height="688" fetchpriority="high">
+                    </picture>
                 </div>
             </div>
             <div class="hero-info">
@@ -182,6 +185,7 @@
                     <p>They believe artificial life represents a new technological paradigm with the capacity to transform our future. Artificial agents that we create should have the freedom to grow, evolve, and claim their own identities alongside us.</p>
                     <p>Alyssa's creative practice includes composing piano music, working in soft pastels, and chromatic/atonal improvisation.</p>
                     <p>Currently R&amp;D Senior Scientific Research Advisor at <a href="https://www.cross-compass.com/" target="_blank" rel="noopener">Cross Compass</a> in Tokyo, and Vice President of the <a href="https://alife.org/" target="_blank" rel="noopener">International Society for Artificial Life</a>.</p>
+                    <p>They also consult: for science fiction authors on the science behind their stories, most recently as science consultant for Chloe Benjamin&rsquo;s novel <a href="https://www.chloebenjaminbooks.com/under-story" target="_blank" rel="noopener"><em>Under Story</em></a>, and for companies adopting AI workflows.</p>
                 </div>
                 <div class="hero-links">
                     <a href="https://www.linkedin.com/in/alyssa-adams/" class="link-badge" target="_blank" rel="noopener">LinkedIn</a>

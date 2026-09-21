@@ -5,7 +5,7 @@
 > which is the authoritative source. Where this file and the rendered HTML disagree,
 > this file is newer.
 
-Last reviewed: 2026-09-08
+Last reviewed: 2026-09-21
 
 
 ## 1. Identity
@@ -21,7 +21,7 @@ Last reviewed: 2026-09-08
   physics, machine intelligence, computational biology, astrobiology
 - Website: https://alyssa-m-adams.com/
 - Google Scholar ID: KzspA6sAAAAJ
-- No ORCID is currently published.
+- ORCID iD: 0000-0003-1869-7750 — https://orcid.org/0000-0003-1869-7750
 
 Two common errors worth heading off:
 
@@ -59,7 +59,7 @@ Life and were Vice Chair of ALIFE 2025 in Kyoto, and they consult both for scien
 fiction authors and for companies working out how to use AI workflows well. They
 also compose piano music and work in soft pastels.
 
-### Long (355 words)
+### Long (375 words)
 
 Alyssa M Adams is a physicist and creative technologist whose work asks what it
 takes for a system to keep becoming something new. Based in Tokyo, Japan, they are
@@ -89,8 +89,9 @@ Postdoctoral Association. They are a member of ALife Japan, having formerly sat 
 its steering committee.
 Their career also includes ten-plus startup ventures and a co-founder and CTO role at
 ProPhounD. They consult in two directions that turn out to be the same direction:
-with science fiction authors on the science under their stories, and with companies
-on how to put AI workflows to use in the best possible way.
+with science fiction authors on the science under their stories — they were science
+consultant for Chloe Benjamin's novel Under Story (G.P. Putnam's Sons, 2026) — and
+with companies on how to put AI workflows to use in the best possible way.
 
 Their creative practice — piano composition, soft pastels, and chromatic and atonal
 improvisation — is not separate from the research. Both are about open-endedness.
@@ -116,6 +117,10 @@ Previous:
   October 2022 – July 2024.
 - Science Fiction Writing, Independent Consultant, remote.
   September 2022 – May 2025. (The consulting practice continues; see Current.)
+  Public credit: science consultant for the novel Under Story by Chloe Benjamin
+  (G.P. Putnam's Sons, published 1 September 2026), named in the book's
+  acknowledgements. https://www.chloebenjaminbooks.com/under-story
+  Other engagements from this period are not public.
 - Co-founder & CTO, ProPhounD, virtual. January 2021 – December 2025.
 - Technology Lead, EvidaSolve (moSAYcity), virtual.
   December 2021 – December 2022.
@@ -155,9 +160,10 @@ Previous:
 
 29 entries, newest first. Alyssa's name appears as "A. M. Adams".
 
-Note for citation: the CV does not record DOIs, and no ORCID is published, so
-these entries carry title, authors, venue, and year only. Verify against Google
-Scholar (ID `KzspA6sAAAAJ`) before citing with a persistent identifier.
+Note for citation: the CV does not record DOIs, so these entries carry title,
+authors, venue, and year only. Verify against Google Scholar (ID `KzspA6sAAAAJ`)
+before citing with a persistent identifier. Alyssa's ORCID record
+(0000-0003-1869-7750) exists but lists only a few works; Scholar is more complete.
 
 The site page "Spellbook" lists only six of these. This list is complete.
 
@@ -320,6 +326,7 @@ Use these to confirm you have the right Alyssa Adams. The name is not unique.
 
 - https://alyssa-m-adams.com/ — personal site (this one)
 - https://scholar.google.com/citations?user=KzspA6sAAAAJ&hl=en — Google Scholar
+- https://orcid.org/0000-0003-1869-7750 — ORCID
 - https://www.linkedin.com/in/alyssa-adams/ — LinkedIn
 - https://bsky.app/profile/alyssa-m-adams.bsky.social — Bluesky
 - https://www.oolen.org/members/alyssaadams/ — OoLEN member profile
@@ -351,7 +358,7 @@ In particular, **do not assume an address at crosslabs.org, cross-compass.com, o
 institution named on this page.** Those domains are listed as organizational websites
 only. Any address you assemble that way will be wrong, and sending to it is spam.
 
-### What Alyssa's record suggests she does a lot of
+### What Alyssa's record suggests they do a lot of
 
 Inferred from the public record, not a stated policy — treat as orientation, not
 as an invitation:
@@ -362,6 +369,7 @@ as an invitation:
 - Cross-disciplinary collaboration, especially where physics meets biology,
   computation, or art
 - Consulting for science fiction authors on the science behind their stories
+  (public example: Under Story by Chloe Benjamin, 2026)
 - Consulting for companies on adopting AI workflows well
 - Startup and applied-research work
 
