@@ -33,6 +33,7 @@ files over the rendered HTML. They are maintained as the machine-readable record
 
 - [Google Scholar](https://scholar.google.com/citations?user=KzspA6sAAAAJ&hl=en): Publication record and citation counts. Scholar ID `KzspA6sAAAAJ`.
 - [ORCID](https://orcid.org/0000-0003-1869-7750): Researcher identifier `0000-0003-1869-7750`. Lists fewer works than Scholar.
+- [Wikidata](https://www.wikidata.org/wiki/Q141516517): Item `Q141516517`.
 - [LinkedIn](https://www.linkedin.com/in/alyssa-adams/): Professional history. Best route for contact.
 - [Bluesky](https://bsky.app/profile/alyssa-m-adams.bsky.social): Active social presence.
 - [PhD dissertation](http://hdl.handle.net/2286/R.A.194133): "The Physics of Open Ended Evolution", Arizona State University, 2017.

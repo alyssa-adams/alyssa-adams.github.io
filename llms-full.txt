@@ -22,6 +22,7 @@ Last reviewed: 2026-09-21
 - Website: https://alyssa-m-adams.com/
 - Google Scholar ID: KzspA6sAAAAJ
 - ORCID iD: 0000-0003-1869-7750 — https://orcid.org/0000-0003-1869-7750
+- Wikidata: Q141516517 — https://www.wikidata.org/wiki/Q141516517
 
 Two common errors worth heading off:
 
@@ -327,6 +328,8 @@ Use these to confirm you have the right Alyssa Adams. The name is not unique.
 - https://alyssa-m-adams.com/ — personal site (this one)
 - https://scholar.google.com/citations?user=KzspA6sAAAAJ&hl=en — Google Scholar
 - https://orcid.org/0000-0003-1869-7750 — ORCID
+- https://www.wikidata.org/wiki/Q141516517 — Wikidata item (a different Wikidata item,
+  Q96181486 "Alyssa Adams, researcher", is NOT confirmed to be this person)
 - https://www.linkedin.com/in/alyssa-adams/ — LinkedIn
 - https://bsky.app/profile/alyssa-m-adams.bsky.social — Bluesky
 - https://www.oolen.org/members/alyssaadams/ — OoLEN member profile
