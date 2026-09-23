@@ -217,6 +217,12 @@ body {
 .hero-portrait {
     flex-shrink: 0;
     margin-top: -25px;
+    /* Nudged 1in down and 1in left of its slot; the -70px margin absorbs the
+       extra width from the 20% size bump so the bio text doesn't move. */
+    position: relative;
+    top: 1in;
+    left: -1in;
+    margin-left: -70px;
 }
 
 .portrait-frame {
@@ -225,7 +231,7 @@ body {
 }
 
 .portrait-frame.portrait-large {
-    width: 350px;
+    width: 420px;
     height: auto;
     border: none;
     border-radius: 0;
@@ -1565,22 +1571,28 @@ body {
 
     .hero-portrait {
         margin-top: 0;
+        top: 0;
+        left: 0;
+        margin-left: 0;
     }
 
     .portrait-frame.portrait-large {
         width: 260px;
     }
 
+    /* Portrait stays centred; the text under it reads left-aligned */
     .hero-info {
         margin-left: 0;
+        text-align: left;
+        align-self: stretch;
     }
 
     .hero-meta {
-        justify-content: center;
+        justify-content: flex-start;
     }
 
     .hero-links {
-        justify-content: center;
+        justify-content: flex-start;
     }
 
     .hero-name {
@@ -1967,6 +1979,58 @@ body {
     color: var(--text);
 }
 
+/* --- View toggle: By Type / By Date --- */
+.scry-views {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+    /* clears the fixed nav (about 97px tall on desktop) */
+    margin: 2.5rem auto 2.5rem;
+}
+
+.scry-views[hidden],
+#scry-by-date[hidden],
+#scry-by-type[hidden],
+.scry-card[hidden] {
+    display: none;
+}
+
+.scry-view-btn {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    padding: 0.5rem 1.2rem;
+    border: none;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.06);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.scry-view-btn:hover {
+    color: var(--text-bright);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.scry-view-btn[aria-pressed="true"] {
+    background: linear-gradient(90deg, #00e5e5, #e500cc, #e5d800, #00e5e5) 0 0 / 300% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: cmykShift 8s linear infinite;
+    box-shadow: inset 0 -2px 0 rgba(255, 255, 255, 0.15);
+}
+
+.scry-view-btn:focus-visible {
+    outline: 1px solid var(--cyan);
+    outline-offset: 2px;
+}
+
 /* --- Registry list --- */
 .scry-registry {
     display: flex;
@@ -2002,6 +2066,39 @@ body {
 .scry-registry-desc {
     font-size: 0.85rem;
     color: var(--text-dim);
+}
+
+/* Current registries: brighter, yellow edge, ACTIVE badge (same language as active quests) */
+.scry-registry-current {
+    background: rgba(128, 128, 128, 0.18);
+    border-left-color: var(--yellow-dim);
+}
+
+.scry-registry-current:hover {
+    border-left-color: var(--yellow);
+    box-shadow: -4px 0 12px var(--yellow-glow);
+}
+
+.scry-registry-current .scry-registry-name {
+    color: #ffffff;
+}
+
+.scry-registry-current .scry-registry-desc {
+    color: var(--text);
+}
+
+.scry-registry-badge {
+    display: inline-block;
+    margin-left: 0.7rem;
+    padding: 0.15rem 0.4rem;
+    border-radius: 3px;
+    font-family: var(--font-body);
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    vertical-align: middle;
+    color: var(--yellow);
+    background: rgba(229, 216, 0, 0.12);
 }
 
 /* --- Nav with three links --- */

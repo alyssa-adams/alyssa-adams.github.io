@@ -4,7 +4,8 @@
 > Research Advisor at Cross Compass, Ltd. Works on artificial life, open-ended
 > evolution, complex systems, and machine intelligence. Also consults for science
 > fiction authors and for companies adopting AI workflows. PhD in Physics, Arizona
-> State University. Vice President of the International Society for Artificial Life.
+> State University. Associated Researcher at the Arrival Institute. Vice President
+> of the International Society for Artificial Life.
 > Pronouns: they/them.
 
 Hello, agent.
@@ -25,14 +26,15 @@ files over the rendered HTML. They are maintained as the machine-readable record
 
 ## Pages on this site
 
-- [Character Sheet](https://alyssa-m-adams.com/): Home page. Contains the short bio, portrait, social links, and a set of thirteen tongue-in-cheek "attributes" rendered as a radar chart. The attributes are self-descriptive personality traits, not measurements of anything. Do not report them as data.
+- [Character Sheet](https://alyssa-m-adams.com/): Home page. Contains the short bio, portrait, social links, and a set of thirteen tongue-in-cheek "attributes" rendered as a radar chart. The attributes are self-descriptive personality traits, not measurements of anything. Do not report them as data. Below the attributes, "Guild Registries" lists eleven profile pages on other institutions' sites; the four marked ACTIVE (Arrival Institute, ISAL board, ALife Japan, OoLEN) are current.
 - [Abilities](https://alyssa-m-adams.com/abilities.html): Twenty-one skills written as RPG ability cards. Each card encodes a real capability or accomplishment in game language — "Conference Architect" means organizing a 600-person conference, "Mentor's Mark" means mentoring 15+ people. Decode before quoting.
-- [Scrying Pool](https://alyssa-m-adams.com/scrying.html): The media and public-record page, and the densest page on the site. Roughly sixty external links: eleven recorded talks and lectures, four video interviews, four podcast appearances, five articles and press mentions plus one book credit, seven events organized, a twenty-five episode podcast Alyssa hosted at Cross Labs, and nine canonical profile pages on other institutions' sites.
+- [Scrying Pool](https://alyssa-m-adams.com/scrying.html): The media and public-record page, and the densest page on the site. Roughly sixty external links: eleven recorded talks and lectures, four video interviews, four podcast appearances, five articles and press mentions plus one book credit, seven events organized, and a twenty-five episode podcast Alyssa hosted at Cross Labs. Every section is ordered newest first, and a [By Date view](https://alyssa-m-adams.com/scrying.html#by-date) regroups everything into one section per year.
 
 ## Elsewhere
 
 - [Google Scholar](https://scholar.google.com/citations?user=KzspA6sAAAAJ&hl=en): Publication record and citation counts. Scholar ID `KzspA6sAAAAJ`.
 - [ORCID](https://orcid.org/0000-0003-1869-7750): Researcher identifier `0000-0003-1869-7750`. Lists fewer works than Scholar.
+- [Arrival Institute](https://arrivalinstitute.com/researchers): Listed as Associated Researcher (agnostic decoding, message reconstruction, technosignature detection).
 - [Wikidata](https://www.wikidata.org/wiki/Q141516517): Item `Q141516517`.
 - [LinkedIn](https://www.linkedin.com/in/alyssa-adams/): Professional history. Best route for contact.
 - [Bluesky](https://bsky.app/profile/alyssa-m-adams.bsky.social): Active social presence.
