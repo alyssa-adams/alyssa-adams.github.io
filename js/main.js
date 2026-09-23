@@ -189,7 +189,8 @@
 
     // --- Scrying Pool: By Type / By Date views ---
     // The type view is the static HTML. The date view is built once from clones of the
-    // same cards (each carries data-date), grouped into one section per year, newest first.
+    // same cards and Whispers rows (each carries data-date), grouped into one section per
+    // year, newest first: that year's cards in a grid, then its rows in a list below.
     function initScryViews() {
         const byType = document.getElementById('scry-by-type');
         const byDate = document.getElementById('scry-by-date');
@@ -200,36 +201,45 @@
         let built = false;
 
         function buildDateView() {
-            const cards = Array.prototype.slice.call(
-                byType.querySelectorAll('article[data-date]:not([data-type-only])')
-            ).map(function (card) {
-                const clone = card.cloneNode(true);
+            const items = Array.prototype.slice.call(
+                byType.querySelectorAll('article[data-date]:not([data-type-only]), .scry-whisper[data-date]')
+            ).map(function (item) {
+                const clone = item.cloneNode(true);
                 clone.hidden = false;
                 clone.removeAttribute('data-date-only');
                 return clone;
             });
-            cards.sort(function (a, b) {
+            items.sort(function (a, b) {
                 return b.dataset.date.localeCompare(a.dataset.date);
             });
 
-            let grid = null, year = null;
-            cards.forEach(function (card) {
-                const y = card.dataset.date.slice(0, 4);
+            let section = null, grid = null, list = null, year = null;
+            items.forEach(function (item) {
+                const y = item.dataset.date.slice(0, 4);
                 if (y !== year) {
                     year = y;
-                    const section = document.createElement('section');
+                    grid = list = null;
+                    section = document.createElement('section');
                     section.className = 'spells-section scry-section';
                     section.id = 'year-' + y;
                     const h2 = document.createElement('h2');
                     h2.className = 'spells-section-title';
                     h2.textContent = y;
-                    grid = document.createElement('div');
-                    grid.className = 'scry-grid';
                     section.appendChild(h2);
-                    section.appendChild(grid);
                     byDate.appendChild(section);
                 }
-                grid.appendChild(card);
+                const isRow = item.classList.contains('scry-whisper');
+                if (isRow && !list) {
+                    list = document.createElement('div');
+                    list.className = 'scry-whispers';
+                    section.appendChild(list);
+                } else if (!isRow && !grid) {
+                    grid = document.createElement('div');
+                    grid.className = 'scry-grid';
+                    // cards sit above the year's rows
+                    section.insertBefore(grid, list);
+                }
+                (isRow ? list : grid).appendChild(item);
             });
             built = true;
         }
