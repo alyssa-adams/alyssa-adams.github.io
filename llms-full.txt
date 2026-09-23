@@ -289,7 +289,7 @@ The site page "Spellbook" lists only six of these. This list is complete.
 - **Vice President**, UW–Madison Postdoctoral Association. May 2020 – October 2022.
   Also Engagement Committee Co-Chair and Research Symposium Planning Co-Chair.
 - **Founding member**, I³: Ideas, Insights, Impact. Fall 2020 – Spring 2022.
-- **Meetup Co-Organizer**, PyData Madison. January 2019 – June 2020.
+- **Meetup Co-Organizer**, PyData Madison. January 2020 – June 2020.
 - **Fellow**, Wisconsin Office of the State Treasurer. February 2019 – November 2020.
 - Earlier service includes the UW Bacteriology DEI committee, The Access Network
   task force, and facilitation roles with the Sundial Project, 2014–2016.
@@ -310,22 +310,31 @@ The site page "Spellbook" lists only six of these. This list is complete.
 ## 8. Talks, media, and public record
 
 The Scrying Pool page (https://alyssa-m-adams.com/scrying.html) carries about
-sixty-five external links in six groups, each ordered newest first. A By Date view
+125 external links in eight groups, each ordered newest first. A By Date view
 (https://alyssa-m-adams.com/scrying.html#by-date) shows the same items as one
 section per year, newest first. Rather than duplicating them here, the shape:
 
-- **Recorded talks and lectures (11)** — including iBiology, AUTOMATA 2020,
-  Cross Roads #28, ASCAT 2023, SEDS Celestia, ALIFE 2021, the ALIFE 2023 art track,
-  ISMB 2022, OEE3 at ALIFE 2018, and AbGradCon 2016.
+- **Recorded talks and lectures (14)** — including iBiology, AUTOMATA 2020,
+  Cross Roads #28, ASCAT 2023, SEDS Celestia, ALIFE 2021 (Best Talk Award), the
+  ALIFE 2023 art track, the ALIFE 2022 ABMHuB workshop, ISMB 2022, OEE3 at ALIFE 2018,
+  Complexity Explorer teaching demos (2018), and AbGradCon 2016.
 - **Video interviews (4)** — including three on *Last Monkey Standing*.
-- **Podcast appearances (4)** — *What ALife!* (twice), *PyJamas Pillow Talk*, iBiology.
-- **Articles and press (5)** — including Business Insider, "The American Brain Drain
-  Has Arrived" (2025), Technical.ly, essays on the Cross Labs blog, and the MIT Press
-  ISAL 2025 preface.
-- **Events organized (7)** — the New Human Interfaces workshop (2025), ALIFE 2025
-  Kyoto (Vice Chair), CLASS 2025, the "Life As We Don't Know It" exhibition, the
-  ALIFE 2023 art exhibition, OoLEN, and Free the PhD.
-- **Podcast hosted** — "On My Mind", Cross Labs, 25 episodes.
+- **Podcast appearances (3)** — *What ALife!* (twice) and *PyJamas Pillow Talk*.
+- **Articles, essays, and press (15)** — including On Wisconsin Magazine (2026),
+  Business Insider, "The American Brain Drain Has Arrived" (2025), a Cross Compass
+  interview in Japanese (2025), the MIT Press ALIFE 2025 Preface, five Cross Labs
+  blog posts, a Morgridge feature, an FQXi essay (2020), and Technical.ly (2018).
+- **Gatherings (13)** — events, panels, and exhibitions, each card naming Alyssa's
+  role: organizer of the Cross Labs workshops Creativity Unleashed (2023), After
+  Babel (2024), and New Human Interfaces (2025), CLASS 2025, PyData Madison, and
+  co-organizer of the ISAL Summer School 2023 and of a hands-on brain–computer
+  interface tutorial at ALIFE 2026; Vice Chair of ALIFE 2025; exhibitor at ALIFE 2023; participating
+  scientist in "Life As We Don't Know It" (2022); invited speaker at OoLEN;
+  panelist at Free the PhD.
+- **Podcast hosted** — "On My Mind", Cross Labs, 25 episodes, 2023–24.
+- **Speaker series hosted** — 14 episodes of Cross Labs' "Cross Roads", 2022–26.
+- **Talks without recordings (12)** — invited talks, lectures, and session chairs
+  from 2015 to 2026, each linked to its event page.
 
 Go to the page for the actual URLs.
 

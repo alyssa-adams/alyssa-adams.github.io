@@ -2031,6 +2031,69 @@ body {
     outline-offset: 2px;
 }
 
+/* --- Whispers: talks with an event page but no recording --- */
+.scry-whispers {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.scry-grid + .scry-whispers {
+    margin-top: 1.5rem;
+}
+
+.scry-whisper {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 1.2rem;
+    align-items: baseline;
+    padding: 0.75rem 1.2rem;
+    background: var(--bg-card);
+    border-left: 2px solid var(--magenta-dim);
+    border-radius: 4px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+.scry-whisper:hover {
+    border-left-color: var(--magenta);
+    box-shadow: -4px 0 12px var(--magenta-glow);
+}
+
+.scry-whisper-date {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--magenta);
+    white-space: nowrap;
+}
+
+.scry-whisper-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.scry-whisper-title {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    line-height: 1.35;
+    color: var(--text-bright);
+}
+
+.scry-whisper-meta {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+}
+
+@media (max-width: 768px) {
+    .scry-whisper {
+        grid-template-columns: 1fr;
+        gap: 0.3rem;
+    }
+}
+
 /* --- Registry list --- */
 .scry-registry {
     display: flex;
