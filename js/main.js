@@ -187,10 +187,88 @@
         animate();
     }
 
+    // --- Scrying Pool: By Type / By Date views ---
+    // The type view is the static HTML. The date view is built once from clones of the
+    // same cards (each carries data-date), grouped into one section per year, newest first.
+    function initScryViews() {
+        const byType = document.getElementById('scry-by-type');
+        const byDate = document.getElementById('scry-by-date');
+        const bar = document.querySelector('.scry-views');
+        if (!byType || !byDate || !bar) return;
+
+        const buttons = bar.querySelectorAll('.scry-view-btn');
+        let built = false;
+
+        function buildDateView() {
+            const cards = Array.prototype.slice.call(
+                byType.querySelectorAll('article[data-date]:not([data-type-only])')
+            ).map(function (card) {
+                const clone = card.cloneNode(true);
+                clone.hidden = false;
+                clone.removeAttribute('data-date-only');
+                return clone;
+            });
+            cards.sort(function (a, b) {
+                return b.dataset.date.localeCompare(a.dataset.date);
+            });
+
+            let grid = null, year = null;
+            cards.forEach(function (card) {
+                const y = card.dataset.date.slice(0, 4);
+                if (y !== year) {
+                    year = y;
+                    const section = document.createElement('section');
+                    section.className = 'spells-section scry-section';
+                    section.id = 'year-' + y;
+                    const h2 = document.createElement('h2');
+                    h2.className = 'spells-section-title';
+                    h2.textContent = y;
+                    grid = document.createElement('div');
+                    grid.className = 'scry-grid';
+                    section.appendChild(h2);
+                    section.appendChild(grid);
+                    byDate.appendChild(section);
+                }
+                grid.appendChild(card);
+            });
+            built = true;
+        }
+
+        function setView(view, updateUrl) {
+            if (view === 'date' && !built) buildDateView();
+            byDate.hidden = view !== 'date';
+            byType.hidden = view === 'date';
+            buttons.forEach(function (btn) {
+                btn.setAttribute('aria-pressed', btn.dataset.view === view ? 'true' : 'false');
+            });
+            if (updateUrl) {
+                history.replaceState(null, '', view === 'date' ? '#by-date' : location.pathname + location.search);
+            }
+        }
+
+        buttons.forEach(function (btn) {
+            btn.addEventListener('click', function () { setView(btn.dataset.view, true); });
+        });
+
+        // A link to a type-view section (e.g. #on-my-mind) switches back and scrolls to it
+        window.addEventListener('hashchange', function () {
+            if (location.hash === '#by-date') { setView('date', false); return; }
+            const target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+            if (target && byType.contains(target)) {
+                setView('type', false);
+                target.scrollIntoView();
+            }
+        });
+
+        bar.hidden = false;
+        setView(location.hash === '#by-date' ? 'date' : 'type', false);
+    }
+
     // --- Init ---
     document.addEventListener('DOMContentLoaded', function () {
         buildRadarChart();
         initParticles();
+        initScryViews();
     });
 
 })();

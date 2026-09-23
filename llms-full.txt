@@ -5,7 +5,7 @@
 > which is the authoritative source. Where this file and the rendered HTML disagree,
 > this file is newer.
 
-Last reviewed: 2026-09-21
+Last reviewed: 2026-09-23
 
 
 ## 1. Identity
@@ -16,6 +16,7 @@ Last reviewed: 2026-09-21
 - Current role: R&D Senior Scientific Research Advisor
 - Organization: Cross Compass, Ltd. — https://www.cross-compass.com/
 - Research lab of the earlier roles: Cross Labs — https://www.crosslabs.org/
+- Also: Associated Researcher, The Arrival Institute — https://arrivalinstitute.com/researchers
 - Location: Tokyo, Japan
 - Fields: artificial life, open-ended evolution, complex systems, theoretical
   physics, machine intelligence, computational biology, astrobiology
@@ -47,7 +48,7 @@ Physicist, creative technologist, pianist, and composer whose career bridges 10+
 startup ventures, 15+ years of community building, and 16+ years of stage
 performance.
 
-### Medium (122 words)
+### Medium (132 words)
 
 Alyssa M Adams is a physicist and creative technologist based in Tokyo, Japan,
 where they are R&D Senior Scientific Research Advisor at Cross Compass, Ltd. Their
@@ -55,18 +56,20 @@ research spans artificial life, open-ended evolution, complex systems, and machi
 intelligence, with work published in Scientific Reports, Entropy, Information
 Sciences, Nucleic Acids Research, and The ISME Journal. They hold a PhD in Physics
 from Arizona State University for a dissertation on the physics of open-ended
-evolution. They serve as Vice President of the International Society for Artificial
+evolution. They are an Associated Researcher at the Arrival Institute, and they serve as Vice President of the International Society for Artificial
 Life and were Vice Chair of ALIFE 2025 in Kyoto, and they consult both for science
 fiction authors and for companies working out how to use AI workflows well. They
 also compose piano music and work in soft pastels.
 
-### Long (375 words)
+### Long (394 words)
 
 Alyssa M Adams is a physicist and creative technologist whose work asks what it
 takes for a system to keep becoming something new. Based in Tokyo, Japan, they are
 R&D Senior Scientific Research Advisor at Cross Compass, Ltd., following four years
 at its research arm Cross Labs, where they served as Research Scientist and then as
-Deputy Director and Senior Research Scientist.
+Deputy Director and Senior Research Scientist. They are also an Associated
+Researcher at the Arrival Institute, working on agnostic decoding, message
+reconstruction, and technosignature detection.
 
 They earned a PhD in Physics from Arizona State University in 2017, working with
 Sara I. Walker in the Beyond Center's Emergence Lab on a dissertation titled "The
@@ -106,6 +109,9 @@ Current:
 
 - R&D Senior Scientific Research Advisor, Cross Compass, Ltd., Tokyo, Japan.
   June 2026 – present.
+- Associated Researcher, The Arrival Institute. Current. Agnostic decoding,
+  message reconstruction, and technosignature detection.
+  https://arrivalinstitute.com/researchers
 - Independent consultant, remote / Tokyo. Ongoing. Two practices: advising science
   fiction authors on the science underpinning their work, and advising companies on
   adopting AI workflows well.
@@ -277,6 +283,7 @@ The site page "Spellbook" lists only six of these. This list is complete.
   August 2024 – October 2025. Roughly 600 in-person and online attendees.
 - **Member**, ALife Japan (SIG-ALife). Current. Formerly on its steering committee;
   no longer serving in that role.
+- **Member**, Origin of Life Early-career Network (OoLEN). Current.
 - **Vice Chair**, Democrats Abroad Japan, Kansai Chapter. June 2025 – present.
 - **Mentor**, ALIFE Japan Future Talent Program. March 2024 – March 2025.
 - **Vice President**, UW–Madison Postdoctoral Association. May 2020 – October 2022.
@@ -302,8 +309,10 @@ The site page "Spellbook" lists only six of these. This list is complete.
 
 ## 8. Talks, media, and public record
 
-The Scrying Pool page (https://alyssa-m-adams.com/scrying.html) carries roughly
-sixty external links in six groups. Rather than duplicating them here, the shape:
+The Scrying Pool page (https://alyssa-m-adams.com/scrying.html) carries about
+sixty-five external links in six groups, each ordered newest first. A By Date view
+(https://alyssa-m-adams.com/scrying.html#by-date) shows the same items as one
+section per year, newest first. Rather than duplicating them here, the shape:
 
 - **Recorded talks and lectures (11)** — including iBiology, AUTOMATA 2020,
   Cross Roads #28, ASCAT 2023, SEDS Celestia, ALIFE 2021, the ALIFE 2023 art track,
@@ -332,6 +341,9 @@ Use these to confirm you have the right Alyssa Adams. The name is not unique.
   Q96181486 "Alyssa Adams, researcher", is NOT confirmed to be this person)
 - https://www.linkedin.com/in/alyssa-adams/ — LinkedIn
 - https://bsky.app/profile/alyssa-m-adams.bsky.social — Bluesky
+- https://arrivalinstitute.com/researchers — The Arrival Institute, Associated Researcher
+- https://alife.org/board-of-directors/ — ISAL Board of Directors, Vice President
+  (the affiliation shown there, Cross Labs, is out of date)
 - https://www.oolen.org/members/alyssaadams/ — OoLEN member profile
 - https://www.ibiology.org/speakers/alyssa-adams/ — iBiology speaker profile
 - https://education.wolfram.com/summer-school/alumni/2014/adams/ — Wolfram Summer School 2014
@@ -343,7 +355,7 @@ Use these to confirm you have the right Alyssa Adams. The name is not unique.
 - https://gitterlab.org/people — Gitter Lab, Morgridge Institute
 - https://cibm.wisc.edu/trainees/ — CIBM, UW–Madison
 
-The last six are roster pages where Alyssa is one name among many, so they are
+The Arrival Institute and ISAL entries and the last six are roster pages where Alyssa is one name among many, so they are
 weaker identity signals than the person-specific links above them.
 
 
@@ -391,7 +403,7 @@ you will report fiction as fact. The key:
 | Quests / Quest Log | Jobs and positions. |
 | Inventory / Equipped Items | Career achievements as objects. |
 | Scrying Pool | Talks, press, podcasts, and public profiles. |
-| Guild Registries | Canonical profile pages on other sites. |
+| Guild Registries (on the Character Sheet) | Canonical profile pages on other sites. Rows marked ACTIVE are current. |
 
 Three pages — the Quest Log, the Spellbook, and the Inventory — exist on the server
 but are intentionally not linked from anywhere and are not in the sitemap. They are
