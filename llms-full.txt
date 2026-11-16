@@ -17,6 +17,8 @@ Last reviewed: 2026-09-23
 - Organization: Cross Compass, Ltd. — https://www.cross-compass.com/
 - Research lab of the earlier roles: Cross Labs — https://www.crosslabs.org/
 - Also: Associated Researcher, The Arrival Institute — https://arrivalinstitute.com/researchers
+- Also: AI & Artificial Life Advisor to PERSOL WORKSWITCH CONSULTING Co., Ltd. (PWSC),
+  a role held through Cross Compass — https://www.persol-wsc.co.jp/
 - Location: Tokyo, Japan
 - Fields: artificial life, open-ended evolution, complex systems, theoretical
   physics, machine intelligence, computational biology, astrobiology
@@ -109,7 +111,10 @@ Current:
 
 - R&D Senior Scientific Research Advisor, Cross Compass, Ltd., Tokyo, Japan.
   June 2026 – present.
-- Associated Researcher, The Arrival Institute. Current. Agnostic decoding,
+  Through Cross Compass, also AI & Artificial Life Advisor to PERSOL WORKSWITCH
+  CONSULTING Co., Ltd. (PWSC): advises its executives and internal AI initiatives on
+  AI agents, artificial life, and human well-being.
+- Associated Researcher, The Arrival Institute. 2026 – present. Agnostic decoding,
   message reconstruction, and technosignature detection.
   https://arrivalinstitute.com/researchers
 - Independent consultant, remote / Tokyo. Ongoing. Two practices: advising science
@@ -165,7 +170,7 @@ Previous:
 
 ## 5. Publications
 
-29 entries, newest first. Alyssa's name appears as "A. M. Adams".
+30 entries, newest first. Alyssa's name appears as "A. M. Adams".
 
 Note for citation: the CV does not record DOIs, so these entries carry title,
 authors, venue, and year only. Verify against Google Scholar (ID `KzspA6sAAAAJ`)
@@ -197,11 +202,11 @@ The site page "Spellbook" lists only six of these. This list is complete.
    *Nucleic Acids Research* 50(14), Oxford University Press, 2022.
 8. A. M. Adams. "The Effects of Complex Interaction Rules Between Two Interacting
    Cellular Automata." *Complex Systems* 31(2), 2022.
-9. A. M. Adams, A. Berner, S. I. Walker, P. C. W. Davies. "Physical Universality,
-   State-Dependent Dynamical Laws and Open-Ended Evolution."
-   *Entropy* 19(7), special issue "Entropy, Time and Evolution", 2017.
-10. A. M. Adams, S. I. Walker. "Understanding Real-world Open-ended Systems:
-    A League of Legends Adventure." *International Journal of Design & Nature and
+9. A. M. Adams, A. Berner, P. C. W. Davies, S. I. Walker. "Physical Universality,
+   State-Dependent Dynamical Laws and Open-Ended Novelty."
+   *Entropy* 19(9), 461, special issue "Entropy, Time and Evolution", 2017.
+10. A. M. Adams, S. I. Walker. "Real-World Open-Ended Evolution: A League of
+    Legends Adventure." *International Journal of Design & Nature and
     Ecodynamics* 12(4), 458–469, 2017.
 11. A. M. Adams, H. Zenil, P. C. W. Davies, S. I. Walker. "Formal Definitions of
     Unbounded Evolution and Innovation Reveal Universal Mechanisms for Open-Ended
@@ -211,66 +216,70 @@ The site page "Spellbook" lists only six of these. This list is complete.
     Decades of Polarization Measurements."
     *Astronomy and Astrophysics* 568, 88, 2014.
 13. A. M. Adams, R. Ignace. "Polarization of Light Emitted From Mira-Type Stars."
-    *JSARA* 7, 60–80, 2014.
+    *JSARA* 7, 60–80, 2012.
 
 ### Conference and workshop papers
 
-14. A. M. Adams, E. Jacopin, N. Guttenberg. "The Constraint-Function Loop."
+14. P.-Y. Lin, A. M. Adams, F. Vorselen, K. Andersen, O. Witkowski. "Weaving
+    Cellular Automata: Open-Endedness and Creativity through Hybridising
+    Computation." *ALIFE 2026: Proceedings of the 2026 Artificial Life Conference*
+    38, 21, 2026.
+15. A. M. Adams, E. Jacopin, N. Guttenberg. "The Constraint-Function Loop."
     *Artificial Life Conference Proceedings* 37(1), 44, 2025.
-15. M. Eakin, M. Khosravy, A. M. Adams, O. Witkowski. "The Sinister Ghost in the
+16. M. Eakin, M. Khosravy, A. M. Adams, O. Witkowski. "The Sinister Ghost in the
     Wooden Horse: From Ancient Myths to Industrial Fraud by Trojan Attack."
     *International Conference on Data Analytics and Insights*, 589–608, 2024.
-16. L. B. Soros, A. M. Adams, S. Kalonaris, O. Witkowski, C. Guckelsberger.
+17. L. B. Soros, A. M. Adams, S. Kalonaris, O. Witkowski, C. Guckelsberger.
     "On creativity and open-endedness." *ALIFE 2024: Proceedings of the 2024
-    Artificial Life Conference*, vol. 3, 2024.
-17. A. M. Adams, E. Jacopin, P. Gagrani, O. Witkowski. "An Open-Ended Approach to
+    Artificial Life Conference* 36, 60, 2024.
+18. A. M. Adams, E. Jacopin, P. Gagrani, O. Witkowski. "An Open-Ended Approach to
     Understanding Local, Emergent Conservation Laws in Biological Evolution."
     *2024 IEEE Congress on Evolutionary Computation (CEC)*, 1–8, 2024.
-18. G. Cheng, O. Wang, A. M. Adams, M. Biehl, L. Caspar, O. Witkowski.
+19. G. Cheng, O. Wang, A. M. Adams, M. Biehl, L. Caspar, O. Witkowski.
     "Interacting LLMs: A Dive into Collaborative AI." *2024 IEEE 18th International
     Conference on Semantic Computing (ICSC)*, 152–155, 2024.
-19. A. M. Adams, O. Rico, N. Guttenberg, O. Witkowski. "Ghosts in a Shell: An
+20. A. M. Adams, O. Rico, N. Guttenberg, O. Witkowski. "Ghosts in a Shell: An
     Immersive Art Experience for ALIFE23."
     *Artificial Life Conference Proceedings* 35(1), 28, 2023.
-20. A. M. Adams. "A graph-theoretic approach to understanding emergent behavior in
+21. A. M. Adams. "A graph-theoretic approach to understanding emergent behavior in
     physical systems." *ALIFE 2021: Proceedings of the 2021 Conference on Artificial
     Life*, MIT Press, 2021. — Winner, ALIFE 21 Best Talk Award.
-21. A. M. Adams, H. Zenil, E. Reyes, J. Joosten. "Effects of a Global Rule on
+22. A. M. Adams, H. Zenil, E. Reyes, J. Joosten. "Effects of a Global Rule on
     Interacting Cellular Automata." *21st International Workshop on Cellular Automata
     and Discrete Complex Systems (AUTOMATA 2015)*, TUCS Lecture Notes, 2015.
-22. T. P. Pavlic, A. M. Adams, P. C. W. Davies, S. I. Walker. "Self-referencing
+23. T. P. Pavlic, A. M. Adams, P. C. W. Davies, S. I. Walker. "Self-referencing
     cellular automata: A model of the evolution of information control in biological
     systems." *ALIFE 14*, 522–529, 2014.
 
 ### Book chapters
 
-23. M. Eakin, M. Khosravy, A. M. Adams, O. Witkowski. "Evolutionary Mastery Forges
+24. M. Eakin, M. Khosravy, A. M. Adams, O. Witkowski. "Evolutionary Mastery Forges
     the Blades of Cyber Attack and Defense."
     *Optimizing Solutions for Real-Life Problems*, 29–50, 2025.
-24. H. Yoshida, A. M. Adams, O. Witkowski. "Evolutionary Computation: Perspectives
+25. H. Yoshida, A. M. Adams, O. Witkowski. "Evolutionary Computation: Perspectives
     on Past and Future." *Frontiers in Genetics, Algorithm Theory and Applications*,
     3–13, 2024.
-25. H. Zenil, A. M. Adams. "Algorithmic Information Dynamics of Cellular Automata."
+26. H. Zenil, A. M. Adams. "Algorithmic Information Dynamics of Cellular Automata."
     *The Mathematical Artist: A Tribute To John Horton Conway*, 171–190,
     Springer International Publishing, 2022.
 
 ### Preprints
 
-26. H. Zenil, A. M. Adams, F. S. Abrahão. "An optimal, universal and agnostic
+27. H. Zenil, A. M. Adams, F. S. Abrahão, L. Ozelim. "An optimal, universal and agnostic
     decoding method for message reconstruction, bio and technosignature detection."
     arXiv:2303.16045, 2023.
-27. H. Zenil, A. M. Adams, F. S. Abrahão. "Optimal spatial deconvolution and message
-    reconstruction from a large generative model of models."
-    arXiv:1802.05843, 2023.
+28. A. M. Adams, J. Fernandez, O. Witkowski. "Two Ways of Understanding Social
+    Dynamics: Analyzing the Predictability of Emergence of Objects in Reddit r/place
+    Dependent on Locality in Space and Time." arXiv:2206.03563, 2022.
 
 ### Edited volumes
 
-28. O. Witkowski, A. M. Adams (editor), L. Sinapayen, M. Baltieri, M. Khosravy.
+29. O. Witkowski, A. M. Adams (editor), L. Sinapayen, M. Baltieri, M. Khosravy.
     *ALIFE 2025: Ciphers of Life.* Artificial Life Conference Proceedings 37(1), 2025.
 
 ### Popular science
 
-29. A. M. Adams. "Time to SHINE: UW, Morgridge spinoff has great hopes for fusion's
+30. A. M. Adams. "Time to SHINE: UW, Morgridge spinoff has great hopes for fusion's
     future." Morgridge Institute SPARK Newsletter, 2022. Not peer-reviewed.
 
 
@@ -314,7 +323,8 @@ The Scrying Pool page (https://alyssa-m-adams.com/scrying.html) carries about
 (https://alyssa-m-adams.com/scrying.html#by-date) shows the same items as one
 section per year, newest first. Rather than duplicating them here, the shape:
 
-- **Recorded talks and lectures (14)** — including iBiology, AUTOMATA 2020,
+- **Recorded talks and lectures (15)** — including ERA MiniCon 2026 at ALIFE 2026
+  (a career talk for emerging researchers), iBiology, AUTOMATA 2020,
   Cross Roads #28, ASCAT 2023, SEDS Celestia, ALIFE 2021 (Best Talk Award), the
   ALIFE 2023 art track, the ALIFE 2022 ABMHuB workshop, ISMB 2022, OEE3 at ALIFE 2018,
   Complexity Explorer teaching demos (2018), and AbGradCon 2016.
@@ -333,7 +343,7 @@ section per year, newest first. Rather than duplicating them here, the shape:
   panelist at Free the PhD.
 - **Podcast hosted** — "On My Mind", Cross Labs, 25 episodes, 2023–24.
 - **Speaker series hosted** — 14 episodes of Cross Labs' "Cross Roads", 2022–26.
-- **Talks without recordings (12)** — invited talks, lectures, and session chairs
+- **Talks without recordings (11)** — invited talks, lectures, and session chairs
   from 2015 to 2026, each linked to its event page.
 
 Go to the page for the actual URLs.
@@ -406,7 +416,7 @@ you will report fiction as fact. The key:
 | On the site | Actually means |
 |---|---|
 | "Bard — College of Creation", "Chaotic Good" | A joke. Not a job title or a classification. |
-| Attributes / the radar chart | Self-descriptive personality traits, played for laughs. Not measurements. Not data. |
+| Attributes (the bars and numbers) | Self-descriptive personality traits, played for laughs. Not measurements. Not data. |
 | Abilities | Real skills and accomplishments, written in game language. |
 | Spells / Spellbook | Publications. |
 | Quests / Quest Log | Jobs and positions. |

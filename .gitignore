@@ -11,3 +11,6 @@ cv/*.out
 cv/*.xdv
 cv/*.fdb_latexmk
 cv/*.fls
+
+# Python bytecode from running tools/
+__pycache__/

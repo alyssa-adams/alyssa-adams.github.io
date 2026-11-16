@@ -43,24 +43,6 @@
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-@font-face {
-    font-family: 'Syne Mono';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url('../fonts/syne-mono-latin-ext.woff2') format('woff2');
-    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-
-@font-face {
-    font-family: 'Syne Mono';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url('../fonts/syne-mono-latin.woff2') format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
 /* --- Custom Properties --- */
 :root {
     --bg-deep: #000000;
@@ -86,13 +68,24 @@
     --green: var(--yellow);
     --green-dark: var(--yellow-dim);
     --green-glow: var(--yellow-glow);
-    --text: #e8e8e8;
-    --text-dim: #bbbbbb;
-    --text-bright: #f5f5f5;
-    --border: rgba(0, 229, 229, 0.15);
-    --border-gold: rgba(229, 0, 204, 0.2);
+    /* Near-monochrome: white and greys on black. CMY is kept for the portrait,
+       the name and the current-page line in the nav. */
+    --ink: #f2f2f2;          /* titles, links, the current item   18.8:1 on black */
+    --text: #dcdcdc;         /* body                              15.3:1 */
+    --text-dim: #a8a8a8;     /* secondary copy, descriptions       8.8:1 */
+    --text-faint: #8a8a8a;   /* labels, dates, meta                6.1:1 */
+    --text-low: #767676;     /* weak attributes (darkest AA grey)  4.5:1 */
+    --text-bright: var(--ink);
+    --rule: rgba(255, 255, 255, 0.1);
+    --rule-strong: rgba(255, 255, 255, 0.28);
+    --border: var(--rule);
+    --border-gold: var(--rule);
+    --signature: linear-gradient(90deg, #00e5e5, #e500cc 55%, #e5d800);
+    /* One label style for every tag, date, badge and meta line */
+    --label-size: 0.7rem;
+    --label-track: 0.16em;
     --font-display: 'Major Mono Display', monospace;
-    --font-heading: 'Syne Mono', monospace;
+    --font-heading: 'Inconsolata', monospace;   /* was Syne Mono, retired 2026-11-16 */
     --font-body: 'Inconsolata', monospace;
     --max-width: 1060px;
 }
@@ -119,17 +112,23 @@ body {
     overflow-x: hidden;
 }
 
+/* The background particles are gone. Only the unlinked orphan pages still
+   carry the empty canvas; keep it out of their layout. */
 #particles {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 0;
+    display: none;
 }
 
-/* --- Navigation --- */
+/* Keyboard focus: one white ring everywhere */
+a:focus-visible,
+button:focus-visible {
+    outline: 1px solid var(--ink);
+    outline-offset: 3px;
+}
+
+/* --- Navigation ---
+   Laptops and below: a fixed bar whose links start on the content column's left
+   edge and whose EN / JP ends on its right edge. From 1360px up it becomes a
+   side rail in the empty left margin (see "Side rail" after the EN / JP rules). */
 .site-nav {
     position: fixed;
     top: 0;
@@ -137,11 +136,14 @@ body {
     right: 0;
     z-index: 100;
     display: flex;
-    justify-content: center;
-    gap: 2rem;
-    padding: 2rem 2rem;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2.25rem;
+    /* % padding on a fixed element is a share of the viewport, so this lands on
+       the same edge as the centred max-width column with its 3rem padding */
+    padding: 1.3rem max(3rem, calc((100% - var(--max-width)) / 2 + 3rem));
+    /* No backdrop blur: over 92% black it barely showed, and it was recomputed on every scroll frame */
     background: rgba(0, 0, 0, 0.92);
-    backdrop-filter: blur(10px);
     border-bottom: none;
 }
 
@@ -150,51 +152,33 @@ body {
     font-size: 0.85rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--text-dim);
+    color: var(--text-faint);
     text-decoration: none;
     padding: 0.3rem 0;
-    border-bottom: 2px solid transparent;
+    border-bottom: 1px solid transparent;
     transition: color 0.3s, border-color 0.3s;
 }
 
 .nav-link:hover,
 .nav-link.active {
-    background: linear-gradient(90deg, #00e5e5, #e500cc, #e5d800, #00e5e5);
-    background-size: 300% 100%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: cmykShift 8s linear infinite;
-    border-bottom-color: transparent;
+    color: var(--ink);
+}
+
+/* The current page gets the one static CMY hairline outside the portrait and name */
+.nav-link.active {
+    border-image: var(--signature) 1;
 }
 
 /* --- Section Titles --- */
+/* Same size, colour and left alignment as .spells-section-title on the other pages */
 .section-title {
     font-family: var(--font-display);
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: 400;
-    letter-spacing: 0.08em;
-    color: var(--text-dim);
-    text-align: center;
-    margin-bottom: 3rem;
-    text-shadow: none;
-}
-
-/* --- Floral Divider --- */
-.floral-divider {
-    width: 100%;
-    max-width: 600px;
-    height: 1px;
-    margin: 6rem auto;
-    background: linear-gradient(90deg, transparent, #00e5e5, #e500cc, #e5d800, #00e5e5, transparent);
-    background-size: 300% 100%;
-    animation: cmykShift 8s linear infinite;
-    border: none;
-}
-
-.floral-divider::before,
-.floral-divider::after {
-    display: none;
+    letter-spacing: 0.06em;
+    color: var(--ink);
+    text-align: left;
+    margin-bottom: 2.5rem;
 }
 
 /* ============================================
@@ -204,7 +188,9 @@ body {
     position: relative;
     z-index: 1;
     padding: 9rem 3rem 1rem;
-    max-width: var(--max-width);
+    /* Starts at 20% to leave room for the portrait, and ends on the same right
+       edge as the centred column below (50% + half the column): 20% + this width */
+    max-width: min(var(--max-width), calc(30% + var(--max-width) / 2));
     margin: 0 auto 0 20%;
 }
 
@@ -247,6 +233,17 @@ body {
     display: block;
 }
 
+/* Clicking the portrait (it has a 5-click secret) must not select it: no blue
+   selection tint, no drag ghost, and no browser image-lookup button */
+.hero-portrait,
+.hero-portrait img {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
 .portrait-frame::before {
     display: none;
 }
@@ -281,8 +278,8 @@ body {
 
 .hero-class {
     font-family: var(--font-body);
-    font-size: 0.75rem;
-    letter-spacing: 0.2em;
+    font-size: var(--label-size);
+    letter-spacing: var(--label-track);
     text-transform: uppercase;
     color: var(--text-dim);
     margin-bottom: 1.2rem;
@@ -293,13 +290,12 @@ body {
     font-size: 2.8rem;
     font-weight: 400;
     line-height: 1.1;
-    margin-bottom: 2rem;
-    background: linear-gradient(90deg, #00e5e5, #e500cc, #e5d800, #00e5e5);
-    background-size: 300% 100%;
+    margin-bottom: 2.5rem;
+    /* CMY shown once across the name, held still */
+    background: var(--signature);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: cmykShift 8s linear infinite;
 }
 
 @keyframes cmykShift {
@@ -337,21 +333,21 @@ body {
 .hero-subtitle {
     font-size: 1.05rem;
     line-height: 1.6;
-    color: var(--text-dim);
-    margin-bottom: 2.5rem;
+    color: var(--text);
+    margin-bottom: 3rem;
     font-style: italic;
 }
 
 .hero-bio {
     font-size: 1rem;
     line-height: 1.7;
-    color: #aaaaaa;
-    margin-bottom: 2.5rem;
+    color: var(--text-dim);
+    margin-bottom: 3.25rem;
     margin-top: 0.5rem;
 }
 
 .hero-bio p {
-    margin-bottom: 0.8rem;
+    margin-bottom: 1.4rem;
 }
 
 .hero-bio p:last-child {
@@ -365,27 +361,24 @@ body {
     margin-bottom: 4rem;
 }
 
+/* Profile links: hairline outlines */
 .link-badge {
     font-family: var(--font-body);
-    font-size: 0.7rem;
-    letter-spacing: 0.12em;
+    font-size: var(--label-size);
+    letter-spacing: var(--label-track);
     text-transform: uppercase;
     color: var(--text);
     text-decoration: none;
     padding: 0.4rem 1rem;
-    border: none;
-    border-radius: 4px;
-    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--rule-strong);
+    border-radius: 3px;
+    background: transparent;
     transition: all 0.3s ease;
 }
 
 .link-badge:hover {
-    background: linear-gradient(90deg, #00e5e5, #e500cc, #e5d800, #00e5e5) 0 0 / 300% 100%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-    animation: cmykShift 8s linear infinite;
+    color: #ffffff;
+    border-color: var(--ink);
 }
 
 /* ============================================
@@ -396,7 +389,7 @@ body {
     z-index: 1;
     padding: 1rem 3rem;
     max-width: var(--max-width);
-    margin: 4rem auto 3rem;
+    margin: 5rem auto 4rem;
 }
 
 .stats-panel {
@@ -405,18 +398,15 @@ body {
     align-items: center;
 }
 
-.radar-container {
-    display: none;
-}
-
+/* Left-aligned under its title, as wide as the Guild Registries below */
 .stats-list {
     flex: 1;
-    width: 85%;
-    max-width: 85%;
-    margin: 0 auto;
+    width: 100%;
+    max-width: none;
+    margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
+    gap: 0.75rem;
 }
 
 .stat-row {
@@ -428,15 +418,15 @@ body {
 
 .stat-abbr {
     font-family: var(--font-body);
-    font-size: 0.7rem;
+    font-size: var(--label-size);
     font-weight: 400;
-    letter-spacing: 0.1em;
-    color: var(--gold);
+    letter-spacing: 0.12em;
+    color: var(--text-faint);
 }
 
 .stat-name {
     font-size: 0.9rem;
-    color: var(--text-dim);
+    color: var(--text);
 }
 
 .stat-bar {
@@ -449,9 +439,8 @@ body {
 .stat-fill {
     height: 100%;
     width: var(--stat-val);
-    background: linear-gradient(90deg, var(--yellow), var(--cyan));
+    background: rgba(255, 255, 255, 0.75);
     border-radius: 2px;
-    box-shadow: 0 0 6px var(--cyan-glow);
     animation: fillBar 1.5s ease-out forwards;
     transform-origin: left;
 }
@@ -471,21 +460,23 @@ body {
 
 .stats-divider {
     height: 1px;
-    background: linear-gradient(90deg, transparent, var(--border), transparent);
-    margin: 0.4rem 0;
+    background: var(--rule);
+    margin: 0.6rem 0;
 }
 
-.stat-weak .stat-abbr {
-    color: #e500cc;
-}
-
+/* Weak attributes step down to a darker grey: text at the darkest grey that
+   still passes AA (4.5:1 on black), bars at about 30% white */
+.stat-weak .stat-abbr,
 .stat-weak .stat-val {
-    color: #e500cc;
+    color: var(--text-low);
+}
+
+.stat-weak .stat-name {
+    color: var(--text-faint);
 }
 
 .stat-fill-low {
-    background: linear-gradient(90deg, #8f0080, #e500cc);
-    box-shadow: 0 0 8px var(--magenta-glow);
+    background: rgba(255, 255, 255, 0.3);
 }
 
 /* ============================================
@@ -496,7 +487,7 @@ body {
     z-index: 1;
     padding: 1rem 3rem;
     max-width: var(--max-width);
-    margin: 4rem auto 3rem;
+    margin: 5rem auto 4rem;
 }
 
 /* --- Abilities List --- */
@@ -553,12 +544,11 @@ body {
     line-height: 1.5;
 }
 
-/* --- Glow Card Grid --- */
+/* --- Ability card grid --- */
 .abilities-glow-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 0.8rem;
-    margin-bottom: 0.8rem;
+    gap: 3rem 2.5rem;
 }
 
 .abilities-glow-grid .ability-card {
@@ -571,77 +561,61 @@ body {
     }
 }
 
+/* Ruled entries: one hairline on top, no box, no fill. On hover the rule, icon
+   and type word take the type's colour, the way Scrying Pool thumbnails turn
+   to colour; at rest everything stays grey. */
 .ability-card {
     position: relative;
-    overflow: hidden;
-    border-radius: 10px;
-    padding: 2px;
-    background: rgba(128, 128, 128, 0.1);
+    border-top: 1px solid var(--rule);
+    transition: border-color 0.3s ease;
+    --type: var(--rule-strong);
+}
+
+.ability-card[data-type="passive"]     { --type: var(--yellow); }
+.ability-card[data-type="daily"]       { --type: var(--magenta); }
+.ability-card[data-type="feat"]        { --type: var(--cyan); }
+.ability-card[data-type="enchantment"] { --type: #a07cff; }  /* violet, 6.8:1 on black */
+.ability-card[data-type="conditional"] { --type: #ff8800; }  /* orange, 8.8:1 */
+
+.ability-card:hover {
+    border-top-color: var(--type);
+}
+
+.ability-card:hover .ability-icon,
+.ability-card:hover .ability-type-tag {
+    color: var(--type);
 }
 
 .ability-card-inner {
-    border-radius: 9px;
-    padding: 1rem 1.1rem;
-    background: rgba(10, 10, 10, 0.95);
-    position: relative;
-    z-index: 1;
+    padding: 1rem 0 0;
     height: 100%;
-    transition: background 0.3s ease;
-}
-
-.ability-card:hover > .ability-card-inner {
-    background: rgba(10, 10, 10, 0.7);
-    backdrop-filter: blur(80px);
 }
 
 .ability-card-header {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-    margin-bottom: 0.5rem;
+    gap: 0.6rem;
+    margin-bottom: 0.6rem;
 }
 
+/* One grey for every type; the type reads from its word and its icon */
 .ability-type-tag {
     font-family: var(--font-body);
-    font-size: 0.6rem;
-    letter-spacing: 0.2em;
+    font-size: var(--label-size);
+    letter-spacing: var(--label-track);
     text-transform: uppercase;
-    padding: 0.2rem 0.6rem;
-    border-radius: 3px;
-}
-
-.ability-card[data-type="passive"] .ability-type-tag {
-    color: var(--yellow);
-    background: rgba(229, 216, 0, 0.1);
-}
-.ability-card[data-type="daily"] .ability-type-tag {
-    color: var(--magenta);
-    background: rgba(229, 0, 204, 0.1);
-}
-.ability-card[data-type="enchantment"] .ability-type-tag {
-    color: #8855ff;
-    background: rgba(136, 85, 255, 0.1);
-}
-.ability-card[data-type="feat"] .ability-type-tag {
-    color: var(--cyan);
-    background: rgba(0, 229, 229, 0.1);
-}
-.ability-card[data-type="conditional"] .ability-type-tag {
-    color: #ff8800;
-    background: rgba(255, 136, 0, 0.1);
+    color: var(--text-faint);
+    transition: color 0.3s ease;
 }
 
 .ability-icon {
     flex-shrink: 0;
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
+    color: var(--text-faint);
+    transition: color 0.3s ease;
 }
-
-.ability-card[data-type="passive"] .ability-icon { color: var(--yellow); }
-.ability-card[data-type="daily"] .ability-icon { color: var(--magenta); }
-.ability-card[data-type="enchantment"] .ability-icon { color: #8855ff; }
-.ability-card[data-type="feat"] .ability-icon { color: var(--cyan); }
-.ability-card[data-type="conditional"] .ability-icon { color: #ff8800; }
 
 .ability-icon svg {
     width: 100%;
@@ -649,51 +623,18 @@ body {
 }
 
 .ability-name {
-    font-family: var(--font-display);
-    font-size: 0.9rem;
-    color: var(--text-bright);
-    margin-bottom: 0.3rem;
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 0.01em;
+    color: var(--ink);
+    margin-bottom: 0.35rem;
 }
 
 .ability-desc {
-    font-size: 0.75rem;
+    font-size: 0.85rem;
     color: var(--text-dim);
-    line-height: 1.5;
-}
-
-/* Glow blob */
-.ability-blob {
-    filter: blur(30px);
-    position: absolute;
-    z-index: 0;
-    top: 0;
-    left: 0;
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.ability-card:hover .ability-blob {
-    opacity: 1;
-}
-
-.ability-card[data-type="passive"] .ability-blob { background: rgba(229, 216, 0, 0.25); }
-.ability-card[data-type="daily"] .ability-blob { background: rgba(229, 0, 204, 0.25); }
-.ability-card[data-type="enchantment"] .ability-blob { background: rgba(136, 85, 255, 0.25); }
-.ability-card[data-type="feat"] .ability-blob { background: rgba(0, 229, 229, 0.25); }
-.ability-card[data-type="conditional"] .ability-blob { background: rgba(255, 136, 0, 0.25); }
-
-.ability-fakeblob {
-    display: hidden;
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
+    line-height: 1.6;
 }
 
 @media (max-width: 768px) {
@@ -1392,24 +1333,25 @@ body {
     z-index: 1;
     padding: 2rem;
     max-width: var(--max-width);
-    margin: 0 auto 2rem;
+    margin: 0 auto 3.5rem;
 }
 
 .spells-section-title {
     font-family: var(--font-display);
-    font-size: 1.5rem;
-    color: var(--text);
-    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+    letter-spacing: 0.06em;
+    color: var(--ink);
+    margin-bottom: 2rem;
     padding-bottom: 0.5rem;
     border-bottom: none;
 }
 
 .spells-section-title .subtitle {
     font-family: var(--font-body);
-    font-size: 1rem;
+    font-size: 0.85rem;
     font-weight: 400;
-    color: var(--text-dim);
-    font-style: italic;
+    color: var(--text-faint);
+    margin-left: 0.4rem;
 }
 
 .spell-cards {
@@ -1546,7 +1488,7 @@ body {
 
 .site-footer p {
     font-size: 0.85rem;
-    color: var(--text-dim);
+    color: var(--text-faint);
 }
 
 /* ============================================
@@ -1615,12 +1557,6 @@ body {
 
     .stats-panel {
         flex-direction: column;
-    }
-
-    .radar-container {
-        flex: none;
-        max-width: 280px;
-        margin: 0 auto;
     }
 
     .stat-row {
@@ -1702,8 +1638,12 @@ body {
 /* ============================================
    SCRYING POOL PAGE
    ============================================ */
+/* The same 3rem side padding as the other pages' sections, so Scrying Pool
+   titles start on the shared column edge (they sat 16px further left) */
 .scry-section {
-    margin-bottom: 3rem;
+    margin-bottom: 4.5rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
 }
 
 .scry-lead {
@@ -1711,16 +1651,16 @@ body {
     font-size: 0.95rem;
     line-height: 1.6;
     max-width: 720px;
-    margin: -0.5rem 0 1.5rem;
+    margin: -0.5rem 0 2.25rem;
 }
 
 .hero-bio a,
 .scry-lead a,
 .scry-alt a,
 .scry-desc a {
-    color: var(--cyan);
+    color: var(--ink);
     text-decoration: none;
-    border-bottom: 1px solid rgba(0, 229, 229, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.35);
     transition: color 0.3s, border-color 0.3s;
 }
 
@@ -1728,25 +1668,21 @@ body {
 .scry-lead a:hover,
 .scry-alt a:hover,
 .scry-desc a:hover {
-    color: var(--gold-light);
-    border-bottom-color: var(--gold-light);
+    color: #ffffff;
+    border-bottom-color: #ffffff;
 }
 
 .scry-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.5rem;
+    gap: 3.5rem 2.25rem;
 }
 
-/* --- Card --- */
+/* --- Card: no box; the image and the words carry it --- */
 .scry-card {
     display: flex;
     flex-direction: column;
-    background: var(--bg-card);
-    border-radius: 8px;
     position: relative;
-    overflow: hidden;
-    transition: all 0.3s ease;
 }
 
 /* Whole card is clickable via a stretched cover link; secondary links sit above it */
@@ -1762,38 +1698,12 @@ body {
     z-index: 4;
 }
 
-.scry-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    z-index: 2;
-    background: linear-gradient(90deg, var(--cyan), var(--magenta));
-}
-
-.scry-card[data-kind="interview"]::before { background: linear-gradient(90deg, var(--magenta), var(--yellow)); }
-.scry-card[data-kind="audio"]::before     { background: linear-gradient(90deg, var(--yellow), var(--cyan)); }
-.scry-card[data-kind="press"]::before,
-.scry-card[data-kind="essay"]::before,
-.scry-card[data-kind="notice"]::before    { background: linear-gradient(90deg, var(--magenta), var(--cyan)); }
-.scry-card[data-kind="event"]::before     { background: linear-gradient(90deg, var(--yellow), var(--magenta)); }
-
-.scry-card:hover {
-    box-shadow: 0 0 25px var(--cyan-glow);
-    transform: translateY(-3px);
-}
-
-.scry-card[data-kind="interview"]:hover { box-shadow: 0 0 25px var(--magenta-glow); }
-.scry-card[data-kind="audio"]:hover,
-.scry-card[data-kind="event"]:hover     { box-shadow: 0 0 25px var(--yellow-glow); }
-
-/* --- Thumbnail (the pool) --- */
+/* --- Thumbnail (the pool): grey and dim at rest, colour on hover --- */
 .scry-thumb {
     position: relative;
     aspect-ratio: 16 / 9;
     overflow: hidden;
+    border-radius: 4px;
     background: var(--bg-dark);
 }
 
@@ -1803,97 +1713,90 @@ body {
     object-fit: cover;
     display: block;
     filter: grayscale(1) contrast(1.05);
-    opacity: 0.75;
-    transform: scale(1.02);
-    transition: filter 0.5s ease, opacity 0.5s ease, transform 0.5s ease;
-}
-
-.scry-thumb::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(10,10,10,0.95) 100%);
-    pointer-events: none;
+    opacity: 0.55;
+    transition: filter 0.5s ease, opacity 0.5s ease;
 }
 
 .scry-card:hover .scry-thumb img {
     filter: grayscale(0) contrast(1);
     opacity: 1;
-    transform: scale(1.06);
 }
 
 .scry-play {
     position: absolute;
     left: 50%;
     top: 50%;
-    width: 48px;
-    height: 48px;
-    margin: -24px 0 0 -24px;
+    width: 40px;
+    height: 40px;
+    margin: -20px 0 0 -20px;
     border-radius: 50%;
-    border: 1px solid rgba(232, 232, 232, 0.6);
-    background: rgba(0, 0, 0, 0.45);
-    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    background: rgba(0, 0, 0, 0.5);
     z-index: 1;
-    transition: all 0.3s ease;
+    transition: border-color 0.3s ease;
 }
 
 .scry-play::after {
     content: '';
     position: absolute;
-    left: 19px;
-    top: 15px;
-    border-left: 14px solid var(--text-bright);
-    border-top: 9px solid transparent;
-    border-bottom: 9px solid transparent;
+    left: 15px;
+    top: 12px;
+    border-left: 12px solid var(--text-bright);
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
 }
 
 .scry-card:hover .scry-play {
-    border-color: var(--cyan);
-    box-shadow: 0 0 20px var(--cyan-glow);
-    transform: scale(1.1);
+    border-color: var(--ink);
 }
 
 /* --- Body --- */
 .scry-body {
-    padding: 1.2rem 1.5rem 1.5rem;
+    padding: 1rem 0 0;
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
+    gap: 0.35rem;
     flex: 1;
 }
 
+/* Audio cards have no image: a hairline stands in for it */
+.scry-card-audio {
+    border-top: 1px solid var(--rule);
+}
+
 .scry-glyph {
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     line-height: 1;
-    color: var(--cyan);
+    color: var(--text-faint);
     margin-bottom: 0.4rem;
 }
 
-.scry-card[data-kind="audio"] .scry-glyph { color: var(--yellow); }
-.scry-card[data-kind="event"] .scry-glyph { color: var(--magenta); }
-
 .scry-tag {
-    font-family: var(--font-display);
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
+    font-family: var(--font-body);
+    font-size: var(--label-size);
+    letter-spacing: var(--label-track);
     text-transform: uppercase;
-    color: var(--purple-light);
+    color: var(--text-faint);
 }
 
-.scry-card[data-kind="audio"] .scry-tag { color: var(--yellow); }
-.scry-card[data-kind="event"] .scry-tag { color: var(--gold-light); }
-
 .scry-name {
-    font-family: var(--font-heading);
-    font-size: 1.05rem;
-    line-height: 1.35;
-    color: var(--text-bright);
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 1.02rem;
+    line-height: 1.4;
+    color: var(--ink);
     margin: 0;
+}
+
+.scry-card:hover .scry-name {
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 255, 255, 0.5);
+    text-underline-offset: 3px;
 }
 
 .scry-meta {
     font-size: 0.8rem;
-    color: var(--cyan);
+    color: var(--text-faint);
     margin: 0;
 }
 
@@ -1910,84 +1813,89 @@ body {
     color: var(--text-dim);
 }
 
-/* --- Dense grid for episode series --- */
+/* --- Dense grid for episode series ---
+   Caption under the thumbnail, so the episode title doesn't collide with
+   the text baked into each slide */
 .scry-grid-dense {
     grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-    gap: 1rem;
+    gap: 1.6rem 1rem;
 }
 
 .scry-mini {
-    position: relative;
-    display: block;
-    aspect-ratio: 16 / 9;
-    border-radius: 6px;
-    overflow: hidden;
-    background: var(--bg-card);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5rem;
     text-decoration: none;
     color: inherit;
-    transition: all 0.3s ease;
 }
 
 .scry-mini img {
+    flex: 0 0 100%;
     width: 100%;
-    height: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
     object-fit: cover;
     display: block;
+    border-radius: 4px;
     filter: grayscale(1);
-    opacity: 0.7;
-    transition: filter 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
-}
-
-.scry-mini::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.9) 100%);
-    pointer-events: none;
-}
-
-.scry-mini:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0 18px var(--magenta-glow);
+    opacity: 0.55;
+    transition: filter 0.4s ease, opacity 0.4s ease;
 }
 
 .scry-mini:hover img {
     filter: grayscale(0);
     opacity: 1;
-    transform: scale(1.06);
 }
 
 .scry-mini-num {
-    position: absolute;
-    top: 0.5rem;
-    left: 0.6rem;
-    z-index: 1;
-    font-family: var(--font-display);
-    font-size: 0.7rem;
-    letter-spacing: 0.15em;
-    color: var(--yellow);
+    font-family: var(--font-body);
+    font-size: var(--label-size);
+    letter-spacing: 0.08em;
+    color: var(--text-faint);
 }
 
 .scry-mini-title {
-    position: absolute;
-    left: 0.6rem;
-    right: 0.6rem;
-    bottom: 0.5rem;
-    z-index: 1;
-    font-size: 0.72rem;
-    line-height: 1.3;
+    flex: 1;
+    min-width: 0;
+    font-size: 0.78rem;
+    line-height: 1.4;
     color: var(--text);
 }
 
+.scry-mini:hover .scry-mini-title {
+    color: #ffffff;
+}
+
 /* --- View toggle: By Type / By Date --- */
+/* Plain tabs, aligned with the content column */
 .scry-views {
     position: relative;
     z-index: 1;
     display: flex;
-    justify-content: center;
-    gap: 0.6rem;
-    /* clears the fixed nav (about 97px tall on desktop) */
-    margin: 2.5rem auto 2.5rem;
+    justify-content: flex-start;
+    gap: 1.6rem;
+    max-width: var(--max-width);
+    padding: 0 3rem;
+    /* clears the fixed nav (about 74px tall below 1360px; a side rail above) */
+    margin: 2.5rem auto 0.5rem;
+}
+
+/* Phones: the same side padding as the other pages' sections */
+@media (max-width: 768px) {
+    .scry-section,
+    .scry-views {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .scry-section,
+    .scry-views {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
 }
 
 .scry-views[hidden],
@@ -1997,49 +1905,48 @@ body {
     display: none;
 }
 
+/* main.js shows the switch once the page is parsed, often after the first paint.
+   When scripts run (scrying.html sets .js), keep its room from the start, unseen,
+   so the cards don't jump down when it appears. */
+.js .scry-views[hidden] {
+    display: flex;
+    visibility: hidden;
+}
+
 .scry-view-btn {
     font-family: var(--font-body);
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
+    font-size: var(--label-size);
+    letter-spacing: var(--label-track);
     text-transform: uppercase;
-    color: var(--text-dim);
-    padding: 0.5rem 1.2rem;
+    color: var(--text-faint);
+    padding: 0.35rem 0;
     border: none;
-    border-radius: 4px;
-    background: rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid transparent;
+    border-radius: 0;
+    background: none;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .scry-view-btn:hover {
-    color: var(--text-bright);
-    background: rgba(255, 255, 255, 0.1);
+    color: var(--ink);
 }
 
 .scry-view-btn[aria-pressed="true"] {
-    background: linear-gradient(90deg, #00e5e5, #e500cc, #e5d800, #00e5e5) 0 0 / 300% 100%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-    animation: cmykShift 8s linear infinite;
-    box-shadow: inset 0 -2px 0 rgba(255, 255, 255, 0.15);
-}
-
-.scry-view-btn:focus-visible {
-    outline: 1px solid var(--cyan);
-    outline-offset: 2px;
+    color: var(--ink);
+    border-bottom-color: var(--ink);
 }
 
 /* --- Whispers: talks with an event page but no recording --- */
+/* A ruled list, like the registries */
 .scry-whispers {
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
+    border-bottom: 1px solid var(--rule);
 }
 
 .scry-grid + .scry-whispers {
-    margin-top: 1.5rem;
+    margin-top: 3rem;
 }
 
 .scry-whisper {
@@ -2047,25 +1954,23 @@ body {
     grid-template-columns: 90px 1fr;
     gap: 1.2rem;
     align-items: baseline;
-    padding: 0.75rem 1.2rem;
-    background: var(--bg-card);
-    border-left: 2px solid var(--magenta-dim);
-    border-radius: 4px;
+    padding: 1.1rem 0;
+    border-top: 1px solid var(--rule);
     text-decoration: none;
     color: inherit;
-    transition: all 0.3s ease;
 }
 
-.scry-whisper:hover {
-    border-left-color: var(--magenta);
-    box-shadow: -4px 0 12px var(--magenta-glow);
+.scry-whisper:hover .scry-whisper-title {
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 255, 255, 0.5);
+    text-underline-offset: 3px;
 }
 
 .scry-whisper-date {
-    font-size: 0.75rem;
-    letter-spacing: 0.1em;
+    font-size: var(--label-size);
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--magenta);
+    color: var(--text-faint);
     white-space: nowrap;
 }
 
@@ -2076,15 +1981,16 @@ body {
 }
 
 .scry-whisper-title {
-    font-family: var(--font-heading);
+    font-family: var(--font-body);
+    font-weight: 500;
     font-size: 0.95rem;
     line-height: 1.35;
-    color: var(--text-bright);
+    color: var(--ink);
 }
 
 .scry-whisper-meta {
     font-size: 0.8rem;
-    color: var(--text-dim);
+    color: var(--text-faint);
 }
 
 @media (max-width: 768px) {
@@ -2094,11 +2000,12 @@ body {
     }
 }
 
-/* --- Registry list --- */
+/* --- Registry list: hairline rows. Current entries are white with an
+       outlined Active label; past entries are grey. --- */
 .scry-registry {
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
+    border-bottom: 1px solid var(--rule);
 }
 
 .scry-registry-row {
@@ -2106,75 +2013,71 @@ body {
     grid-template-columns: minmax(180px, 260px) 1fr;
     gap: 1.5rem;
     align-items: baseline;
-    padding: 0.8rem 1.2rem;
-    background: var(--bg-card);
-    border-left: 2px solid var(--cyan-dim);
-    border-radius: 4px;
+    padding: 1.1rem 0;
+    border-top: 1px solid var(--rule);
     text-decoration: none;
     color: inherit;
-    transition: all 0.3s ease;
-}
-
-.scry-registry-row:hover {
-    border-left-color: var(--cyan);
-    box-shadow: -4px 0 12px var(--cyan-glow);
 }
 
 .scry-registry-name {
-    font-family: var(--font-heading);
+    font-family: var(--font-body);
+    font-weight: 500;
     font-size: 0.95rem;
-    color: var(--text-bright);
+    color: var(--text-dim);
 }
 
 .scry-registry-desc {
     font-size: 0.85rem;
-    color: var(--text-dim);
-}
-
-/* Current registries: brighter, yellow edge, ACTIVE badge (same language as active quests) */
-.scry-registry-current {
-    background: rgba(128, 128, 128, 0.18);
-    border-left-color: var(--yellow-dim);
-}
-
-.scry-registry-current:hover {
-    border-left-color: var(--yellow);
-    box-shadow: -4px 0 12px var(--yellow-glow);
+    color: var(--text-faint);
 }
 
 .scry-registry-current .scry-registry-name {
-    color: #ffffff;
+    color: var(--ink);
 }
 
 .scry-registry-current .scry-registry-desc {
-    color: var(--text);
+    color: var(--text-dim);
+}
+
+.scry-registry-row:hover .scry-registry-name {
+    color: #ffffff;
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 255, 255, 0.5);
+    text-underline-offset: 3px;
 }
 
 .scry-registry-badge {
     display: inline-block;
     margin-left: 0.7rem;
     padding: 0.15rem 0.4rem;
+    border: 1px solid var(--rule-strong);
     border-radius: 3px;
     font-family: var(--font-body);
-    font-size: 0.6rem;
+    font-size: 0.58rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     vertical-align: middle;
-    color: var(--yellow);
-    background: rgba(229, 216, 0, 0.12);
+    color: var(--text-dim);
 }
 
-/* --- Nav with three links --- */
+/* --- Nav with three links: one row on phones, EN / JP included --- */
 @media (max-width: 768px) {
     .site-nav {
-        flex-wrap: wrap;
-        gap: 0.6rem 1.2rem;
-        padding: 1.2rem 1rem;
+        flex-wrap: wrap;          /* one row at 390px; wraps rather than overflows below ~370px */
+        gap: 0.5rem 0.95rem;
+        padding: 1.05rem 1rem;    /* 1rem: the same left edge as the content */
     }
 
     .nav-link {
-        font-size: 0.72rem;
-        letter-spacing: 0.1em;
+        font-size: 0.7rem;
+        letter-spacing: 0.08em;
+        white-space: nowrap;
+    }
+
+    /* The subtitle gets its own line, so its dash doesn't dangle */
+    .spells-section-title .subtitle {
+        display: block;
+        margin: 0.45rem 0 0;
     }
 
     .spells-header {
@@ -2188,7 +2091,6 @@ body {
 
     .scry-grid-dense {
         grid-template-columns: repeat(2, 1fr);
-        gap: 0.7rem;
     }
 }
 
@@ -2197,20 +2099,65 @@ body {
     padding: 5rem 0 0;
 }
 
-/* --- Abilities: learned but not prepared --- */
+/* --- Abilities: learned but not prepared ---
+   Dimmer text rather than opacity, which pushed it below readable contrast */
 .ability-card--learned {
-    opacity: 0.45;
-    filter: saturate(0.4);
-    transition: opacity 0.3s ease, filter 0.3s ease;
+    border-top-color: rgba(255, 255, 255, 0.06);
 }
 
-.ability-card--learned:hover {
-    opacity: 1;
-    filter: saturate(1);
+.ability-card--learned .ability-name {
+    color: var(--text-dim);
+}
+
+.ability-card--learned .ability-desc {
+    color: #808080; /* 5.3:1 on black */
+}
+
+.ability-card--learned:hover .ability-name {
+    color: var(--ink);
 }
 
 .spells-header--spacer + .abilities-section {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
+}
+
+/* --- Abilities banner: an engraving drawn in light lines on black ---
+   The background is exactly #000, like the page, so the image has no visible edge
+   and needs no fade or transparency. Lines top out at --text grey. Same column as below. */
+.abilities-banner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    /* Centring in an odd-width window puts the image on a half pixel, and the browser
+       then blurs every fine line. Round the left margin down to a whole pixel (browsers
+       without CSS round() ignore this line and keep the plain centring above). */
+    margin-left: max(0px, round(down, (100% - var(--max-width)) / 2, 1px));
+    padding: 0 3rem;
+}
+
+.abilities-banner img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.abilities-banner + .abilities-section {
+    margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+    .abilities-banner {
+        padding: 0 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .abilities-banner {
+        padding: 0 1rem;
+    }
+}
+
+.abilities-section + .abilities-section {
+    margin-top: 5rem;
 }
 
 /* --- Present for screen readers and search engines, absent from the layout --- */
@@ -2224,4 +2171,333 @@ body {
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border: 0;
+}
+
+/* ============================================
+   LANGUAGE TOGGLE AND JAPANESE PAGES (ja/*.html)
+   ============================================ */
+
+/* Pixel Japanese for headings and labels. Subset to the characters the
+   ja/ pages use; rebuild with tools/subset_jp_font.py after changing them. */
+@font-face {
+    font-family: 'DotGothic16';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../fonts/dotgothic16-ja-subset.woff2') format('woff2');
+}
+
+/* EN / JP switch, pushed to the right end of the nav bar (the column's edge) */
+.lang-toggle {
+    margin-left: auto;
+    margin-right: -0.4rem;   /* the P's ink, not its hover pad, meets the edge */
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+}
+
+.lang-toggle a {
+    display: inline-block;
+    padding: 0.25rem 0.4rem;
+    border-radius: 3px;
+    color: var(--text-faint);
+    text-decoration: none;
+    transition: color 0.25s ease, background-color 0.25s ease;
+}
+
+.lang-toggle a:hover,
+.lang-toggle a:focus-visible {
+    color: var(--text-bright);
+    background-color: rgba(255, 255, 255, 0.06);
+}
+
+.lang-toggle a[aria-current="true"] {
+    color: var(--ink);
+}
+
+.lang-toggle > span {
+    color: rgba(255, 255, 255, 0.25);
+}
+
+@media (max-width: 768px) {
+    .lang-toggle {
+        font-size: 0.7rem;
+        letter-spacing: 0.06em;
+        gap: 0.1rem;
+        margin-right: -0.25rem;
+    }
+
+    .lang-toggle a {
+        padding: 0.25rem;
+    }
+}
+
+/* Side rail: from 1360px up the nav leaves the top of the page and sits as a
+   quiet vertical list in the empty left margin, EN / JP under it, no band */
+@media (min-width: 1360px) {
+    .site-nav {
+        right: auto;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.7rem;
+        padding: 2.6rem 0 0 2.5rem;
+        background: none;
+    }
+
+    .nav-link {
+        font-size: 0.75rem;
+        padding: 0.2rem 0;
+    }
+
+    .lang-toggle {
+        margin: 1.1rem 0 0 -0.4rem;
+        font-size: 0.72rem;
+    }
+}
+
+/* Japanese text: Latin stays in Inconsolata, Japanese falls through to a clean gothic */
+html:lang(ja) {
+    --font-jp: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', YuGothic,
+               'Noto Sans JP', Meiryo, sans-serif;
+    /* Same Latin faces as the English site; Japanese glyphs fall to --font-jp
+       instead of the generic monospace */
+    --font-body: 'Inconsolata', var(--font-jp);
+    --font-heading: 'Inconsolata', var(--font-jp);
+    --font-display: 'Major Mono Display', var(--font-jp);
+}
+
+html:lang(ja) body {
+    font-family: 'Inconsolata', var(--font-jp);
+    text-autospace: normal;
+}
+
+.nav-link:lang(ja),
+.hero-class:lang(ja),
+.section-title:lang(ja),
+.spells-section-title:lang(ja),
+.ability-name:lang(ja),
+.ability-type-tag:lang(ja),
+.scry-tag:lang(ja),
+.scry-view-btn:lang(ja),
+.scry-registry-badge:lang(ja) {
+    font-family: 'DotGothic16', var(--font-jp);
+}
+
+.hero-class:lang(ja),
+.nav-link:lang(ja),
+.scry-tag:lang(ja),
+.ability-type-tag:lang(ja),
+.scry-registry-badge:lang(ja),
+.scry-view-btn:lang(ja) {
+    letter-spacing: 0.06em;
+}
+
+/* Japanese has no true italics; a synthetic slant looks broken */
+.hero-subtitle:lang(ja),
+.spells-section-title .subtitle:lang(ja) {
+    font-style: normal;
+}
+
+/* Break lines between phrases, not inside words (Chromium; others ignore it) */
+.hero-bio:lang(ja),
+.hero-subtitle:lang(ja),
+.scry-desc:lang(ja),
+.scry-meta:lang(ja),
+.scry-lead:lang(ja),
+.ability-desc:lang(ja),
+.scry-registry-desc:lang(ja),
+.scry-whisper-meta:lang(ja),
+.spells-section-title:lang(ja),
+.site-footer p:lang(ja) {
+    word-break: auto-phrase;
+}
+
+rt {
+    font-family: var(--font-body), var(--font-jp, sans-serif);
+    font-style: normal;
+    letter-spacing: 0;
+}
+
+/* ============================================
+   INTERACTIONS (js/fx.js, js/secrets.js)
+   All of it is decoration: off for reduced motion, cursor only on
+   devices with a fine pointer that can hover.
+   ============================================ */
+
+/* --- Cursor: a Game of Life glider (js/fx.js) ---
+   fx.js adds .fx-glider-cursor only once its glider is about to be drawn, so if
+   the script fails the system cursor stays. Over links and buttons the glider
+   stays too and cycles through cyan, magenta and yellow in place of the hand;
+   text fields keep the text cursor and the glider hides. */
+html.fx-glider-cursor,
+html.fx-glider-cursor * {
+    cursor: none;
+}
+
+html.fx-glider-cursor :is(input, textarea, [contenteditable]) {
+    cursor: text;
+}
+
+/* The Life world, over the content. The trail is one window-sized canvas shown
+   through a box that fx.js keeps around its live cells; stamped gliders are
+   drawn above it in 128 px tile canvases made only where they are. One canvas
+   pixel per CSS pixel; no blend mode (the trail's three ink plates are added
+   inside the canvas). */
+.fx-world {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 8000;
+    pointer-events: none;
+    image-rendering: pixelated;
+}
+
+.fx-world-trail {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    contain: strict;
+}
+
+.fx-world-trail canvas {
+    position: absolute;
+    left: 0;
+    top: 0;
+    image-rendering: pixelated;
+}
+
+.fx-world-gliders {
+    z-index: 8001;
+}
+
+/* The pointer glider, laid on the same 4 px grid */
+.fx-glider-icon {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10000;
+    pointer-events: none;
+    will-change: transform;
+}
+
+/* --- Press feedback (an independent property, so it stacks with any
+       transform the element already has) --- */
+.fx-press {
+    --press: 1;
+    scale: var(--press);
+}
+
+/* Their `transition: all` would also ease `scale`, so the press spring
+   arrived late and soft */
+.link-badge,
+.scry-view-btn,
+.lang-toggle a {
+    transition-property: color, background-color, border-color, opacity;
+}
+
+/* --- Portrait colour drift --- */
+.fx-drift {
+    --dx: 0;
+    --dy: 0;
+}
+
+/* Pre-tinted canvases from fx.js (an <img> with an inline SVG filter only if the
+   portrait can't be read), so moving them doesn't re-run a colour filter each frame */
+.fx-ghost {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: auto;
+    pointer-events: none;
+    mix-blend-mode: screen;
+    opacity: 0.45;
+    will-change: transform;
+}
+
+.fx-ghost-c {
+    transform: translate(calc(var(--dx) * 1px), calc(var(--dy) * 1px));
+}
+
+.fx-ghost-m {
+    transform: translate(calc(var(--dx) * -1px), calc(var(--dy) * -1px));
+}
+
+/* --- Spark bursts (only the easter eggs in secrets.js use them now) --- */
+.fx-burst-layer {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.fx-spark {
+    position: absolute;
+    left: 0;
+    top: 0;
+    image-rendering: pixelated;
+}
+
+/* --- Page-to-page crossfade (browsers without support skip it) --- */
+@media (prefers-reduced-motion: no-preference) {
+    @view-transition {
+        navigation: auto;
+    }
+
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+        animation-duration: 0.35s;
+    }
+}
+
+/* --- Reduced motion: stop the site's own looping animations too --- */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* --- Secrets (js/secrets.js) --- */
+/* Placed by a transform on the 4 px Life grid (one sprite pixel per cell), above the gliders (8001) */
+.pixel-cat {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9000;
+    image-rendering: pixelated;
+    cursor: pointer;
+}
+
+/* The cat's nya~: plain text, no box */
+.fx-bubble {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9001;
+    pointer-events: none;
+    white-space: nowrap;
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+}
+
+/* Pre-tinted canvases from secrets.js (see .fx-ghost) */
+.fx-split {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: auto;
+    pointer-events: none;
+    mix-blend-mode: screen;
+    will-change: transform;
 }

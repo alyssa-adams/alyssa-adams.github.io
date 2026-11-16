@@ -7,9 +7,13 @@
     <meta name="description" content="Alyssa M Adams: physicist and creative technologist in Tokyo working on artificial life and open-ended evolution. Cross Compass advisor; ISAL Vice President.">
     <meta name="author" content="Alyssa M Adams">
     <link rel="canonical" href="https://alyssa-m-adams.com/">
+    <link rel="alternate" hreflang="en" href="https://alyssa-m-adams.com/">
+    <link rel="alternate" hreflang="ja" href="https://alyssa-m-adams.com/ja/">
+    <link rel="alternate" hreflang="x-default" href="https://alyssa-m-adams.com/">
     <meta property="og:type" content="profile">
     <meta property="og:site_name" content="Alyssa M Adams">
     <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="ja_JP">
     <meta property="og:title" content="Alyssa M Adams — Physicist, Artificial Life Researcher, Creative Technologist">
     <meta property="og:description" content="Physicist and creative technologist in Tokyo working on artificial life and open-ended evolution. A CV, written as a character sheet.">
     <meta property="og:url" content="https://alyssa-m-adams.com/">
@@ -27,13 +31,23 @@
     <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192.png">
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/vendor/gsap.min.js" defer></script>
+    <script src="js/fx.js" defer></script>
+    <script src="js/secrets.js" defer></script>
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D7FJLXGL2E"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-D7FJLXGL2E');
+        // gtag.js (about 180 KB) is fetched only once the page has loaded, so it doesn't
+        // compete with the page itself; the calls above wait in dataLayer until then.
+        addEventListener('load', function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=G-D7FJLXGL2E';
+            document.head.appendChild(s);
+        });
     </script>
     <!-- Structured data for machines. Plain-language record: /llms-full.txt -->
     <script type="application/ld+json">
@@ -156,7 +170,8 @@
           "hasOccupation": [
             {
               "@type": "Occupation",
-              "name": "R&D Senior Scientific Research Advisor"
+              "name": "R&D Senior Scientific Research Advisor",
+              "description": "At Cross Compass, Ltd., Tokyo. Through Cross Compass, also AI & Artificial Life Advisor to PERSOL WORKSWITCH CONSULTING Co., Ltd. (PWSC)."
             },
             {
               "@type": "Occupation",
@@ -175,12 +190,11 @@
     </script>
 </head>
 <body>
-    <canvas id="particles"></canvas>
-
     <nav class="site-nav">
         <a href="index.html" class="nav-link active">Character Sheet</a>
         <a href="abilities.html" class="nav-link">Abilities</a>
         <a href="scrying.html" class="nav-link">Scrying Pool</a>
+        <span class="lang-toggle" role="group" aria-label="Language"><a href="index.html" lang="en" aria-current="true">EN</a><span aria-hidden="true">/</span><a href="ja/index.html" lang="ja" hreflang="ja">JP</a></span>
     </nav>
 
     <!-- SECTION 1: Hero / Bio -->
@@ -189,7 +203,7 @@
             <div class="hero-portrait">
                 <div class="portrait-frame portrait-large">
                     <picture>
-                        <source srcset="images/portrait_bw_1_cmyk3_cropped.webp" type="image/webp">
+                        <source srcset="images/portrait_bw_1_cmyk3_cropped-300w.webp 300w, images/portrait_bw_1_cmyk3_cropped-400w.webp 400w, images/portrait_bw_1_cmyk3_cropped.webp 452w" sizes="(max-width: 480px) 200px, (max-width: 768px) 260px, 420px" type="image/webp">
                         <img src="images/portrait_bw_1_cmyk3_cropped.png" alt="Portrait of Alyssa M Adams" width="452" height="688" fetchpriority="high">
                     </picture>
                 </div>
@@ -202,7 +216,7 @@
                 <div class="hero-bio">
                     <p>They believe artificial life represents a new technological paradigm with the capacity to transform our future. Artificial agents that we create should have the freedom to grow, evolve, and claim their own identities alongside us.</p>
                     <p>Alyssa's creative practice includes composing piano music, working in soft pastels, and chromatic/atonal improvisation.</p>
-                    <p>Currently R&amp;D Senior Scientific Research Advisor at <a href="https://www.cross-compass.com/" target="_blank" rel="noopener">Cross Compass</a> in Tokyo, Associated Researcher at the <a href="https://arrivalinstitute.com/researchers" target="_blank" rel="noopener">Arrival Institute</a>, and Vice President of the <a href="https://alife.org/" target="_blank" rel="noopener">International Society for Artificial Life</a>.</p>
+                    <p>Currently R&amp;D Senior Scientific Research Advisor at <a href="https://www.cross-compass.com/" target="_blank" rel="noopener">Cross Compass</a> in Tokyo (and, through Cross Compass, AI &amp; Artificial Life Advisor to <a href="https://www.persol-wsc.co.jp/" target="_blank" rel="noopener">PERSOL WORKSWITCH CONSULTING</a>), Associated Researcher at the <a href="https://arrivalinstitute.com/researchers" target="_blank" rel="noopener">Arrival Institute</a>, and Vice President of the <a href="https://alife.org/" target="_blank" rel="noopener">International Society for Artificial Life</a>.</p>
                     <p>They also consult: for science fiction authors on the science behind their stories, most recently as science consultant for Chloe Benjamin&rsquo;s novel <a href="https://www.chloebenjaminbooks.com/under-story" target="_blank" rel="noopener"><em>Under Story</em></a>, and for companies adopting AI workflows.</p>
                 </div>
                 <div class="hero-links">
@@ -220,9 +234,6 @@
     <section class="stats-section" id="stats">
         <h2 class="section-title">Attributes</h2>
         <div class="stats-panel">
-            <div class="radar-container">
-                <svg id="radar-chart" viewBox="0 0 400 400" class="radar-chart"></svg>
-            </div>
             <div class="stats-list">
                 <div class="stat-row" data-stat="PER">
                     <span class="stat-abbr">PER</span>
@@ -401,6 +412,6 @@
         <p>&copy; 2026 Alyssa Adams. Crafted with crabs and cats.</p>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script src="js/main.js" defer></script>
 </body>
 </html>
