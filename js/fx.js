@@ -905,7 +905,11 @@
         c.height = h;
         var ctx = c.getContext('2d', { willReadFrequently: true });
         try {
-            ctx.drawImage(img, 0, 0);
+            // Always scale into the canvas: when the browser picks a srcset file larger
+            // than the slot (452 px for 420 px), naturalWidth is the slot size but a plain
+            // drawImage(img, 0, 0) paints the whole file, so the copy came out 7.6% too
+            // big and was cut off at the bottom and right.
+            ctx.drawImage(img, 0, 0, w, h);
             var data = ctx.getImageData(0, 0, w, h);
             var px = data.data;
             var t = TINT[k];
@@ -987,6 +991,41 @@
             toX(Math.max(-1, Math.min(1, nx)) * -5);
             toY(Math.max(-1, Math.min(1, ny)) * -3);
         });
+    }
+
+    /* ---------- Hover (c): the Abilities banner lights up in CMY around the pointer ---------- */
+    // The colour layer (.banner-glow) is a slowly turning CMY wheel centred on the
+    // pointer, multiplied over the engraving, so only the light lines take colour and
+    // the black stays black. CSS does the turning; this only moves the centre.
+    function initBannerGlow() {
+        if (!finePointer) return;
+        var plate = document.querySelector('.banner-plate');
+        if (!plate) return;
+        el('div', 'banner-glow', plate);
+        var lit = false;
+        var REACH = 80; // px past the image edge where the glow still shows
+        function update(p) {
+            var r = plate.getBoundingClientRect();
+            var near = p.inside && p.x > r.left - REACH && p.x < r.right + REACH &&
+                p.y > r.top - REACH && p.y < r.bottom + REACH;
+            if (near) {
+                plate.style.setProperty('--mx', (p.x - r.left).toFixed(1) + 'px');
+                plate.style.setProperty('--my', (p.y - r.top).toFixed(1) + 'px');
+            }
+            if (near !== lit) {
+                lit = near;
+                plate.classList.toggle('is-lit', lit);
+            }
+        }
+        onFrame.push(update);
+        onLeave.push(function () { update({ inside: false }); });
+        // Scrolling moves the banner under a still pointer
+        var scrollPending = false;
+        window.addEventListener('scroll', function () {
+            if (!pointer.inside || scrollPending) return;
+            scrollPending = true;
+            requestAnimationFrame(function () { scrollPending = false; update(pointer); });
+        }, { passive: true });
     }
 
     /* ---------- CMYK pixel spark burst ---------- */
@@ -1079,6 +1118,7 @@
     var life = initLife();
     initScramble();
     initPortraitDrift();
+    initBannerGlow();
     initPress();
     initViewStagger();
 

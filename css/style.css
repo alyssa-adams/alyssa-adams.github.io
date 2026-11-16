@@ -81,6 +81,8 @@
     --border: var(--rule);
     --border-gold: var(--rule);
     --signature: linear-gradient(90deg, #00e5e5, #e500cc 55%, #e5d800);
+    /* The same colours as a seamless loop (ends where it starts) for the flowing highlights */
+    --signature-loop: linear-gradient(90deg, #00e5e5, #e500cc 33%, #e5d800 67%, #00e5e5);
     /* One label style for every tag, date, badge and meta line */
     --label-size: 0.7rem;
     --label-track: 0.16em;
@@ -164,9 +166,12 @@ button:focus-visible {
     color: var(--ink);
 }
 
-/* The current page gets the one static CMY hairline outside the portrait and name */
+/* The current page gets a CMY hairline that slowly flows sideways, like the name.
+   It is a background on the border row (the border itself stays transparent), so it
+   can move; under reduced motion it holds still. */
 .nav-link.active {
-    border-image: var(--signature) 1;
+    background: var(--signature-loop) 0 100% / 200% 1px repeat-x border-box;
+    animation: signatureFlow 8s linear infinite;
 }
 
 /* --- Section Titles --- */
@@ -291,16 +296,17 @@ button:focus-visible {
     font-weight: 400;
     line-height: 1.1;
     margin-bottom: 2.5rem;
-    /* CMY shown once across the name, held still */
-    background: var(--signature);
+    /* CMY across the name, slowly flowing sideways (held still under reduced motion) */
+    background: var(--signature-loop) 0 0 / 200% 100% repeat-x;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    animation: signatureFlow 8s linear infinite;
 }
 
-@keyframes cmykShift {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 300% 50%; }
+/* One full tile of the 200%-wide C→M→Y→C loop per cycle, so it never jumps */
+@keyframes signatureFlow {
+    to { background-position-x: -200%; }
 }
 
 .hero-title {
@@ -2138,6 +2144,43 @@ button:focus-visible {
     display: block;
     width: 100%;
     height: auto;
+}
+
+/* The engraving lights up in CMY around the pointer (fx.js adds .banner-glow and
+   moves --mx/--my). A turning colour wheel centred on the pointer is multiplied over
+   the image, so the light lines take its colour and the black stays black. */
+.banner-plate {
+    position: relative;
+    isolation: isolate;
+}
+
+@property --banner-spin {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+}
+
+.banner-glow {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: conic-gradient(from var(--banner-spin) at var(--mx, 50%) var(--my, 50%),
+        #00e5e5, #e500cc, #e5d800, #00e5e5);
+    mix-blend-mode: multiply;
+    -webkit-mask-image: radial-gradient(circle 190px at var(--mx, 50%) var(--my, 50%), #000 20%, transparent 100%);
+    mask-image: radial-gradient(circle 190px at var(--mx, 50%) var(--my, 50%), #000 20%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    animation: banner-spin 5s linear infinite paused;
+}
+
+.banner-plate.is-lit .banner-glow {
+    opacity: 1;
+    animation-play-state: running;
+}
+
+@keyframes banner-spin {
+    to { --banner-spin: 360deg; }
 }
 
 .abilities-banner + .abilities-section {
