@@ -7,9 +7,13 @@
     <meta name="description" content="Talks, interviews, podcasts, and press featuring Alyssa M Adams on artificial life and open-ended evolution, plus events organized, including ALIFE 2025.">
     <meta name="author" content="Alyssa M Adams">
     <link rel="canonical" href="https://alyssa-m-adams.com/scrying.html">
+    <link rel="alternate" hreflang="en" href="https://alyssa-m-adams.com/scrying.html">
+    <link rel="alternate" hreflang="ja" href="https://alyssa-m-adams.com/ja/scrying.html">
+    <link rel="alternate" hreflang="x-default" href="https://alyssa-m-adams.com/scrying.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Alyssa M Adams">
     <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="ja_JP">
     <meta property="og:title" content="Talks, Interviews &amp; Press — Alyssa M Adams">
     <meta property="og:description" content="Recorded talks, interviews, podcasts, and press on artificial life and open-ended evolution, plus events organized, including ALIFE 2025.">
     <meta property="og:url" content="https://alyssa-m-adams.com/scrying.html">
@@ -22,27 +26,39 @@
     <link rel="alternate" type="text/markdown" href="/llms.txt" title="Agent-readable index">
     <link rel="preload" href="fonts/inconsolata-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="fonts/major-mono-display-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preconnect" href="https://i.ytimg.com">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
     <link rel="icon" type="image/png" sizes="48x48" href="images/favicon-48.png">
     <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192.png">
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <!-- Lets the CSS keep room for the By Type / By Date switch that main.js shows -->
+    <script>document.documentElement.classList.add('js');</script>
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/vendor/gsap.min.js" defer></script>
+    <script src="js/fx.js" defer></script>
+    <script src="js/secrets.js" defer></script>
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D7FJLXGL2E"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-D7FJLXGL2E');
+        // gtag.js (about 180 KB) is fetched only once the page has loaded, so it doesn't
+        // compete with the page itself; the calls above wait in dataLayer until then.
+        addEventListener('load', function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=G-D7FJLXGL2E';
+            document.head.appendChild(s);
+        });
     </script>
 </head>
 <body>
-    <canvas id="particles"></canvas>
-
     <nav class="site-nav">
         <a href="index.html" class="nav-link">Character Sheet</a>
         <a href="abilities.html" class="nav-link">Abilities</a>
         <a href="scrying.html" class="nav-link active">Scrying Pool</a>
+        <span class="lang-toggle" role="group" aria-label="Language"><a href="scrying.html" lang="en" aria-current="true">EN</a><span aria-hidden="true">/</span><a href="ja/scrying.html" lang="ja" hreflang="ja">JP</a></span>
     </nav>
 
     <div class="spells-header spells-header--spacer">
@@ -66,9 +82,20 @@
         <h2 class="spells-section-title">Visions <span class="subtitle">&mdash; Talks &amp; Lectures</span></h2>
         <div class="scry-grid">
 
+            <article data-date="2026-08-16" class="scry-card" data-kind="talk">
+                <a class="scry-cover" href="https://www.youtube.com/watch?v=TPZyfAIni6I" target="_blank" rel="noopener" aria-label="Navigating the ALife Career Landscape: Academia, Industry, and the Spaces Between"></a>
+                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/TPZyfAIni6I/mqdefault.jpg" alt="" fetchpriority="high"><span class="scry-play"></span></div>
+                <div class="scry-body">
+                    <span class="scry-tag">Invited Talk</span>
+                    <h3 class="scry-name">Navigating the ALife Career Landscape: Academia, Industry, and the Spaces Between</h3>
+                    <p class="scry-meta">ERA MiniCon &middot; ALIFE 2026, Waterloo (remote) &middot; 2026</p>
+                    <p class="scry-desc">A career talk for emerging researchers on the different paths an artificial life career can take, across academia, industry and the spaces between, and how to move from one to another. Hosted by ERA, the student chapter of the International Society for Artificial Life.</p>
+                </div>
+            </article>
+
             <article data-date="2023-08-02" class="scry-card" data-kind="talk">
                 <a class="scry-cover" href="https://www.youtube.com/watch?v=Y4V-XN-LjHc" target="_blank" rel="noopener" aria-label="Ghosts in a Shell"></a>
-                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/Y4V-XN-LjHc/hqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
+                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/Y4V-XN-LjHc/mqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
                 <div class="scry-body">
                     <span class="scry-tag">Film</span>
                     <h3 class="scry-name">Ghosts in a Shell</h3>
@@ -79,7 +106,7 @@
 
             <article data-date="2023-07-26" class="scry-card" data-kind="talk">
                 <a class="scry-cover" href="https://www.youtube.com/watch?v=lnxQge_TLpY" target="_blank" rel="noopener" aria-label="Ghosts in a Shell: An Immersive Art Experience"></a>
-                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/lnxQge_TLpY/hqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
+                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/lnxQge_TLpY/mqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
                 <div class="scry-body">
                     <span class="scry-tag">Art Track</span>
                     <h3 class="scry-name">Ghosts in a Shell: An Immersive Art Experience</h3>
@@ -90,7 +117,7 @@
 
             <article data-date="2023-03-04" class="scry-card" data-kind="talk">
                 <a class="scry-cover" href="https://www.youtube.com/watch?v=iqODzJDZR0w" target="_blank" rel="noopener" aria-label="What Cellular Automata Tell Us About Life"></a>
-                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/iqODzJDZR0w/hqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
+                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/iqODzJDZR0w/mqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
                 <div class="scry-body">
                     <span class="scry-tag">Invited Talk</span>
                     <h3 class="scry-name">What Cellular Automata Tell Us About Life</h3>
@@ -101,7 +128,7 @@
 
             <article data-date="2022-07-21" class="scry-card" data-kind="talk">
                 <a class="scry-cover" href="https://www.youtube.com/watch?v=yzTWPCm3qW8&amp;t=200s" target="_blank" rel="noopener" aria-label="Two Ways of Understanding Social Dynamics"></a>
-                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/yzTWPCm3qW8/hqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
+                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/yzTWPCm3qW8/mqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
                 <div class="scry-body">
                     <span class="scry-tag">Workshop Talk</span>
                     <h3 class="scry-name">Two Ways of Understanding Social Dynamics: Analyzing the Predictability of Emergent Objects in Reddit r/place Dependent on Locality in Space and Time</h3>
@@ -113,7 +140,7 @@
 
             <article data-date="2022-07-12" class="scry-card" data-kind="talk">
                 <a class="scry-cover" href="https://www.youtube.com/watch?v=eaKWHVrWuqQ" target="_blank" rel="noopener" aria-label="Interpretability of Network Measures in Host–Virus Protein Interactions"></a>
-                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/eaKWHVrWuqQ/hqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
+                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/eaKWHVrWuqQ/mqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
                 <div class="scry-body">
                     <span class="scry-tag">Poster Talk</span>
                     <h3 class="scry-name">Interpretability of Network Measures in Host&ndash;Virus Protein Interactions</h3>
@@ -124,7 +151,7 @@
 
             <article data-date="2021-11-03" class="scry-card" data-kind="talk">
                 <a class="scry-cover" href="https://www.youtube.com/watch?v=UyWDTWaxNO8" target="_blank" rel="noopener" aria-label="Using Math to Understand and Define Life"></a>
-                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/UyWDTWaxNO8/hqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
+                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/UyWDTWaxNO8/mqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
                 <div class="scry-body">
                     <span class="scry-tag">Lecture</span>
                     <h3 class="scry-name">Using Math to Understand and Define Life</h3>
@@ -136,7 +163,7 @@
 
             <article data-date="2021-10-29" class="scry-card" data-kind="talk">
                 <a class="scry-cover" href="https://www.youtube.com/watch?v=2gExH4Tzkzc" target="_blank" rel="noopener" aria-label="Emergence: The Force Behind Open-Endedness"></a>
-                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/2gExH4Tzkzc/hqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
+                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/2gExH4Tzkzc/mqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
                 <div class="scry-body">
                     <span class="scry-tag">Speaker Series</span>
                     <h3 class="scry-name">Emergence: The Force Behind Open-Endedness</h3>
@@ -147,7 +174,7 @@
 
             <article data-date="2021-07-19" class="scry-card" data-kind="talk">
                 <a class="scry-cover" href="https://www.youtube.com/watch?v=d-VlcumSeRI" target="_blank" rel="noopener" aria-label="A Graph-Theoretic Approach to Understanding Emergent Behavior in Physical Systems"></a>
-                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/d-VlcumSeRI/hqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
+                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/d-VlcumSeRI/mqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
                 <div class="scry-body">
                     <span class="scry-tag">Conference Talk</span>
                     <h3 class="scry-name">A Graph-Theoretic Approach to Understanding Emergent Behavior in Physical Systems</h3>
@@ -158,7 +185,7 @@
 
             <article data-date="2021-02-10" class="scry-card" data-kind="talk">
                 <a class="scry-cover" href="https://www.youtube.com/watch?v=EzqbKGGi6KQ" target="_blank" rel="noopener" aria-label="League of Legends: The Famous Open-Ended Strategy Generator"></a>
-                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/EzqbKGGi6KQ/hqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
+                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/EzqbKGGi6KQ/mqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
                 <div class="scry-body">
                     <span class="scry-tag">Lecture</span>
                     <h3 class="scry-name">League of Legends: The Famous Open-Ended Strategy Generator</h3>
@@ -169,7 +196,7 @@
 
             <article data-date="2020-08-10" class="scry-card" data-kind="talk">
                 <a class="scry-cover" href="https://www.youtube.com/watch?v=IAefARREQy8" target="_blank" rel="noopener" aria-label="The Role of Emergence in Open-Ended Systems"></a>
-                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/IAefARREQy8/hqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
+                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/IAefARREQy8/mqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
                 <div class="scry-body">
                     <span class="scry-tag">Invited Talk</span>
                     <h3 class="scry-name">The Role of Emergence in Open-Ended Systems</h3>
@@ -180,7 +207,7 @@
 
             <article data-date="2020-02-27" class="scry-card" data-kind="talk">
                 <a class="scry-cover" href="https://www.youtube.com/watch?v=OYB4OBuObfs" target="_blank" rel="noopener" aria-label="Data Science with PyCharm"></a>
-                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/OYB4OBuObfs/hqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
+                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/OYB4OBuObfs/mqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
                 <div class="scry-body">
                     <span class="scry-tag">Meetup Talk</span>
                     <h3 class="scry-name">Data Science with PyCharm</h3>
@@ -192,7 +219,7 @@
 
             <article data-date="2018-07-26" class="scry-card" data-kind="talk">
                 <a class="scry-cover" href="https://www.youtube.com/watch?v=kTAMaCEBEbs" target="_blank" rel="noopener" aria-label="Algorithmic Information Dynamics: Teaching Demos"></a>
-                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/kTAMaCEBEbs/hqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
+                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/kTAMaCEBEbs/mqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
                 <div class="scry-body">
                     <span class="scry-tag">Tutorial</span>
                     <h3 class="scry-name">Algorithmic Information Dynamics: Teaching Demos</h3>
@@ -204,7 +231,7 @@
 
             <article data-date="2018-07-25" class="scry-card" data-kind="talk">
                 <a class="scry-cover" href="https://www.youtube.com/watch?v=qBOPTo0Q5aw" target="_blank" rel="noopener" aria-label="Possible Open-Ended Strategy Selection in League of Legends"></a>
-                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/qBOPTo0Q5aw/hqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
+                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/qBOPTo0Q5aw/mqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
                 <div class="scry-body">
                     <span class="scry-tag">Poster Talk</span>
                     <h3 class="scry-name">Possible Open-Ended Strategy Selection in League of Legends</h3>
@@ -216,7 +243,7 @@
 
             <article data-date="2016-07-25" class="scry-card" data-kind="talk">
                 <a class="scry-cover" href="https://www.youtube.com/watch?v=JzhAjcbSupM" target="_blank" rel="noopener" aria-label="From Turing to Turtles: A Theory of Biological Computation"></a>
-                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/JzhAjcbSupM/hqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
+                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/JzhAjcbSupM/mqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
                 <div class="scry-body">
                     <span class="scry-tag">Conference Talk</span>
                     <h3 class="scry-name">From Turing to Turtles: A Theory of Biological Computation</h3>
@@ -237,7 +264,7 @@
 
             <article data-date="2025-02-08" class="scry-card" data-kind="interview">
                 <a class="scry-cover" href="https://www.youtube.com/watch?v=2rf4CXrgI3w" target="_blank" rel="noopener" aria-label="Update Chat: Dr. Alyssa Adams"></a>
-                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/2rf4CXrgI3w/hqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
+                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/2rf4CXrgI3w/mqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
                 <div class="scry-body">
                     <span class="scry-tag">Interview</span>
                     <h3 class="scry-name">Update Chat: Dr. Alyssa Adams</h3>
@@ -248,7 +275,7 @@
 
             <article data-date="2025-02-08" class="scry-card" data-kind="interview">
                 <a class="scry-cover" href="https://www.youtube.com/watch?v=knG6c5iggqg" target="_blank" rel="noopener" aria-label="Update Chat with Matthew Andrews and Tom Barbalet"></a>
-                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/knG6c5iggqg/hqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
+                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/knG6c5iggqg/mqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
                 <div class="scry-body">
                     <span class="scry-tag">Panel Chat</span>
                     <h3 class="scry-name">Update Chat with Matthew Andrews and Tom Barbalet</h3>
@@ -259,7 +286,7 @@
 
             <article data-date="2024-08-16" class="scry-card" data-kind="interview">
                 <a class="scry-cover" href="https://www.youtube.com/watch?v=hvuvwBfJY50" target="_blank" rel="noopener" aria-label="The Next Ten Years, Embodiment, Japan, and Finding the Right Place"></a>
-                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/hvuvwBfJY50/hqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
+                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/hvuvwBfJY50/mqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
                 <div class="scry-body">
                     <span class="scry-tag">Interview</span>
                     <h3 class="scry-name">The Next Ten Years, Embodiment, Japan, and Finding the Right Place</h3>
@@ -270,7 +297,7 @@
 
             <article data-date="2021-06-30" class="scry-card" data-kind="interview">
                 <a class="scry-cover" href="https://www.youtube.com/watch?v=y5pFtULN6Ck" target="_blank" rel="noopener" aria-label="Celestia On-Air Ep. 07: In Conversation with Alyssa Adams"></a>
-                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/y5pFtULN6Ck/hqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
+                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/y5pFtULN6Ck/mqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
                 <div class="scry-body">
                     <span class="scry-tag">Interview</span>
                     <h3 class="scry-name">Celestia On-Air Ep. 07: In Conversation with Alyssa Adams</h3>
@@ -525,7 +552,7 @@
 
             <article data-date="2025-10-06" class="scry-card" data-kind="event">
                 <a class="scry-cover" href="https://www.youtube.com/watch?v=m3N0kx04Q_8" target="_blank" rel="noopener" aria-label="ALIFE 2025: Ciphers of Life"></a>
-                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/m3N0kx04Q_8/hqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
+                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/m3N0kx04Q_8/mqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
                 <div class="scry-body">
                     <span class="scry-tag">Conference</span>
                     <h3 class="scry-name">ALIFE 2025: Ciphers of Life</h3>
@@ -547,7 +574,7 @@
 
             <article data-date="2025-03-03" class="scry-card" data-kind="event">
                 <a class="scry-cover" href="https://www.youtube.com/watch?v=QuKYdekbTlg" target="_blank" rel="noopener" aria-label="New Human Interfaces: Keynote Speakers &amp; Discussions"></a>
-                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/QuKYdekbTlg/hqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
+                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/QuKYdekbTlg/mqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
                 <div class="scry-body">
                     <span class="scry-tag">Workshop</span>
                     <h3 class="scry-name">New Human Interfaces: Keynote Speakers &amp; Discussions</h3>
@@ -667,7 +694,7 @@
         <div class="scry-grid scry-grid-dense">
             <article data-date="2023-02-20" class="scry-card" data-kind="audio" data-date-only hidden>
                 <a class="scry-cover" href="https://www.youtube.com/playlist?list=PLODRPaSTLJCeDbLrnbfvX_rMgPrJwCu6t" target="_blank" rel="noopener" aria-label="On My Mind, a Cross Labs science podcast"></a>
-                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/tcChBbpYRsU/hqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
+                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/tcChBbpYRsU/mqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
                 <div class="scry-body">
                     <span class="scry-tag">Podcast Host</span>
                     <h3 class="scry-name">On My Mind</h3>
@@ -712,7 +739,7 @@
         <div class="scry-grid scry-grid-dense">
             <article data-date="2022-11-29" class="scry-card" data-kind="interview" data-date-only hidden>
                 <a class="scry-cover" href="https://www.youtube.com/playlist?list=PLODRPaSTLJCdZDKuvfFFLRztSUYWQ2dkD" target="_blank" rel="noopener" aria-label="Cross Roads, a Cross Labs speaker series"></a>
-                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/73svHfR3eo8/hqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
+                <div class="scry-thumb"><img src="https://i.ytimg.com/vi/73svHfR3eo8/mqdefault.jpg" alt="" loading="lazy"><span class="scry-play"></span></div>
                 <div class="scry-body">
                     <span class="scry-tag">Series Host</span>
                     <h3 class="scry-name">Cross Roads</h3>
@@ -743,7 +770,6 @@
     <section class="spells-section scry-section" id="whispers">
         <h2 class="spells-section-title">Whispers <span class="subtitle">&mdash; Talks Without Recordings</span></h2>
         <div class="scry-whispers">
-            <a class="scry-whisper" data-date="2026-08-16" href="https://2026.alife.org/wp-content/uploads/sites/2/2026/08/ALIFE-2026-Minicon-Schedule.pdf" target="_blank" rel="noopener"><span class="scry-whisper-date">Aug 2026</span><span class="scry-whisper-body"><span class="scry-whisper-title">The Career Landscape for ALifers: Academia, Industry and In Between</span><span class="scry-whisper-meta">ERA MiniCon &middot; ALIFE 2026, Waterloo (remote) &middot; Invited Talk</span></span></a>
             <a class="scry-whisper" data-date="2026-02-02" href="https://2026.aliceworkshop.org/speakers/" target="_blank" rel="noopener"><span class="scry-whisper-date">Feb 2026</span><span class="scry-whisper-body"><span class="scry-whisper-title">Environmental Buffering and the Constraint-Function Loop</span><span class="scry-whisper-meta">ALICE Workshop 2026 &middot; IT University of Copenhagen &middot; Invited Speaker &amp; Discussion Lead</span></span></a>
             <a class="scry-whisper" data-date="2024-07-04" href="https://confcats-siteplex.s3.us-east-1.amazonaws.com/wcci24/IEEE_WCCI_2024_Program_d597587f62.pdf" target="_blank" rel="noopener"><span class="scry-whisper-date">Jul 2024</span><span class="scry-whisper-body"><span class="scry-whisper-title">An Open-Ended Approach to Understanding Local, Emergent Conservation Laws in Biological Evolution</span><span class="scry-whisper-meta">IEEE CEC 2024 (WCCI) &middot; Yokohama &middot; Talk</span></span></a>
             <a class="scry-whisper" data-date="2023-07-25" href="https://2023.alife.org/timetable/" target="_blank" rel="noopener"><span class="scry-whisper-date">Jul 2023</span><span class="scry-whisper-body"><span class="scry-whisper-title">Session Chair: Artificial Chemistry III and Art</span><span class="scry-whisper-meta">ALIFE 2023 &middot; Sapporo</span></span></a>
@@ -763,6 +789,6 @@
         <p>&copy; 2026 Alyssa Adams. Crafted with crabs and cats.</p>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script src="js/main.js" defer></script>
 </body>
 </html>

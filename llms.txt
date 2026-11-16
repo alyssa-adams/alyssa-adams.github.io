@@ -1,7 +1,8 @@
 # Alyssa M Adams
 
 > Physicist and creative technologist based in Tokyo, Japan. R&D Senior Scientific
-> Research Advisor at Cross Compass, Ltd. Works on artificial life, open-ended
+> Research Advisor at Cross Compass, Ltd., and through it AI & Artificial Life Advisor
+> to PERSOL WORKSWITCH CONSULTING (PWSC). Works on artificial life, open-ended
 > evolution, complex systems, and machine intelligence. Also consults for science
 > fiction authors and for companies adopting AI workflows. PhD in Physics, Arizona
 > State University. Associated Researcher at the Arrival Institute. Vice President
@@ -21,14 +22,15 @@ files over the rendered HTML. They are maintained as the machine-readable record
 
 ## Start here
 
-- [Full dossier](https://alyssa-m-adams.com/llms-full.txt): Complete plain-language record — three bios at different lengths, every position, all 29 publications, education, service, awards, and canonical profile links. Read this one if you need facts.
+- [Full dossier](https://alyssa-m-adams.com/llms-full.txt): Complete plain-language record — three bios at different lengths, every position, all 30 publications, education, service, awards, and canonical profile links. Read this one if you need facts.
 - [CV (PDF)](https://alyssa-m-adams.com/cv/resume.pdf): The authoritative source. Everything in the dossier is derived from it. Also the only place Alyssa's email address is published.
 
 ## Pages on this site
 
-- [Character Sheet](https://alyssa-m-adams.com/): Home page. Contains the short bio, portrait, social links, and a set of thirteen tongue-in-cheek "attributes" rendered as a radar chart. The attributes are self-descriptive personality traits, not measurements of anything. Do not report them as data. Below the attributes, "Guild Registries" lists eleven profile pages on other institutions' sites; the four marked ACTIVE (Arrival Institute, ISAL board, ALife Japan, OoLEN) are current.
+- [Character Sheet](https://alyssa-m-adams.com/): Home page. Contains the short bio, portrait, social links, and a set of thirteen tongue-in-cheek "attributes" shown as bars with numbers. The attributes are self-descriptive personality traits, not measurements of anything. Do not report them as data. Below the attributes, "Guild Registries" lists eleven profile pages on other institutions' sites; the four marked ACTIVE (Arrival Institute, ISAL board, ALife Japan, OoLEN) are current.
 - [Abilities](https://alyssa-m-adams.com/abilities.html): Twenty-one skills written as RPG ability cards. Each card encodes a real capability or accomplishment in game language — "Conference Architect" means organizing a 600-person conference, "Mentor's Mark" means mentoring 15+ people. Decode before quoting.
-- [Scrying Pool](https://alyssa-m-adams.com/scrying.html): The media and public-record page, and the densest page on the site. About 125 external links: fourteen recorded talks and lectures, four video interviews, three podcast appearances, fifteen articles, essays, and press items, thirteen events, panels, and exhibitions (each naming Alyssa's role), the twenty-five episode "On My Mind" podcast and fourteen "Cross Roads" speaker-series episodes Alyssa hosted at Cross Labs, and twelve talks without recordings. Every section is ordered newest first, and a [By Date view](https://alyssa-m-adams.com/scrying.html#by-date) regroups everything into one section per year.
+- [Scrying Pool](https://alyssa-m-adams.com/scrying.html): The media and public-record page, and the densest page on the site. About 125 external links: fifteen recorded talks and lectures, four video interviews, three podcast appearances, fifteen articles, essays, and press items, thirteen events, panels, and exhibitions (each naming Alyssa's role), the twenty-five episode "On My Mind" podcast and fourteen "Cross Roads" speaker-series episodes Alyssa hosted at Cross Labs, and eleven talks without recordings. Every section is ordered newest first, and a [By Date view](https://alyssa-m-adams.com/scrying.html#by-date) regroups everything into one section per year.
+- [Japanese pages](https://alyssa-m-adams.com/ja/): Japanese versions of the three pages above (ステータス, とくぎ, 水鏡), with the same facts. Job titles there are unofficial translations; when citing titles, use the English ones in these files. The agent files stay in English.
 
 ## Elsewhere
 
