@@ -40,6 +40,8 @@
 \colorlet{text}{black}
 \colorlet{graytext}{black}
 %\colorlet{lighttext}{black}  % intentionally left grey so the footer date stays subtle
+%% The header position line in the body text colour (the class sets it in the cyan highlight)
+\renewcommand*{\headerpositionstyle}[1]{{\fontsize{14pt}{1em}\headingfont\color{text} #1}}
 
 \usepackage{hyperref}
 \hypersetup{
@@ -58,14 +60,19 @@
 
 %%% Hyperlinks now use the body text color (black), so underline them to keep them
 %%% readable as links. ulem's \uline (unlike \underline) wraps across line breaks.
+%%% The underline is a thin mid-grey hairline (was ulem's default black \uline),
+%%% so links stay findable without the underlines dominating the page.
 \usepackage[normalem]{ulem}
+\definecolor{linkline}{HTML}{8C8C8C}
+\newcommand{\linkline}{\bgroup\markoverwith{\textcolor{linkline}{\rule[-1.6pt]{0.5pt}{0.45pt}}}\ULon}
 \let\orighref\href
-\renewcommand{\href}[2]{\orighref{#1}{\uline{#2}}}
+\renewcommand{\href}[2]{\orighref{#1}{\linkline{#2}}}
 
 %%% Override a separator for social informations in header(default: ' | ')
 %\headersocialsep[\quad\textbar\quad]
 %%% Tighter than the default so five header links fit on one line
-\headersocialsep[\enskip\textbar\enskip]
+%%% (\quad now that the class no longer leaks stray spaces around each link; was \enskip)
+\headersocialsep[\quad\textbar\quad]
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -74,6 +81,8 @@
 
 %%% Needed to divide into several files
 \usepackage{import}
+%%% Needed to keep a short section together at a page break
+\usepackage{needspace}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %     Personal Data
@@ -89,7 +98,7 @@
 \linkedin{alyssa-adams}
 \googlescholar{KzspA6sAAAAJ}
 \orcid{0000-0003-1869-7750}
-%\position{Deputy Director \& Senior Research Scientist}
+\position{R\&D Senior Scientific Research Advisor{\enskip\cdotp\enskip}Cross Compass, Ltd.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %     Content
@@ -118,7 +127,10 @@
 \import{\sectiondir}{conferences.tex}
 \import{\sectiondir}{outreach.tex}
 \import{\sectiondir}{workshops.tex}
-\newpage
+%% (A forced \newpage used to sit here; it left the previous page half empty.)
+%% Keep the short Honours list in one piece: start a new page only if less than
+%% about the section's own height (~10.5cm) is left. Raise this if the list grows.
+\needspace{10.5cm}
 \import{\sectiondir}{honors.tex}
 
 \end{document}

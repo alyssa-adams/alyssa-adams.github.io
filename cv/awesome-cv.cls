@@ -108,7 +108,28 @@
 %-------------------------------------------------------------------------------
 %% Page Layout
 % Configure page margins with geometry
-\geometry{left=2.0cm, top=1.5cm, right=2.0cm, bottom=2.0cm, footskip=.5cm}
+% (was left/right 2.0cm, top 1.5cm, bottom 2.0cm, footskip .5cm: wider margins
+%  shorten the 9pt monospace measure, and the footer gets room to breathe)
+\geometry{left=2.2cm, top=2.0cm, right=2.2cm, bottom=2.4cm, footskip=1.0cm}
+
+%% Vertical rhythm: every gap in the CV body comes from these lengths, so
+%% similar things get similar space everywhere. (Added for the calm/spacious pass.)
+% Leading
+\newlength{\cvtitleleading}     \setlength{\cvtitleleading}{14pt}    % 11pt entry titles that wrap
+\newlength{\cvpositionleading}  \setlength{\cvpositionleading}{12.5pt}% 9pt position / author rows
+\newlength{\cvdescleading}      \setlength{\cvdescleading}{12.5pt}   % 9pt bullet text (was 11pt)
+% Gaps
+\newlength{\cvsectionskip}      \setlength{\cvsectionskip}{32pt}     % above a section title
+\newlength{\cvsectionafterskip} \setlength{\cvsectionafterskip}{19pt}% section rule -> first entry (wins over \cventryskip there)
+\newlength{\cventryskip}        \setlength{\cventryskip}{17pt}       % between entries
+\newlength{\cvsubpositionskip}  \setlength{\cvsubpositionskip}{11pt} % entry -> its sub-position
+\newlength{\cvtitlepositiongap} \setlength{\cvtitlepositiongap}{2pt} % title row -> position/authors row
+\newlength{\cvheadtoitems}      \setlength{\cvheadtoitems}{5pt}      % entry heading -> first bullet
+\newlength{\cvitemsep}          \setlength{\cvitemsep}{3pt}          % between bullets (was 2pt)
+\newlength{\cvhonorskip}        \setlength{\cvhonorskip}{5pt}        % between honours rows
+% Horizontal
+\newlength{\cvcolgap}           \setlength{\cvcolgap}{24pt}          % min gap between left text and right-aligned date/location
+\newlength{\cvitemindent}       \setlength{\cvitemindent}{11pt}      % bullet text indent (was 2ex, about 8pt)
 
 %% Header & Footer
 % Set offset to each header and offset
@@ -223,17 +244,25 @@
 ]{Inconsolata}
 
 % Set font for body (Inconsolata)
+% WordSpace={1,0,0}: rigid word spaces (no stretch/shrink), so ragged-right
+% lines keep the monospace grid instead of opening up uneven gaps.
 \newfontfamily\bodyfont[
   Path=\@fontdir,
   UprightFont=Inconsolata-Regular,
   BoldFont=Inconsolata-Bold,
+  WordSpace={1,0,0},
 ]{Inconsolata}
 
 \newfontfamily\bodyfontlight[
   Path=\@fontdir,
   UprightFont=Inconsolata-Light,
   BoldFont=Inconsolata-Regular,
+  WordSpace={1,0,0},
 ]{Inconsolata}
+
+% One space width everywhere: no extra space after full stops and colons,
+% which in a monospace face reads as a stray double space.
+\AtBeginDocument{\frenchspacing}
 
 
 %-------------------------------------------------------------------------------
@@ -275,9 +304,10 @@
 % For elements of entry
 \newcommand*{\entrytitlestyle}[1]{{\fontsize{11pt}{1em}\bodyfont\bfseries\color{darktext}\hypersetup{urlcolor=black}\leavevmode{}#1}}
 \newcommand*{\entrypositionstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\bfseries\color{graytext} #1}}
-\newcommand*{\entrydatestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\bfseries\color{graytext} #1}}
+% Dates: regular weight (was bold) so the right-hand column stays quiet and the titles lead
+\newcommand*{\entrydatestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\mdseries\color{graytext} #1}}
 \newcommand*{\entrylocationstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\color{graytext} #1}}
-\newcommand*{\descriptionstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\upshape\color{text} #1}}
+\newcommand*{\descriptionstyle}[1]{{\fontsize{9pt}{\cvdescleading}\bodyfontlight\upshape\color{text} #1}}
 
 % For elements of subentry
 \newcommand*{\subentrytitlestyle}[1]{{\fontsize{8pt}{1em}\bodyfont\mdseries\color{graytext} #1}}
@@ -290,7 +320,8 @@
 \newcommand*{\honortitlestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\color{graytext} #1}}
 \newcommand*{\honorpositionstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
 \newcommand*{\honordatestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\color{graytext} #1}}
-\newcommand*{\honorlocationstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{graytext} #1}}
+% The honours year sits in this slot; styled like the entry dates so all years match
+\newcommand*{\honorlocationstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\mdseries\upshape\color{graytext} #1}}
 
 % For elements of skill
 \newcommand*{\skilltypestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
@@ -437,10 +468,18 @@
 %-------------------------------------------------------------------------------
 %                Commands for elements of CV structure
 %-------------------------------------------------------------------------------
+% One link in the header's social line: separator first unless it is the first item
+\newbool{isstart}
+\newcommand*{\cv@socialitem}[1]{%
+  \ifbool{isstart}{\setbool{isstart}{false}}{\@headersocialsep}#1%
+}
+
 % Define a header for CV
 % Usage: \makecvheader
+% (The top margin is now 2.0cm, so the extra 3mm push-down above the name is
+%  gone: the name sits where it did. The gap under the links is 1mm, was 6mm,
+%  because \cvsectionskip already gives the first section its air.)
 \newcommand*{\makecvheader}{
-  \vspace*{3mm}
   \begin{center}
     \rainbowname{}
     \\
@@ -449,109 +488,35 @@
     \vspace{4mm}
     \ifthenelse{\isundefined{\@address}}{}{\headeraddressstyle{\@address\\}}
     \vspace{-0.5mm}
-    \headersocialstyle{
-      \newbool{isstart}
-      \setbool{isstart}{true}
-      \ifthenelse{\isundefined{\@mobile}}
-        {}
-        {
-          \textcolor{darktext}{\faMobile}\ \@mobile
-          \setbool{isstart}{false}
-        }
-      \ifthenelse{\isundefined{\@email}}
-        {}
-        {
-          \ifbool{isstart}
-            {
-              \setbool{isstart}{false} 
-            }
-            {\@headersocialsep}
-          \href{mailto:\@email}{\textcolor{darktext}{\faEnvelope}\ \@email}
-        }
-      \ifthenelse{\isundefined{\@homepage}}
-        {}
-        {
-          \ifbool{isstart}
-            {
-              \setbool{isstart}{false} 
-            }
-            {\@headersocialsep}
-          \href{https://www.\@homepage}{\textcolor{darktext}{\faHome}\ \@homepage}
-        }
-      \ifthenelse{\isundefined{\@github}}
-        {}
-        {
-          \ifbool{isstart}
-            {
-              \setbool{isstart}{false} 
-            }
-            {\@headersocialsep}
-          \href{https://github.com/\@github}{\textcolor{darktext}{\faGithubSquare}\ \@github}
-        }
-      \ifthenelse{\isundefined{\@stackoverflowid}}
-        {}
-        {
-          \ifbool{isstart}
-            {
-              \setbool{isstart}{false} 
-            }
-            {\@headersocialsep}
-          \href{https://stackoverflow.com/users/\@stackoverflowid}{\textcolor{darktext}{\faStackOverflow}\ \@stackoverflowname}
-        }
-      \ifthenelse{\isundefined{\@linkedin}}
-        {}
-        {
-          \ifbool{isstart}
-            {
-              \setbool{isstart}{false} 
-            }
-            {\@headersocialsep}
-          \href{https://www.linkedin.com/in/\@linkedin}{\textcolor{darktext}{\faLinkedinSquare}\ \@linkedin}
-        }
-      \ifthenelse{\isundefined{\@googlescholar}}
-        {}
-        {
-          \ifbool{isstart}
-            {
-              \setbool{isstart}{false}
-            }
-            {\@headersocialsep}
-          \href{https://scholar.google.com/citations?user=\@googlescholar}{\textcolor{darktext}{\faGraduationCap}\ Google Scholar}
-        }
-      \ifthenelse{\isundefined{\@orcid}}
-        {}
-        {
-          \ifbool{isstart}
-            {
-              \setbool{isstart}{false}
-            }
-            {\@headersocialsep}
-          \mbox{\href{https://orcid.org/\@orcid}{\textcolor{darktext}{\faLink}\ ORCID}}
-        }
-      \ifthenelse{\isundefined{\@twitter}}
-        {}
-        {
-          \ifbool{isstart}
-            {
-              \setbool{isstart}{false} 
-            }
-            {\@headersocialsep}
-          \href{https://twitter.com/\@twitter}{\textcolor{darktext}{\faTwitter}\ \@twitter}
-        }
-      \ifthenelse{\isundefined{\@skype}}
-        {}
-        {
-          \ifbool{isstart}
-            {
-              \setbool{isstart}{false} 
-            }
-            {\@headersocialsep}
-          \faSkype\ \@skype
-        }
-    } \\
+    % Every line below ends in % so no stray spaces creep in: the old version
+    % leaked a different number of spaces before each separator, so the gaps
+    % between the five links were uneven.
+    \headersocialstyle{%
+      \setbool{isstart}{true}%
+      \ifthenelse{\isundefined{\@mobile}}{}%
+        {\cv@socialitem{\textcolor{darktext}{\faMobile}\ \@mobile}}%
+      \ifthenelse{\isundefined{\@email}}{}%
+        {\cv@socialitem{\href{mailto:\@email}{\textcolor{darktext}{\faEnvelope}\ \@email}}}%
+      \ifthenelse{\isundefined{\@homepage}}{}%
+        {\cv@socialitem{\href{https://www.\@homepage}{\textcolor{darktext}{\faHome}\ \@homepage}}}%
+      \ifthenelse{\isundefined{\@github}}{}%
+        {\cv@socialitem{\href{https://github.com/\@github}{\textcolor{darktext}{\faGithubSquare}\ \@github}}}%
+      \ifthenelse{\isundefined{\@stackoverflowid}}{}%
+        {\cv@socialitem{\href{https://stackoverflow.com/users/\@stackoverflowid}{\textcolor{darktext}{\faStackOverflow}\ \@stackoverflowname}}}%
+      \ifthenelse{\isundefined{\@linkedin}}{}%
+        {\cv@socialitem{\href{https://www.linkedin.com/in/\@linkedin}{\textcolor{darktext}{\faLinkedinSquare}\ \@linkedin}}}%
+      \ifthenelse{\isundefined{\@googlescholar}}{}%
+        {\cv@socialitem{\href{https://scholar.google.com/citations?user=\@googlescholar}{\textcolor{darktext}{\faGraduationCap}\ Google Scholar}}}%
+      \ifthenelse{\isundefined{\@orcid}}{}%
+        {\cv@socialitem{\mbox{\href{https://orcid.org/\@orcid}{\textcolor{darktext}{\faLink}\ ORCID}}}}%
+      \ifthenelse{\isundefined{\@twitter}}{}%
+        {\cv@socialitem{\href{https://twitter.com/\@twitter}{\textcolor{darktext}{\faTwitter}\ \@twitter}}}%
+      \ifthenelse{\isundefined{\@skype}}{}%
+        {\cv@socialitem{\faSkype\ \@skype}}%
+    }\\
     \ifthenelse{\isundefined{\@quote}}
-      {\vspace{6mm}}
-      {\vspace{6.0mm}\headerquotestyle{\@quote\\}\vspace{5.0mm}}
+      {\vspace{1mm}}
+      {\vspace{6.0mm}\headerquotestyle{\@quote\\}\vspace{1.0mm}}
   \end{center}
 }
 
@@ -572,12 +537,15 @@
 
 % Define a section for CV
 % Usage: \cvsection{<section-title>}
-\newcommand{\cvsection}[1]{
-  \par\addvspace{6ex}
-  \phantomsection{}
-  \sectionstyle{#1}
-  \color{black}\vhrulefill{0.9pt}
-  \par\nobreak\addvspace{3ex}
+% (Spacing comes from \cvsectionskip / \cvsectionafterskip; the rule is 0.6pt,
+%  was 0.9pt, and its \color{black} no longer leaks into the rest of the page.)
+\newcommand{\cvsection}[1]{%
+  \par\addvspace{\cvsectionskip}%
+  \begingroup\setlength{\parskip}{\z@}%
+    \noindent\phantomsection{}%
+    \sectionstyle{#1}\hspace{0.5em}{\color{black}\vhrulefill{0.6pt}}\par
+  \endgroup
+  \nobreak\addvspace{\cvsectionafterskip}%
 }
 
 % Define a subsection for CV
@@ -587,38 +555,74 @@
   \subsectionstyle{#1}
 }
 
-% Define an environment for cventry
-\newenvironment{cventries}{
-  \vspace{-1mm}
-}{
+% One heading row of an entry: <left> on the left, <right> flush right on the
+% FIRST line. The left text wraps ragged-right (no hyphenation) in whatever room
+% the right text leaves, so a long publication title can use the full width when
+% its right side only holds a year, instead of wrapping at a fixed 11cm column.
+% Usage: \cv@row{<leading>}{<styled left>}{<styled right>}{<raw right, for the empty test>}
+% Balanced ragged-right, used for headings and bullets: no hyphenation, all the
+% slack goes to the right edge (word spaces are rigid), and a wrapped paragraph
+% is broken so its last line is not one stranded word: TeX may shorten earlier
+% lines by up to \cv@raggedstretch to pull the last line out towards \cv@lastline.
+% (Both are in em of the current font: 20em/18em is 40/36 characters of Inconsolata.)
+% Usage: \cv@ragged{<line width>}
+\def\cv@raggedstretch{20em}
+\def\cv@lastline{18em}
+\newcommand*{\cv@ragged}[1]{%
+  \let\\\@centercr
+  \leftskip\z@skip
+  \@rightskip\z@\@plus\cv@raggedstretch\relax
+  \rightskip\@rightskip
+  \parfillskip\z@\@plus\dimexpr#1-\cv@lastline\relax
+  \hyphenpenalty\@M
+  \emergencystretch3em
 }
+
+\newlength{\cv@rightw}
+\newcommand{\cv@row}[4]{%
+  \par
+  \begingroup
+    \setlength{\baselineskip}{#1}%
+    \ifempty{#4}%
+      {\setlength{\cv@rightw}{\z@}}%
+      {\settowidth{\cv@rightw}{#3}\addtolength{\cv@rightw}{\cvcolgap}}%
+    \cv@ragged{\dimexpr\linewidth-\cv@rightw\relax}%
+    \parshape\@ne\z@\dimexpr\linewidth-\cv@rightw\relax
+    \noindent\rlap{\hb@xt@\linewidth{\hfil#3}}#2\par
+  \endgroup
+}
+
+% Define an environment for cventry
+\newenvironment{cventries}{}{}
 % Define an entry of cv information
 % Usage: \cventry{<position>}{<title>}{<location>}{<date>}{<description>}
-\newcommand*{\cventry}[5]{
-  \setlength\tabcolsep{0pt}
-  \setlength{\extrarowheight}{0pt}
-  \vspace{2mm}
-  \begin{samepage}
-  \begin{tabular*}{\textwidth}{@{}L{11cm}@{\extracolsep{\fill}}R{6cm}@{}}
-    \ifempty{#2#3}
-      {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
-      {\entrytitlestyle{#2} & \entrydatestyle{\mbox{#4}} \\
-      \entrypositionstyle{#1} & \entrylocationstyle{#3} \\}
-    \multicolumn{2}{@{}L{17cm}@{}}{\descriptionstyle{#5}} \\
-  \end{tabular*}
-  \end{samepage}
+% Each entry is one unbreakable box, so an entry is never split across pages;
+% the box sits on its last baseline so the gap to the next entry is the same
+% everywhere (\cventryskip).
+\newcommand*{\cventry}[5]{%
+  \par\addvspace{\cventryskip}%
+  \begingroup\setlength{\parskip}{\z@}%
+  \noindent\begin{minipage}[b]{\linewidth}%
+    \ifempty{#2#3}%
+      {\cv@row{\cvpositionleading}{\entrypositionstyle{#1}}{\entrydatestyle{#4}}{#4}}%
+      {\cv@row{\cvtitleleading}{\entrytitlestyle{#2}}{\entrydatestyle{#4}}{#4}%
+       \ifempty{#1#3}{}{%
+         \vspace{\cvtitlepositiongap}%
+         \cv@row{\cvpositionleading}{\entrypositionstyle{#1}}{\entrylocationstyle{#3}}{#3}}}%
+    \descriptionstyle{#5}%
+  \end{minipage}\par
+  \endgroup
 }
 % Define a subposition within an existing entry (for combined company entries)
 % Usage: \cvsubposition{<position>}{<date>}{<description>}
-\newcommand*{\cvsubposition}[3]{
-  \setlength\tabcolsep{0pt}
-  \setlength{\extrarowheight}{0pt}
-  \begin{samepage}
-  \begin{tabular*}{\textwidth}{@{}L{11cm}@{\extracolsep{\fill}}R{6cm}@{}}
-    \entrypositionstyle{#1} & \entrydatestyle{\mbox{#2}} \\
-    \multicolumn{2}{@{}L{17cm}@{}}{\descriptionstyle{#3}} \\
-  \end{tabular*}
-  \end{samepage}
+\newcommand*{\cvsubposition}[3]{%
+  \par\addvspace{\cvsubpositionskip}%
+  \begingroup\setlength{\parskip}{\z@}%
+  \noindent\begin{minipage}[b]{\linewidth}%
+    \cv@row{\cvpositionleading}{\entrypositionstyle{#1}}{\entrydatestyle{#2}}{#2}%
+    \descriptionstyle{#3}%
+  \end{minipage}\par
+  \endgroup
 }
 
 % Define an environment for cvsubentry
@@ -646,20 +650,24 @@
 }
 
 % Define an environment for cvhonor
-\newenvironment{cvhonors}{
-  \begin{center}
-    \setlength\tabcolsep{0pt}
-    \setlength{\extrarowheight}{0pt}
-    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} C{0cm} L{14.5cm} R{2.5cm}}
-}{
-    \end{tabular*}
-  \end{center}
+% (Was a tight tabular with fixed cm columns and vertically centred years; now
+%  one row per honour with the same leading as bullets, a small gap between
+%  rows, and the year on the first line.)
+\newenvironment{cvhonors}{%
+  \par\addvspace{\cvheadtoitems}%
+  \begingroup
+  \setlength{\parskip}{\z@}%
+  \interlinepenalty\@M  % never split one honour across pages
+}{%
+  \par\endgroup
 }
 % Define a line of cv information(honor, award or something else)
 % Usage: \cvhonor{<position>}{<title>}{<location>}{<date>}
-\newcommand*{\cvhonor}[4]{
-  \honordatestyle{#4} & \honorpositionstyle{#1}, \honortitlestyle{#2} & \honorlocationstyle{#3}
-  \\
+\newcommand*{\cvhonor}[4]{%
+  \par\addvspace{\cvhonorskip}%
+  \cv@row{\cvdescleading}%
+    {\ifempty{#4}{}{\honordatestyle{#4}\quad}\honorpositionstyle{#1}, \honortitlestyle{#2}}%
+    {\honorlocationstyle{#3}}{#3}%
 }
 
 % Define an environment for cvskill
@@ -680,16 +688,20 @@
 }
 
 % Define an environment for cvitems(for cventry)
-\newenvironment{cvitems}{
-  \vspace{-2mm}
-  \begin{justify}
-  \begin{itemize}[leftmargin=2ex, itemsep=2pt, parsep=0pt]
-    \setlength{\parskip}{0pt}
-    \renewcommand{\labelitemi}{\bullet}
-}{
-  \end{itemize}
-  \end{justify}
-  \vspace{1mm}
+% Ragged-right with no hyphenation (was justified): in a monospace face,
+% justification stretched the word gaps unevenly and split words at line ends.
+% The closing \strut gives every entry the same last-line depth, so the gap to
+% the next entry does not depend on whether the last line has descenders.
+\newenvironment{cvitems}{%
+  \cv@ragged{\linewidth}%
+  \begin{itemize}[leftmargin=\cvitemindent, topsep=\cvheadtoitems, partopsep=0pt,
+                  itemsep=\cvitemsep, parsep=0pt]
+    \setlength{\parskip}{0pt}%
+    \parfillskip\z@\@plus\dimexpr\linewidth-\cv@lastline\relax % the list resets it
+    \renewcommand{\labelitemi}{\bullet}%
+}{%
+  \unskip\strut
+  \end{itemize}%
 }
 
 
