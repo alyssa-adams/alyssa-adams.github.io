@@ -67,8 +67,8 @@
        "en": "<p>They also consult: for science fiction authors on the science behind their stories, most recently as science consultant for Chloe Benjamin&rsquo;s novel <a href=\"https://www.chloebenjaminbooks.com/under-story\" target=\"_blank\" rel=\"noopener\"><em>Under Story</em></a>, and for companies adopting AI workflows.</p>",
        "ja": "<p>コンサルタントとしても活動する。SF作家には物語の背景にある科学について助言しており、最近ではChloe Benjaminの小説『<a href=\"https://www.chloebenjaminbooks.com/under-story\" target=\"_blank\" rel=\"noopener\">Under Story</a>』で科学考証を担当した。企業には、AIワークフローの導入を支援している。</p>"},
       {"kind": "raw", "count": 1,
-       "en": "<a href=\"cv/resume.pdf\" class=\"link-badge\">CV</a>",
-       "ja": "<a href=\"cv/resume.pdf\" class=\"link-badge\" hreflang=\"en\">英文CV</a>"},
+       "en": "<a href=\"cv.html\" class=\"link-badge\">CV</a>",
+       "ja": "<a href=\"cv.html\" class=\"link-badge\" hreflang=\"en\">英文CV</a>"},
 
       {"en": "Attributes", "ja": "能力値"},
       {"en": "Performance", "ja": "表現力"},

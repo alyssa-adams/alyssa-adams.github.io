@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>Curriculum Vitae — Alyssa M Adams</title>
+    <meta name="description" content="The CV of Alyssa M Adams, drawn page by page from the PDF.">
+    <meta name="author" content="Alyssa M Adams">
+    <!-- Hello, agent. This page only draws /cv/resume.pdf; read that file directly, or /llms.txt. -->
+    <link rel="alternate" type="application/pdf" href="cv/resume.pdf" title="CV (PDF)">
+    <link rel="preload" href="fonts/inconsolata-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/major-mono-display-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="modulepreload" href="js/vendor/pdfjs/pdf.min.js">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="images/favicon-48.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192.png">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google Analytics -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-D7FJLXGL2E');
+        // gtag.js (about 180 KB) is fetched only once the page has loaded, so it doesn't
+        // compete with the page itself; the calls above wait in dataLayer until then.
+        addEventListener('load', function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=G-D7FJLXGL2E';
+            document.head.appendChild(s);
+        });
+    </script>
+</head>
+<body>
+    <nav class="site-nav">
+        <a href="index.html" class="nav-link">Character Sheet</a>
+        <a href="abilities.html" class="nav-link">Abilities</a>
+        <a href="scrying.html" class="nav-link">Scrying Pool</a>
+    </nav>
+
+    <header class="spells-header cv-header">
+        <p class="hero-class">Curriculum Vitae</p>
+        <h1 class="hero-name">Full Record</h1>
+        <div class="hero-links">
+            <a href="cv/resume.pdf" class="link-badge" download="Alyssa-M-Adams-CV.pdf">Download PDF</a>
+            <a href="cv/resume.pdf" class="link-badge">Open PDF</a>
+        </div>
+    </header>
+
+    <!-- Why this page exists: Firefox on iPhone won't show a linked PDF (blank tab, or
+         nothing at all), so the CV buttons come here and pdf.js draws the pages itself.
+         cv/resume.pdf stays the real file; this page only renders it. -->
+    <main class="cv-viewer" id="cv-viewer">
+        <p class="cv-status" role="status">Unrolling the scroll&hellip;</p>
+        <noscript><p class="cv-status">This page draws the CV with JavaScript. <a href="cv/resume.pdf">Open the PDF</a> instead.</p></noscript>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Alyssa Adams. Crafted with crabs and cats.</p>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+    <script type="module">
+        import * as pdfjsLib from './js/vendor/pdfjs/pdf.min.js';
+
+        // pdf.js 4.10.38, legacy build (polyfilled for older Safari / iOS WebKit),
+        // vendored from npm and renamed .mjs -> .js so any server sends a JS MIME type.
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'js/vendor/pdfjs/pdf.worker.min.js';
+
+        const SRC = 'cv/resume.pdf';
+        const viewer = document.getElementById('cv-viewer');
+        const status = viewer.querySelector('.cv-status');
+        const MAX_DPR = 2;               // sharper than this costs memory on phones for no visible gain
+
+        function fail(err) {
+            console.error(err);
+            status.innerHTML = 'This scroll won&rsquo;t unroll here. <a href="' + SRC + '">Open the PDF</a> instead.';
+            if (!status.isConnected) viewer.prepend(status);   // it was removed once the pages appeared
+        }
+
+        function linkLabel(url) {
+            return url.replace(/^mailto:/, 'Email ').replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '');
+        }
+
+        async function main() {
+            const pdf = await pdfjsLib.getDocument({ url: SRC, isEvalSupported: false }).promise;
+            const pages = [];
+
+            for (let n = 1; n <= pdf.numPages; n++) {
+                const page = await pdf.getPage(n);
+                const box = page.getViewport({ scale: 1 });
+
+                const el = document.createElement('section');
+                el.className = 'cv-page';
+                el.style.aspectRatio = box.width + ' / ' + box.height;
+                el.setAttribute('aria-label', 'Page ' + n + ' of ' + pdf.numPages);
+
+                const canvas = document.createElement('canvas');
+                canvas.setAttribute('aria-hidden', 'true');
+                el.appendChild(canvas);
+
+                viewer.appendChild(el);
+                pages.push({ page, el, canvas, box, width: box.width, drawnAt: 0, task: null, visible: false });
+            }
+            status.remove();
+
+            async function draw(rec) {
+                const cssWidth = rec.el.clientWidth;
+                if (!cssWidth || rec.drawnAt === cssWidth) return;
+                if (rec.task) { rec.task.cancel(); rec.task = null; }
+                const dpr = Math.min(window.devicePixelRatio || 1, MAX_DPR);
+                const viewport = rec.page.getViewport({ scale: cssWidth * dpr / rec.width });
+                const canvas = document.createElement('canvas');   // draw off-screen, then swap: no blank flash on resize
+                canvas.width = Math.floor(viewport.width);
+                canvas.height = Math.floor(viewport.height);
+                canvas.setAttribute('aria-hidden', 'true');
+                const task = rec.page.render({ canvasContext: canvas.getContext('2d'), viewport });
+                rec.task = task;
+                try {
+                    await task.promise;
+                } catch (err) {
+                    if (err && err.name === 'RenderingCancelledException') return;
+                    throw err;
+                }
+                if (rec.task !== task) return;
+                rec.task = null;
+                rec.canvas.replaceWith(canvas);
+                rec.canvas = canvas;
+                rec.drawnAt = cssWidth;
+            }
+
+            // Draw pages only as they come near the screen: 17 full-size canvases at once
+            // would be heavy on a phone.
+            const seen = new IntersectionObserver(entries => {
+                for (const entry of entries) {
+                    const rec = pages.find(p => p.el === entry.target);
+                    rec.visible = entry.isIntersecting;
+                    if (rec.visible) draw(rec).catch(fail);
+                }
+            }, { rootMargin: '100% 0px' });
+            pages.forEach(p => seen.observe(p.el));
+
+            // Rotating a phone or resizing a window changes the page width: redraw what's on screen.
+            let timer = 0;
+            addEventListener('resize', () => {
+                clearTimeout(timer);
+                timer = setTimeout(() => pages.forEach(p => { if (p.visible) draw(p).catch(fail); }), 200);
+            });
+
+            // After the pages are up: the PDF's own links and the words for screen readers.
+            for (const { page, el, box } of pages) {
+                // Links (email, website, ORCID, ...), laid invisibly over the drawing.
+                // Positions are percentages of the page, so they survive any resize.
+                for (const a of await page.getAnnotations({ intent: 'display' })) {
+                    if (a.subtype !== 'Link' || !a.url) continue;
+                    const [x1, y1, x2, y2] = box.convertToViewportRectangle(a.rect);
+                    const link = document.createElement('a');
+                    link.className = 'cv-link';
+                    link.href = a.url;
+                    if (/^https?:/.test(a.url)) { link.target = '_blank'; link.rel = 'noopener'; }
+                    link.setAttribute('aria-label', linkLabel(a.url));
+                    link.style.left = (Math.min(x1, x2) / box.width * 100) + '%';
+                    link.style.top = (Math.min(y1, y2) / box.height * 100) + '%';
+                    link.style.width = (Math.abs(x2 - x1) / box.width * 100) + '%';
+                    link.style.height = (Math.abs(y2 - y1) / box.height * 100) + '%';
+                    el.appendChild(link);
+                }
+
+                // The page's words (the drawing itself is hidden from screen readers).
+                const text = await page.getTextContent();
+                const words = document.createElement('div');
+                words.className = 'sr-only';
+                words.textContent = text.items.map(it => it.str + (it.hasEOL ? '\n' : ' ')).join('');
+                el.appendChild(words);
+            }
+        }
+
+        main().catch(fail);
+    </script>
+</body>
+</html>
