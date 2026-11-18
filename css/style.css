@@ -2544,3 +2544,74 @@ html.fx-glider-cursor :is(input, textarea, [contenteditable]) {
     mix-blend-mode: screen;
     will-change: transform;
 }
+
+/* ============================================
+   CV VIEWER (cv.html)
+   pdf.js draws cv/resume.pdf here, because Firefox on iPhone won't show a linked PDF.
+   ============================================ */
+.cv-header .hero-name {
+    margin-bottom: 2rem;
+}
+
+.cv-header .hero-links {
+    justify-content: center;
+    margin-bottom: 0;
+}
+
+.cv-viewer {
+    position: relative;
+    z-index: 1;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* One sheet of paper; aspect-ratio is set per page from the PDF */
+.cv-page {
+    position: relative;
+    width: 100%;
+    background: #ffffff;
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow: 0 0 0 1px var(--rule), 0 12px 40px rgba(0, 0, 0, 0.6);
+}
+
+.cv-page canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* The PDF's own links, laid invisibly over the drawing */
+.cv-link {
+    position: absolute;
+    display: block;
+    border-radius: 2px;
+}
+
+.cv-link:focus-visible {
+    outline: 2px solid var(--cyan);
+    outline-offset: 1px;
+}
+
+.cv-status {
+    text-align: center;
+    color: var(--text-faint);
+    font-size: 0.85rem;
+}
+
+.cv-status a {
+    color: var(--ink);
+}
+
+@media (max-width: 768px) {
+    .cv-viewer {
+        padding: 2rem 0.5rem 0;
+        gap: 1rem;
+    }
+}
