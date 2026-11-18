@@ -2070,8 +2070,9 @@ button:focus-visible {
 @media (max-width: 768px) {
     .site-nav {
         flex-wrap: wrap;          /* one row at 390px; wraps rather than overflows below ~370px */
+        justify-content: center;  /* centred on phones (left-aligned it looked off-centre, most of all without EN / JP) */
         gap: 0.5rem 0.95rem;
-        padding: 1.05rem 1rem;    /* 1rem: the same left edge as the content */
+        padding: 1.05rem 1rem;
     }
 
     .nav-link {
@@ -2193,9 +2194,22 @@ button:focus-visible {
     }
 }
 
+/* Phones: edge to edge (the black background has no visible edge), and the wide
+   landscape cropped to a square around the bard and the cat so they aren't tiny.
+   The srcset sizes in abilities.html match this crop (the image is drawn 180vw wide). */
 @media (max-width: 480px) {
     .abilities-banner {
-        padding: 0 1rem;
+        padding: 0;
+    }
+
+    .abilities-banner img {
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        object-position: 15% 50%;
+        /* The cloak runs off the bottom of the engraving; at this size the cut read
+           as a hard line, so the bottom fades into the black instead */
+        -webkit-mask-image: linear-gradient(to bottom, #000 80%, transparent);
+        mask-image: linear-gradient(to bottom, #000 80%, transparent);
     }
 }
 
@@ -2270,6 +2284,7 @@ button:focus-visible {
         font-size: 0.7rem;
         letter-spacing: 0.06em;
         gap: 0.1rem;
+        margin-left: 0;           /* joins the centred row instead of pinning to the right edge */
         margin-right: -0.25rem;
     }
 
