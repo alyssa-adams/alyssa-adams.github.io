@@ -180,12 +180,20 @@ def rewrite_jsonld(page, src, ja_url, errors):
     except ValueError as e:
         errors.append(page + ": English JSON-LD does not parse: %s" % e)
         return src
-    ids = {}
+    ids, nodes = {}, {}
     for node in data.get("@graph", []):
         ids.setdefault(node.get("@type"), node.get("@id"))
+        nodes.setdefault(node.get("@type"), node)
     if not ids.get("Person") or not ids.get("WebSite"):
         errors.append(page + ": English JSON-LD has no Person or WebSite @id")
         return src
+    # Google reads each page's JSON-LD on its own and does not follow an @id to
+    # another page, so a bare {"@id": ...} mainEntity fails Search Console's
+    # Profile page check ("Invalid object type for field mainEntity"). Embed the
+    # identifying part of the English Person node, typed, instead.
+    person = {k: nodes["Person"][k] for k in
+              ("@type", "@id", "name", "alternateName", "url", "image", "sameAs")
+              if k in nodes["Person"]}
 
     def meta(pattern):
         mm = re.search(pattern, src)
@@ -200,7 +208,7 @@ def rewrite_jsonld(page, src, ja_url, errors):
             "description": meta(r'<meta name="description" content="([^"]*)">'),
             "inLanguage": "ja",
             "isPartOf": {"@id": ids["WebSite"]},
-            "mainEntity": {"@id": ids["Person"]},
+            "mainEntity": person,
             "translationOfWork": {"@id": ids.get("ProfilePage") or SITE},
         }],
     }
