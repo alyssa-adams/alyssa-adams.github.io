@@ -115,17 +115,20 @@
         // The pause halfway across: [until ms, frame]; it walks on after the last
         var PAUSE = [[200, 'stand'], [700, 'sit'], [820, 'blink'], [1200, 'sitB'], [1900, 'wink'], [2300, 'sit'], [2500, 'stand']];
 
+        // Each sprite pixel is drawn like a glider cell (fx.js fills CS - 1): a 3 x 3
+        // square in the top-left of its 4 x 4 cell, with a 1 px gap right and below.
+        // Solid 4 px pixels made the cat look coarser than the gliders beside it.
         function unpack(code) {
             var c = document.createElement('canvas');
-            c.width = W;
-            c.height = H;
+            c.width = W * CELL;
+            c.height = H * CELL;
             var ctx = c.getContext('2d');
             var re = /([.a-z])(\d*)/g, m, p = 0;
             while ((m = re.exec(code))) {
                 var n = m[2] ? +m[2] : 1;
                 if (m[1] !== '.') {
                     ctx.fillStyle = COLOURS[m[1].charCodeAt(0) - 97];
-                    for (var q = p; q < p + n; q++) ctx.fillRect(q % W, (q / W) | 0, 1, 1);
+                    for (var q = p; q < p + n; q++) ctx.fillRect((q % W) * CELL, ((q / W) | 0) * CELL, CELL - 1, CELL - 1);
                 }
                 p += n;
             }
@@ -139,11 +142,11 @@
             Object.keys(CODE).forEach(function (k) {
                 F[k] = Array.isArray(CODE[k]) ? CODE[k].map(unpack) : unpack(CODE[k]);
             });
-            // The canvas holds one pixel per cell; CSS scales it by exactly 4 with
-            // pixelated rendering, and its position is always a multiple of 4.
+            // One canvas pixel per CSS px (the gaps need that); pixelated rendering keeps
+            // it crisp on high-density screens, and its position is always a multiple of 4.
             var el = make('canvas', 'pixel-cat');
-            el.width = W;
-            el.height = H;
+            el.width = W * CELL;
+            el.height = H * CELL;
             el.style.width = W * CELL + 'px';
             el.style.height = H * CELL + 'px';
             var ctx = el.getContext('2d');
@@ -151,7 +154,7 @@
             function show(c) {
                 if (c === cur) return;
                 cur = c;
-                ctx.clearRect(0, 0, W, H);
+                ctx.clearRect(0, 0, W * CELL, H * CELL);
                 ctx.drawImage(c, 0, 0);
             }
 
@@ -164,8 +167,12 @@
             var pooped = false, raf = 0, last = performance.now();
             // On a cell row, with one cell of floor under its feet
             function top() { return Math.floor((innerHeight - CELL - H * CELL) / CELL) * CELL; }
+            // Mirrored (walking left), each square's gap lands on its left side, 1 px off
+            // the glider grid; drawing 1 px further left puts the squares back on it.
             function place() {
-                el.style.transform = 'translate(' + x + 'px,' + top() + 'px)' + (dir < 0 ? ' scaleX(-1)' : '');
+                el.style.transform = dir < 0
+                    ? 'translate(' + (x - 1) + 'px,' + top() + 'px) scaleX(-1)'
+                    : 'translate(' + x + 'px,' + top() + 'px)';
             }
             // Sprite x as seen on screen (the frames face right; walking left mirrors them)
             function sx(u) { return dir > 0 ? u : W - 1 - u; }

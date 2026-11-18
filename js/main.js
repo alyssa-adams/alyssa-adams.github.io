@@ -70,7 +70,7 @@
                 btn.setAttribute('aria-pressed', btn.dataset.view === view ? 'true' : 'false');
             });
             if (updateUrl) {
-                history.replaceState(null, '', view === 'date' ? '#by-date' : location.pathname + location.search);
+                history.replaceState(null, '', view === 'type' ? '#by-type' : location.pathname + location.search);
             }
         }
 
@@ -78,18 +78,25 @@
             btn.addEventListener('click', function () { setView(btn.dataset.view, true); });
         });
 
-        // A link to a type-view section (e.g. #on-my-mind) switches back and scrolls to it
-        window.addEventListener('hashchange', function () {
-            if (location.hash === '#by-date') { setView('date', false); return; }
+        // By Date is the default (since 2026-11-18). The type view is chosen by #by-type,
+        // or by a link to one of its sections (e.g. #on-my-mind), which also scrolls there.
+        // Old #by-date links still land on the date view.
+        function typeTarget() {
+            if (location.hash === '#by-type') return byType;
+            if (!location.hash || location.hash === '#by-date') return null;
             const target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
-            if (target && byType.contains(target)) {
-                setView('type', false);
-                target.scrollIntoView();
-            }
+            return target && byType.contains(target) ? target : null;
+        }
+
+        window.addEventListener('hashchange', function () {
+            const target = typeTarget();
+            if (!target) { setView('date', false); return; }
+            setView('type', false);
+            if (target !== byType) target.scrollIntoView();
         });
 
         bar.hidden = false;
-        setView(location.hash === '#by-date' ? 'date' : 'type', false);
+        setView(typeTarget() ? 'type' : 'date', false);
     }
 
     // --- Language toggle: keep the section anchor (e.g. #by-date) when switching EN <-> JP ---
